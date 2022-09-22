@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Pagina de prueba</h1>
-    
+    <!-- isset($_GET['image']) si existe esa variable -->
     <?php 
     if(isset($_GET['image']) && $_GET['image'] == 1){
         echo '<img src ="imagenes/descarga.jfif">';
