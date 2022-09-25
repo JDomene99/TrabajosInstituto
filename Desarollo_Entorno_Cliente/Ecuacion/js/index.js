@@ -12,41 +12,30 @@ function calcularX(a, b, c) {
   let ecuacion1 = (-b) + Math.sqrt(b * b - 4 * a * c) / 2 * a;
   let ecuacion2 = -(-b) - Math.sqrt(b * b - 4 * a * c) / 2 * a;
   let respuesta = " ( " + ecuacion1 + "," + ecuacion2 + " )  ";
-
   let verificacion = Math.sqrt(b * b - 4 * a * c);
 
-  if (!(verificacion > 0)) {
-    alert("La raiz es negativa, no se puede continuar");
-  }
-
-  console.log(ecuacion1);
+  !verificacion > 0 ?  alert("La raiz es negativa, no se puede continuar") : "" ;
 
   return respuesta;
-
 }
 
 
 function verticeY(a, b, c) {
-  let vy = a * Math.pow(-b / (2 * a), 2) + b * -b / (2 * a) + c;
-  return vy;
+  let verticeY = a * Math.pow(-b / (2 * a), 2) + b * -b / (2 * a) + c;
+  return verticeY;
 }
 
 
 function verticeX(a, b) {
-  let vx = -b / (2 * a);
-  return vx;
+  let verticeX = -b / (2 * a);
+  return verticeX;
 }
 
 function parabolaSigno(a) {
-  let confirmacion = "";
-  if (a > 0) {
-    confirmacion = "es positiva";
+  let respuesta = "";
+  a>0 ? respuesta = "es positiva" : respuesta = "es negativa"
 
-  } else {
-    confirmacion = "es negativa";
-
-  }
-  return confirmacion;
+  return respuesta;
 
 }
 
@@ -60,8 +49,4 @@ function resultado() {
   document.write("<h3> El vertice x es </h3>" + verticeX(a, b));
   document.write("<h4> El vertice y es </h4>" + verticeY(a, b, c));
   document.write("<br/><br/><br/> La parabola  " + parabolaSigno(a));
-
-
-
-
 }
