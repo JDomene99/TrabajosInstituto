@@ -5,48 +5,46 @@ Crear un script de JS que nos permita resolver un ecuación de segundo grado y a
  Me tiene que mostrar por pantalla: Punto de corte con el eje de las x, punto de corte con el eje de las y  y el vertice. 
  Para mostrar las coordenadas mostrarlos con sus correspondientes parentesis
 */
+function getResult(inputValor1, inputValor2, inputValor3){
+  let number1 = document.getElementById("inputValor1").value;
+  let number2 = document.getElementById("inputValor2").value;
+  let number3 = document.getElementById("inputValor3").value;
 
+  let verificacion = Math.sqrt((number2) * (number2) - 4 * number1 * number3);
 
-function calcularX(a, b, c) {
+  if(verificacion > 0){
+    let ecuacion1 = ((-number2) + Math.sqrt(Math.pow(number2, 2) - (4 * number1 * number3))) / (2 * number1);
+    let ecuacion2 = ((-number2) - Math.sqrt(Math.pow(number2, 2) - (4 * number1 * number3))) / (2 * number1);
+    let respuesta = "<b> ( " + ecuacion1 + " , " + ecuacion2 + " ) </b> ";
+    let puntoCorteY = "(0 , "+number3+")";
+    let puntoCorteX = "(0, "+ecuacion1+")" + " y (0, "+ecuacion2+")";
 
-  let ecuacion1 = (-b) + Math.sqrt(b * b - 4 * a * c) / 2 * a;
-  let ecuacion2 = -(-b) - Math.sqrt(b * b - 4 * a * c) / 2 * a;
-  let respuesta = " ( " + ecuacion1 + "," + ecuacion2 + " )  ";
-  let verificacion = Math.sqrt(b * b - 4 * a * c);
-
-  !verificacion > 0 ?  alert("La raiz es negativa, no se puede continuar") : "" ;
-
-  return respuesta;
+    document.write("<h1> La  valores X son  </h1>" + respuesta);
+    document.write("<h1> Los puntos de corte con la Y son  </h1>" + puntoCorteY);
+    document.write("<h1> Los puntos de corte con la x son  </h1>" + puntoCorteX);
+    document.write("<h2> El vertice x es </h2>" + verticeX(number1, number2));
+    document.write("<h2> El vertice y es </h4>" + verticeY(number1, number2, number3));
+    document.write("<br/><br/><br/> La parabola  " + parabolaSigno(number1));
+  }
+  else{
+    alert("La raiz es negativa, no se puede continuar")
+  }
+  
 }
-
 
 function verticeY(a, b, c) {
-  let verticeY = a * Math.pow(-b / (2 * a), 2) + b * -b / (2 * a) + c;
+  let verticeY = a * Math.pow(-b / (2 * a), 2) + b * -b / (2 * a) + c; 
   return verticeY;
 }
-
 
 function verticeX(a, b) {
   let verticeX = -b / (2 * a);
   return verticeX;
 }
 
+
 function parabolaSigno(a) {
   let respuesta = "";
   a>0 ? respuesta = "es positiva" : respuesta = "es negativa"
-
   return respuesta;
-
-}
-
-function resultado() {
-
-  let a = document.getElementById("a").value;
-  let b = document.getElementById("b").value;
-  let c = document.getElementById("c").value;
-
-  document.write("<h1> La  valores X son  </h1>" + calcularX(a, b, c));
-  document.write("<h3> El vertice x es </h3>" + verticeX(a, b));
-  document.write("<h4> El vertice y es </h4>" + verticeY(a, b, c));
-  document.write("<br/><br/><br/> La parabola  " + parabolaSigno(a));
 }
