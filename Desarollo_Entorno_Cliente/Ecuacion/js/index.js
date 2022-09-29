@@ -5,6 +5,7 @@ Crear un script de JS que nos permita resolver un ecuación de segundo grado y a
  Me tiene que mostrar por pantalla: Punto de corte con el eje de las x, punto de corte con el eje de las y  y el vertice. 
  Para mostrar las coordenadas mostrarlos con sus correspondientes parentesis
 */
+
 function getResult(inputValor1, inputValor2, inputValor3){
   let number1 = document.getElementById("inputValor1").value;
   let number2 = document.getElementById("inputValor2").value;

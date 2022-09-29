@@ -50,12 +50,15 @@
         }
 
         if(isset($_GET['seccion']) && $_GET['seccion'] == 'contacto'){
+           
            echo '<form>
                         <input type="text" name="name" placeholder="Nombre">
-                        <input type="text" name="name" placeholder="Apellido">
+                        <input type="text" name="apellido" placeholder="Apellido">
+                        <input type="submit" name="login">
                 </form>';
             
         }
+
 
     ?>
 
