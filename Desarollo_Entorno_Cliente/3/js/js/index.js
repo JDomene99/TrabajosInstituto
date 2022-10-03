@@ -4,7 +4,6 @@ cuando le damos a guardar, guarda en un array(user = [['pepe',25],['jose',25]])
 si la edad es menor que 18 o mayor de 100 le decimos que la edad no es validad.
 introducir un nombre en busqueda(obligatorio) si existe me muestra la edad.
 si en la busqueda introduzco "@calcular" me sacara la media de la edad de los usuarios.
-
 */ 
 const users = [];
 const user = [];
@@ -21,16 +20,13 @@ function saveData(){
     user.push(nombre);
     user.push(edad);
     users.push(user);
-    console.log(nombre, edad);
-    console.log(users);
   }
- 
 }
 
 function alertNombre(nombre,edad){
   let edad2 = parseInt(edad);
-  if((nombre == '' || !isNaN(nombre))|| (  isNaN(edad2) )) {
-    window.alert("Campo vacio");
+  if( (nombre == '' || !isNaN(nombre) || user.includes(nombre) )  || (isNaN(edad2)) ) {
+    window.alert("Error");
   }
 }
 
@@ -46,14 +42,15 @@ function findData(){
   let cont = 0;
   let entra =  false;
   for(let i = 0; i < users.length; i++){
-
-    for(let j = 0; j < user.length; j++){
+    
+    for(let j = 0; j < user.length; j++){// for para recorrer cada usuario
+      //primera posicion encuentra el texto
       if(j==0){
         if(user[j].includes(texto)){
           entra = true;
         }
       }
-      
+      //segunda posicion encuentra la edad
       if(j==1){
         if(texto == '@calcular'){
           let newnum = parseInt(user[j]);
@@ -65,7 +62,6 @@ function findData(){
         }
       }
     }
-    
   }
   if(cont !=0 ){
     let media = sum/cont;

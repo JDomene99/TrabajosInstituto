@@ -22,6 +22,5 @@ function calcularSalario(s,r,nh,pro){
 
   console.log(resultado);
   document.write("<h1> el resultado es </h1>"+ resultado);
-  return resultado;   
 
 }
