@@ -13,7 +13,7 @@ for (let i = 0; i <= n; i++) {
 }
 
 //hacia abajo
-for (let i = 0; i<n; i++) {
+for (let i = 1; i<n; i++) {
   //espacios
   for (let j = 0; j<i; j++) {
     document.write("");
@@ -35,27 +35,27 @@ function printDiamondCustom(){
 
     for (let i = 0; i <= n; i++) {
     //espacios
-    for (let j = 0; j<n-i; j++) {
-        document.write("");
-    }
-    //asteriscos
-    for (let k = 0; k<2*i-1; k++) {
-        document.write("*");
-    }
-    document.write("<br/>");
+      for (let j = 0; j<n-i; j++) {
+          document.write("");
+      }
+      //asteriscos
+      for (let k = 0; k<2*i-1; k++) {
+          document.write("*");
+      }
+      document.write("<br/>");
     }
 
     //hacia abajo
-    for (let i = 0; i<n; i++) {
-    //espacios
-    for (let j = 0; j<i; j++) {
-        document.write("");
-    }
-    //asteriscos
-    for (let k = 0; k<2*(n-i) - 1; k++) {
-        document.write("*");
-    }
+    for (let i = 1; i<n; i++) {
+      //espacios
+      for (let j = 0; j<i; j++) {
+          document.write("");
+      }
+      //asteriscos
+      for (let k = 0; k<2*(n-i) - 1; k++) {
+          document.write("*");
+      }
 
-    document.write("<br/>");
+      document.write("<br/>");
     }
 }

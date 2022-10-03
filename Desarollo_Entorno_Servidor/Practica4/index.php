@@ -11,11 +11,17 @@
     <form action="index.php" method="POST">
         <input type="text" name="user" placeholder="nombre" required> <br/> <br/>
         <input type="password" name="contraseña" placeholder="contraseña" required> <br/> <br/>
-        <input type="submit" name="save" value="new contact">  
-        <input type="submit" name="login" value="login"> 
+        <!-- <input type="submit" name="save" value="new contact">  
+        <input type="submit" name="login" value="login">  -->
     </form>  
 
     <?php
+        session_start();
+
+        if(isset($_SESSION['logout'])){
+            unset($_SESSION['sesionIniciada']);
+
+        }
         require_once("db.php");
         
         //metodo estatico utiliza dos puntos
@@ -30,13 +36,15 @@
             $result = $bd->query("SELECT * FROM users WHERE nombre = '".$userDB."' ");
             $datos = $result->fetch_assoc();
             if($contraseña == $datos['password']) {
-                echo "Hola ". $datos['nombre'];
+                $_SESSION['sesionIniciada'] = $datos['nombre'];
+                echo $_SESSION['sesionIniciada'] ;
             }
             else{
-                echo "No users found.";
+                echo "Wrong password.";
             }
         }
         
+        //nuevo usuario
         if(isset($_POST['user']) && isset($_POST['save']) && isset($_POST['contraseña'])){
             $userDB = $_POST['user'];
             $contraseña = ($_POST['contraseña']);
@@ -44,15 +52,21 @@
             $datos = $result->fetch_assoc();
             if(!$datos) {
                 $result = $bd->query("INSERT into users(id,nombre,password) VALUES(null,'$userDB','$contraseña')");
-                echo "Hola ". $userDB;
+                echo $userDB." registrado";
             }
             else{
                 echo "this user exist.";
             }
-            
+        }
+        if(!isset($_SESSION['sesionIniciada'])){
+            echo '<input type="submit" name="save" value="new contact">  
+                <input type="submit" name="login" value="login"> ';
             
         }
-           
+        else{
+            echo '<a href="index.php?logout"> salir </a>';
+        }
+
         
     ?>
  
