@@ -15,7 +15,6 @@ function sumNum(){
     for(let i = 0; i <myArray.length; i++){
       sum += myArray[i];
       numberOfNum++;
-      
     }
     
     mayor = Math.max(...myArray);   
@@ -29,13 +28,21 @@ function sumNum(){
     }
     document.getElementById("sum").innerHTML ="La suma de numeros es : "+ sum;
     document.getElementById("media").innerHTML ="La media de numeros es : "+ media
-    document.getElementById("maxymin").innerHTML ="El mayor numeros es : "+ mayor + " y el menor es: " +menor;
+    document.getElementById("maxymin").innerHTML ="El mayor numero es : "+ mayor + " y el menor es: " +menor;
     document.getElementById("mediana").innerHTML ="La mediana es : "  +mediana;
 
   }
   else{
-    let numero = parseInt(numeroString);
-    myArray.push(numero);
+    if(!isNaN(numeroString)){
+      let numero = parseInt(numeroString);
+      myArray.push(numero);
+      
+    }
+    else{
+      window.alert("no es un numero");
+    }
+    
+    
   }
 
 }

@@ -10,17 +10,14 @@ Calcule el salario de los trabajadores segun los siguientes criterios:
 */
 let s = prompt("Introduce un salario:")
 let r = prompt("Introduce una retencion:")
-let nh = prompt("Introduce un numero de hijos:")
+let nhijos = prompt("Introduce un numero de hijos:")
 let pro = prompt("Introduce la productividad:")
 
+function calcularSalario(s,r,nhijos,pro){
+  let numerHijos = (r*10) - (nhijos*5);
+  let retencion =s - ((numerHijos/100) * numerHijos);
+  let resultado = retencion+(retencion*(pro/100));
 
-function calcularSalario(s,r,nh,pro){
-  
-  let productividad = (s*(pro/100));
-  let retencion = (( (nh*5) - (r)  ) )/100 * s;
-  let resultado = s - retencion + productividad;
-
-  console.log(resultado);
   document.write("<h1> el resultado es </h1>"+ resultado);
 
 }
