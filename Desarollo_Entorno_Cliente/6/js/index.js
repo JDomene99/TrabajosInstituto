@@ -18,6 +18,6 @@ function calcularSalario(s,r,nhijos,pro){
   let retencion =s - ((numerHijos/100) * numerHijos);
   let resultado = retencion+(retencion*(pro/100));
 
-  document.write("<h1> el resultado es </h1>"+ resultado);
+  document.write("<h1>El dinero final es "+ resultado + "</h1>");
 
 }

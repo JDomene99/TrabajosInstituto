@@ -42,6 +42,6 @@ function getCiudades(){
 //Ejercicio E
 
 function mayorYmenor(arrayNumeros){
-  
+  arrayNumeros.sort();
   return "El mayor es "+Math.max(...arrayNumeros)+ " y el menor "+Math.min(...arrayNumeros) + ". La copia del array es "+ getCloneArray(arrayNumeros);
 }

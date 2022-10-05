@@ -1,5 +1,4 @@
 
-//Ejercicio A
 const myArray = [];
 function sumNum(){
 
