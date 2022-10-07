@@ -30,7 +30,7 @@ document.write(" <h1> Rombo custom </h1>");
 
 /**
  * @description  Crear un script que muestre en una página HTML la siguiente figura:
- * @param {numero}numero
+ * @param {numero}numero el numero lo recoge del input
  * @author jose Domene Quesada
  * @return {} nos escribe en la pagina un "", "*" y "<br/>" dependiendo de la posicion del for
  */

@@ -1,3 +1,8 @@
+let s = prompt("Introduce un salario:")
+let r = prompt("Introduce una retencion:")
+let nhijos = prompt("Introduce un numero de hijos:")
+let pro = prompt("Introduce la productividad:")
+
 /**
  * @description crear un scrip que se le pase como parametro el salario, la retencion, el numero de hijos y productividad.
 Calcule el salario de los trabajadores segun los siguientes criterios:
@@ -10,11 +15,6 @@ Calcule el salario de los trabajadores segun los siguientes criterios:
  * @author jose Domene Quesada
  * @return {} nos devuelve el sueldo final el cual se realiza con la operacion matematica
  */
-let s = prompt("Introduce un salario:")
-let r = prompt("Introduce una retencion:")
-let nhijos = prompt("Introduce un numero de hijos:")
-let pro = prompt("Introduce la productividad:")
-
 function calcularSalario(s,r,nhijos,pro){
   let numerHijos = (r*10) - (nhijos*5);
   let retencion =s - ((numerHijos/100) * numerHijos);

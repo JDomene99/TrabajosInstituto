@@ -1,8 +1,6 @@
 const esp = ["buenos dias","buenas tardes","buenas noches"];
 const eng = ["good morning","good afternoon","good night"];
 const fra = ["Bonjour","Bonsoir","bonne nuit"];
-
-
 const languages = [esp,eng,fra];
 
 /**
@@ -42,11 +40,10 @@ function sendSaludo(){
 }
 
 /* @descripcion funcion la cual le pasas como parametro el nombre del lenguaje 
- * @param  un
+ * @param {*} language 
  * @author jose Domene Quesada
  * @return {} nos da los valores de las frases
  */
-
 function getLanguage(language){
 
   let newArr = [...language];

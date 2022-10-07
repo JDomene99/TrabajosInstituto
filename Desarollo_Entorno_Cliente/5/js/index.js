@@ -27,7 +27,6 @@ const myArray = [];
 function sumNum(){
 
   let numeroString = document.getElementById("numero").value;
-  
   let sum = 0;
   let numberOfNum = 0;
   let mayor = 0;
@@ -72,8 +71,7 @@ function sumNum(){
     else{
       window.alert("no es un numero");
     }
-    
   }
-
+  
 }
 
