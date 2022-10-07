@@ -1,4 +1,14 @@
 /**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @returns compara los dos numeros dados
+ */
+function ordenar(a,b){
+  return a-b;
+}
+
+/**
  * @description cRealizar un programa que nos pida números usando un input hasta que escribamos fin
 o FIN (se deshabilitará el botón de insertar más elementos).
 En caso de introducir texto mostrará mensaje de error con alert. Una vez concluida la
@@ -33,16 +43,16 @@ function sumNum(){
     mayor = Math.max(...myArray);   
     menor = Math.min(...myArray);
     let media = sum/numberOfNum;
-    myArray.sort();
-    let mediana= 0;
+    myArray.sort(ordenar);
+
+    let mediana= myArray[Math.floor(myArray.length/2)];
     
-    for(let i=0; i<myArray.length/2; i++) {
-      mediana = myArray[i];
-    }
     document.getElementById("sum").innerHTML ="La suma de numeros es : "+ sum;
     document.getElementById("media").innerHTML ="La media de numeros es : "+ media
     document.getElementById("maxymin").innerHTML ="El mayor numero es : "+ mayor + " y el menor es: " +menor;
     document.getElementById("mediana").innerHTML ="La mediana es : "  +mediana;
+    
+    
 
   }
   else{
@@ -54,7 +64,6 @@ function sumNum(){
     else{
       window.alert("no es un numero");
     }
-    
     
   }
 
