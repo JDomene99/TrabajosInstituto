@@ -1,4 +1,18 @@
-
+/**
+ * @description cRealizar un programa que nos pida números usando un input hasta que escribamos fin
+o FIN (se deshabilitará el botón de insertar más elementos).
+En caso de introducir texto mostrará mensaje de error con alert. Una vez concluida la
+petición de números realizará los siguientes cálculos que introducirá dentro del
+documento html en una lista ordenada:
+Cálculo pedido:
+• Suma total de todos los números introducidos.
+• Media Aritmética de los números introducidos.
+• Máximo y mínimo.
+• Mediana. 
+ * @param {}numeros introducidos en el input
+ * @author jose Domene Quesada
+ * @return {number,number,number,number,number} nos la suma de los numeros,la media de los numeros, el mayor, el menor y el numero que hay en el medio del array
+ */
 const myArray = [];
 function sumNum(){
 

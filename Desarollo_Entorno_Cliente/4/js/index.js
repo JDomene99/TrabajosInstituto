@@ -27,6 +27,13 @@ for (let i = 1; i<n; i++) {
 }
 document.write(" <h1> Rombo custom </h1>");
 // por si quieres imprimir un rombo personalizado
+
+/**
+ * @description  Crear un script que muestre en una página HTML la siguiente figura:
+ * @param {numero}numero
+ * @author jose Domene Quesada
+ * @return {} nos escribe en la pagina un "", "*" y "<br/>" dependiendo de la posicion del for
+ */
 function printDiamondCustom(){
 
     let n = document.getElementById("numero").value;

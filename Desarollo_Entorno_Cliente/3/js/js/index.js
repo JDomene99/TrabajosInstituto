@@ -1,13 +1,20 @@
-/*
-comprobar que los dos campos esten rellenos.
+
+/**
+ * @description  comprobar que los dos campos esten rellenos.
 cuando le damos a guardar, guarda en un array(user = [['pepe',25],['jose',25]])
 si la edad es menor que 18 o mayor de 100 le decimos que la edad no es validad.
 introducir un nombre en busqueda(obligatorio) si existe me muestra la edad.
 si en la busqueda introduzco "@calcular" me sacara la media de la edad de los usuarios.
-*/ 
+**/
+
+
+/** 
+* @param {}
+* @author jose Domene Quesada
+* @return {} rellena en el array user otro array users con los nombres y edad que se recogen en los input
+*/
 const users = [];
 const user = [];
-
 function saveData(){
 
   let nombre = document.getElementById("nombre").value;
@@ -23,6 +30,11 @@ function saveData(){
   }
 }
 
+/** 
+* @param {String,numero}nombre,edad
+* @author jose Domene Quesada
+* @return {} una alerta si el nombre o la edad no son correctas
+*/
 function alertNombre(nombre,edad){
   let edad2 = parseInt(edad);
   if( (nombre == '' || !isNaN(nombre) || user.includes(nombre) )  || (isNaN(edad2)) ) {
@@ -30,12 +42,22 @@ function alertNombre(nombre,edad){
   }
 }
 
+/** 
+* @param {numero}edad
+* @author jose Domene Quesada
+* @return {} nos devuelve  una alerta si la edad es incorrecta
+*/
 function alertEdad(edad){
   if(edad<18 || edad >100){
     window.alert("edad incorrecta");
   }
 }
 
+/** 
+* @param {}el texto que se recoge en el input
+* @author jose Domene Quesada
+* @return {} nos devuelve o la edad del usuario que se busca o la suma de todos los usuarios introducimos al escribir @calcular
+*/
 function findData(){
   texto = document.getElementById("textoToFind").value;
   let sum = 0;
