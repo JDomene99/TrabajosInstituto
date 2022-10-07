@@ -45,14 +45,22 @@ function sumNum(){
     let media = sum/numberOfNum;
     myArray.sort(ordenar);
 
-    let mediana= myArray[Math.floor(myArray.length/2)];
-    
     document.getElementById("sum").innerHTML ="La suma de numeros es : "+ sum;
     document.getElementById("media").innerHTML ="La media de numeros es : "+ media
-    document.getElementById("maxymin").innerHTML ="El mayor numero es : "+ mayor + " y el menor es: " +menor;
-    document.getElementById("mediana").innerHTML ="La mediana es : "  +mediana;
+    document.getElementById("maxymin").innerHTML ="El mayor numero es : "+ mayor + " y el menor es: " +menor; 
     
-    
+    let mediana = 0;
+    let mediana2 = 0;
+    if((myArray.length)%2 == 0){
+      mediana= myArray[Math.floor(myArray.length/2)];
+      mediana2= myArray[(Math.floor(myArray.length/2)) -1];
+      console.log((mediana+mediana2)/2);
+      document.getElementById("mediana").innerHTML ="La mediana es : "  +(mediana+mediana2)/2;
+    }
+    else{
+      mediana= myArray[Math.floor(myArray.length/2)];
+      document.getElementById("mediana").innerHTML ="La mediana es : "  +mediana;
+    }  
 
   }
   else{
