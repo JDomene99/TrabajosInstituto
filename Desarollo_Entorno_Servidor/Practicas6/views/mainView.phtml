@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogs de perros</title>
+</head>
+<body>
+<h1>Blogs de perros</h1>
+
+<br/>
+<a href="index.php">Inicio</a> -
+
+
+
+<?php
+if($_SESSION['user']->getName()=="")
+	echo '<a href="index.php?login">Login</a>';
+else{
+	echo 'Bienvenido '.$_SESSION['user']->getName().' 
+	<a href="index.php?login&logout">Salir</a>';
+
+}
+?>
+
+
+<h1>Comentarios</h1>
+
+<?php
+echo "<ul>";
+if(count($comments)>0){
+	foreach($comments as $item){
+		echo "<li>".$item."</li>";
+	}
+}
+else{
+	echo "Sin resultados";
+}
+echo "</ul>";
+?>
+</body>
+</html>
