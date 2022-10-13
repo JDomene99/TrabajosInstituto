@@ -1,0 +1,15 @@
+div{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    width: fit-content;
+    color:  #CC0000;
+}
+a:hover {
+    color: #FFF;
+    background-color: #CC0000;
+}
+a:visited{
+    color: #CCC;
+}
