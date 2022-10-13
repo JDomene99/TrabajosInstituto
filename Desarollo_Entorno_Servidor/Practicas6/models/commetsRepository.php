@@ -21,8 +21,16 @@ class CommentsRepository{
         }   
         return $user;
     }
-
-
+// 
+    public static function getCommentsByUser($id){
+        $db = Conectar::conexion();
+        $q = "SELECT comment from comments where idUser = (SELECT id from users where id = '".$id."')";
+        $result = $db->query($q);
+        while($datos = $result->fetch_assoc()) {
+            $user[] = new User($datos);
+        }   
+        return $user;
+    }
 } 
 
 

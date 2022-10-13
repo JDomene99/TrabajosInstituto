@@ -6,7 +6,7 @@ class Comment{
     private $comment;    
 
     public function __construct ($datos){
-        $this->user = ;
+        // $this->user = ;
 
         $this->comment = $datos['comment'];    
     }   
@@ -22,6 +22,6 @@ class Comment{
     public function __toString(){
         return $this->user. 'ha comentado: '.$this->comment;
     }
-} 
+// } 
 
 ?>
