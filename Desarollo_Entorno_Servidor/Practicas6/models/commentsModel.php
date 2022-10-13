@@ -22,6 +22,6 @@ class Comment{
     public function __toString(){
         return $this->user. 'ha comentado: '.$this->comment;
     }
-// } 
+} 
 
 ?>
