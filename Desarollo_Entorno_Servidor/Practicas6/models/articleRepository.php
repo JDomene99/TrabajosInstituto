@@ -3,6 +3,7 @@
 class ArticleRepository{
 
     public static function getArticle(){
+        
         $db = Conectar::conexion();
         $q = "SELECT * FROM article";
         $result = $db->query($q);
@@ -12,6 +13,16 @@ class ArticleRepository{
         return $article;
     }
 
+    public static function getArticleById($id){
+        $db = Conectar::conexion();
+        $q = "SELECT * FROM article where idArticle = '".$id."' ";
+        $result = $db->query($q);
+        while($datos = $result->fetch_assoc()) {
+            $article[] = new Article($datos);
+        }   
+        return $article;
+        require_once("views/mainController.phtml");
+    }
     
 
 } 

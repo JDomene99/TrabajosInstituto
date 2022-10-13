@@ -22,6 +22,9 @@
 		h1{
 			text-align : center;
 		}
+		b{
+			color: black;
+		}
 	</style>
 </head>
 <body>
@@ -48,27 +51,9 @@ if(count($article)>0){
 	echo "<section>";
 	foreach($article as $item){
 		echo "<article>";
-			echo "<h1>".$item->getTittle()."</h1>";
-			echo "<p>".$item->getSeccion()."</p>";
-			echo "<div>";
-				echo"<ul>";
-					// muestra los comentarios de cada articulo
-					foreach($comments as $item){
-						echo "<li>".$item->getComment()."</li>";
-					}
-				echo"</ul>";
-				//nuestro el formulario para comentar cuando se inicia sesion
-				if($_SESSION['user']->getName()!=""){
-					?>
-
-					<form name="formulario" method="post" action="index.php?">
-						New comment: <input type="text" name="comment" >
-						<input type="submit" name="sendComment" />
-					</form>
-					
-					<?php
-				}
-			echo"<div>";
+			echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
+			
+			
 		echo "</article>";
 	}
 	echo "</section>";

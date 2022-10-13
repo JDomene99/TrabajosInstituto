@@ -2,12 +2,15 @@
 
 class Comment{
 
-    private $user;
+    private $idUser;
+    private $idArticle;
     private $comment;    
 
     public function __construct ($datos){
-        // $this->user = ;
-
+        
+        $this->idUser = UserRepository::getUserById('idUser'); 
+        $this->idArticle = CommentsRepository::getArticleById('idArticle');
+        $this->hora = $datos['hora'];  
         $this->comment = $datos['comment'];    
     }   
 

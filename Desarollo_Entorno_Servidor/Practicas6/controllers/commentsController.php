@@ -1,26 +1,20 @@
 <?php
 
-if(isset($_POST['sendComment'])){
-    $gi = 'hola';
-    var_dump($gi);
-}
-
 if( isset($_POST['sendComment']) && isset($_POST['comment']) ){
-    
+    echo 'hola';
+    var_dump($_POST['comment']);
     $comment = $_POST['comment'];
     $idComment = 
     $db = Conectar::conexion();
     $nombre = $_POST['user'];
     $passwordUser = $_POST['password'];
-    $result = $db->query("INSERT into comments(idUser,comment) VALUES( null, '$comment' ) "); 
-    require_once("views/mainView.phtml");
+    $fechaActual = date('d-m-Y H:i:s');
+    $result = $db->query("INSERT into comments(idUser,idArticle,comment,hora) VALUES( null, null ,'$comment', '$_POSTfechaActual' ) "); 
+    require_once("views/mainController.phtml");
     return;
         
     
 }
-require_once("views/MainView.phtml");   
-    
-        
-    // 
+
 
 ?>
