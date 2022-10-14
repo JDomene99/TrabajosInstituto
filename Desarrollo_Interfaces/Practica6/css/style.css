@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Comforter_Brush';
+    src: url('../fuentes/ComforterBrush-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'FuzzyBubbles';
+    src: url('../fuentes/FuzzyBubbles-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+h1{
+    font-family: Comforter_Brush;
+}
+
+h2{
+    font-family: FuzzyBubbles;
+}
+h3{
+    font-family: Tangerine;
+}

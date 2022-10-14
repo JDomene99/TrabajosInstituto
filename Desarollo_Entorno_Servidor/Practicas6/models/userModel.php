@@ -6,7 +6,7 @@ class User{
     private $password;
     // private $imagen;
     
-    public function __construct ($datos){
+    public function __construct($datos){
         // $this->id = $datos['id'];
         $this->name = $datos['name'];
         $this->password = $datos['password'];
