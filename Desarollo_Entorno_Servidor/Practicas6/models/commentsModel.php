@@ -4,12 +4,12 @@ class Comment{
 
     private $idUser;
     private $idArticle;
-    private $comment;    
+    private $comment;  
+    private $hora;  
 
     public function __construct ($datos){
-        
-        $this->idUser = UserRepository::getUserById('idUser'); 
-        $this->idArticle = CommentsRepository::getArticleById('idArticle');
+        $this->idUser = UserRepository::getUserById($datos['idUser']); 
+        $this->idArticle = ArticleRepository::getArticleById($datos['idArticle'] );
         $this->hora = $datos['hora'];  
         $this->comment = $datos['comment'];    
     }   
@@ -17,13 +17,17 @@ class Comment{
     public function getComment(){
         return $this->comment;
     }
+
+    public function getTime(){
+        return $this->hora;
+    }
     
     public function getUser(){
-        return $this->user;
+        return $this->idUser;
     }
 
     public function __toString(){
-        return $this->user. 'ha comentado: '.$this->comment;
+        return $this->idUser. 'ha comentado: '.$this->comment;
     }
 } 
 

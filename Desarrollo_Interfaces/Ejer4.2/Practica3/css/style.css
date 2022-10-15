@@ -1,0 +1,10 @@
+.examplemultiplebackgroundsa {
+    width: 500px;
+    height: 250px;
+}
+body{
+    background-image: url("../imagenes/old_paper.jpg");
+    /* background-image: url("../imagenes/decoration.png");
+    background-image: url("../imagenes/ribbon.png"); */
+    
+}

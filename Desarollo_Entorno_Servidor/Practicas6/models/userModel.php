@@ -7,10 +7,10 @@ class User{
     // private $imagen;
     
     public function __construct($datos){
-        // $this->id = $datos['id'];
+        $this->id = $datos['id'];
         $this->name = $datos['name'];
-        $this->password = $datos['password'];
-        // $this->name = $datos['imagen'];         
+        // $this->password = $datos['password'];
+        $this->image = $datos['image'];         
     }   
 
     public function getId(){
@@ -20,19 +20,15 @@ class User{
     public function getName(){
         return $this->name;
     }
-    
-    public static function getUserById($id){
-       
-        $db = Conectar::conexion();
-        $q = "SELECT * FROM user where name = '".$id."' ";
-        $result = $db->query($q);
-        while($datos = $result->fetch_assoc()) {
-            $user[] = new User($datos);
-        }   
-        return $user;
-       
-        
+
+    public function getpassword(){
+        return $this->password;
     }
+
+    public function getImage(){
+        return $this->image;
+    }
+    
 } 
 // 
 ?>

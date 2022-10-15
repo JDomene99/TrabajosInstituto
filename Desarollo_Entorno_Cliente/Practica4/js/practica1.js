@@ -21,7 +21,10 @@ const estudiantes = [
             },
     }
 ];
-
+function findEjercicio(){
+    const ejer = document.getElementById("ejer");
+    
+}
 /**
  * @description //  1. Crea una función que me devuelva un objeto clonado. Probarlo
 //  con el objeto dado.

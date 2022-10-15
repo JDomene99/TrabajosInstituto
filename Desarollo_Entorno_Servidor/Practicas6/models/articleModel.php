@@ -2,23 +2,20 @@
 
 class Article{
 
-    private $idArticle;
-    private $autor;
-    private $date;
-    private $seccion; 
-    private $tittle;   
-    private $imagen;
-    private $idUser;
+    public $idArticle;
+    public $autor;
+    public $date;
+    public $seccion; 
+    public $tittle;   
+    public $image;
 
     public function __construct ($datos){
         $this->idArticle = $datos['idArticle']; 
-        $this->autor = UserRepository::getUserById('idUser'); 
+        $this->autor = UserRepository::getUserById($datos['autor']); 
         $this->date = $datos['date']; 
         $this->seccion = $datos['seccion']; 
         $this->tittle = $datos['tittle'];
-        $this->imagen = $datos['imagen']; 
-        $this->idUser = $datos['idUser']; 
-             
+        $this->image = $datos['imagen'];              
     }   
 
     public function getAutor(){
@@ -39,6 +36,9 @@ class Article{
 
     public function getIdArticle(){
         return $this->idArticle;
+    }
+    public function getImage(){
+        return $this->image;
     }
     // 
 } 

@@ -2,30 +2,40 @@
 
 //cargamos el modelo
 require_once('models/userModel.php');
-require_once('models/commentsModel.php');
-require_once('models/articleModel.php');
 require_once('models/userRepository.php');
+require_once('models/articleModel.php');
+require_once('models/articleRepository.php');
+require_once('models/commentsModel.php');
+require_once('models/commetsRepository.php');
 session_start();
 
 //cargamos los articulis
-require_once('models/articleRepository.php');
 $article = articleRepository::getArticle();
+
 //cargamos los comentarios
-require_once('models/commetsRepository.php');
-$comments = commentsRepository::getComments();
+// $comments = commentsRepository::getComments();
+
+//crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){
     $datos['id']=0;
     $datos['name']="";
     $_SESSION['user'] = new User($datos);
 }
 
-
-if(isset($_SESSION['sendComment'])){
-    require_once('models/commentsController.php');
-    $comments = commentsRepository::getComments();
+//ir al articulo seleecionado
+if(isset($_GET['article'])){ 
+    require_once('controllers/articleController.php');
     
 }
 
+//crear comentario
+// if(isset($_GET['article'])) {
+//     echo 'holi';
+//     require_once('controllers/commentsController.php');
+//     die();
+// } 
+
+//ir al form de login
 if(isset($_GET['login'])) {
     require_once('controllers/loginController.php');
     die();

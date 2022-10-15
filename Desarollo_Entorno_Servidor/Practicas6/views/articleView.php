@@ -2,101 +2,62 @@
 <html>
 <head>
 	<title>Blogs de perros</title>
-	<style>
-		section{
-			display: flex;
-			flex-wrap: wrap;
-		}
-		article{
-			margin: 1% 3% ;
-			width: 25%;
-			border: 1px solid black;
-			padding: 10px; 
-		}
-		article h1{
-			color: red;
-		}
-		article div{
-			border: 1px solid black;
-		}
-		h1{
-			text-align : center;
-		}
-	</style>
+	<link rel="stylesheet" href="./css/articleView.css" >
 </head>
 <body>
-<h1>Blogs de perros</h1>
 
-<a href="index.php">Inicio</a> -
 
-<h1>Articulos</h1>
 
-<!-- muestra los articulo -->
+
+<header>
+	<h1>Blogs de perros</h1>
+</header>
+
+<nav>
+<a href="index.php">Inicio</a>
+</nav>
+<!-- muestra el articulo seleccionado -->
+<main>
 <?php
-// if(isset($_GET['article'])){
-
+foreach($articleFinal as $item){
 echo "<section>";
-foreach($article as $item){
+
     echo "<article>";
         echo "<h1>".$item->getTittle()."</h1>";
-        echo "<p>".$item->getDate()."</p>";
+        echo "<h2>(".$item->getDate().")</h2>";
+		echo "<p>".$item->getSeccion()."</p>";
         echo "<div>";
             echo"<ul>";
                 // muestra los comentarios de cada articulo
-                foreach($comments as $item){
-                    echo "<li>".$item->getComment()."</li>";
-                }
+				if($commentArticleId){
+					foreach($commentArticleId as $itemComment) {
+						echo "<li>".'<img src="./views/imagenes/'.$itemComment->getUser()->getImage().'"/>'.$itemComment->getUser()->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
+						
+						
+					}
+				}
+                else{
+					echo "<li> No hay comentarios actualmente</li>";
+				}
             echo"</ul>";
+
             //nuestro el formulario para comentar cuando se inicia sesion
             if($_SESSION['user']->getName()!=""){
-                ?>
-                
-                <form name="formulario" method="post" action="index.php?">
-                    New comment: <input type="text" name="comment" >
-                    <input type="submit" name="sendComment" />
-                </form>
-                
-                <?php
+				echo '<form name="formulario" method="post" action="index.php?article='.$item->getAutor()->getId().'">
+					<input type="text" name="commentArticle" >
+					<input type="submit" name="sendcomment" value="send"/>
+				</form>';
+				require_once('controllers/commentsController.php');
             }
+			
         echo"<div>";
     echo "</article>";
-}
-echo "</section>";
 
-    
-// }   
-// if(count($article)>0){
-// 	echo "<section>";
-// 	foreach($article as $item){
-// 		echo "<article>";
-// 			echo "<h1>".$item->getTittle()."</h1>";
-// 			echo "<p>".$item->getDate()."</p>";
-// 			echo "<div>";
-// 				echo"<ul>";
-// 					// muestra los comentarios de cada articulo
-// 					foreach($comments as $item){
-// 						echo "<li>".$item->getComment()."</li>";
-// 					}
-// 				echo"</ul>";
-// 				//nuestro el formulario para comentar cuando se inicia sesion
-// 				if($_SESSION['user']->getName()!=""){
-// 					?>
-					
-// 					<form name="formulario" method="post" action="index.php?">
-// 						New comment: <input type="text" name="comment" >
-// 						<input type="submit" name="sendComment" />
-// 					</form>
-					
-// 					<?php
-// 				}
-// 			echo"<div>";
-// 		echo "</article>";
-// 	}
-// 	echo "</section>";
-// }
-// else{
-// 	echo "Sin resultados";
-// }
-// ?>
+echo "</section>";
+}
+
+die();
+?>
+</main>
 </body>
 </html>

@@ -1,13 +1,7 @@
 <?php
-
-if( isset($_GET['article'])){
-    echo "jola";
-    require_once('models/articleModel.php');
-    require_once('models/articleRepository.php');
-    $article[] = Article::getArticleById();
-    require_once('models/articleRepository.php')
-
-}
-require_once("views/mainView.phtml")
+  
+$articleFinal = ArticleRepository::getArticleById($_GET['article']);
+$commentArticleId = CommentsRepository::getCommentsByArticle($_GET['article']);
+require_once("views/articleView.php");
 
 ?>
