@@ -1,8 +1,8 @@
 const estudiantes = [
     {
         nombre: 'Antonio',
-        Apellidos: 'Gutiérrez',
-        Edad: 13,
+        apellidos: 'Gutiérrez',
+        edad: 13,
         curso: 'Web student',
         equipo:{
              modelo: "HP Proliant 730", 
@@ -12,7 +12,7 @@ const estudiantes = [
     {
         nombre: 'Lucía',
         Apellidos : 'Martos',
-        Edad: 21,
+        edad: 21,
         curso: 'Web devel opment',
         equipo: 
             {
@@ -57,7 +57,9 @@ const f2 = (obj) =>{
  */
 const f3 = (obj) =>{
     const obj2= structuredClone(obj);
-    obj2.curso = 'Web devel opment';
+    for(item of obj2){
+        item.curso = 'Web devel opment';
+    } 
     return obj2;    
 }
 
@@ -69,9 +71,10 @@ const f3 = (obj) =>{
  * @returns aplica el iba al precio
  */
 const f4 = (obj) =>{
-    const obj3 = structuredClone(obj); 
-    let result = obj3.equipo.precio;
-    obj3.equipo.precio = result*1.21;  
+    const obj3 = structuredClone(obj);
+    for(item of obj3){
+        item.equipo.precio = item.equipo.precio*1.21;
+    }  
     return obj3;    
 }
 
@@ -85,24 +88,27 @@ const f4 = (obj) =>{
  * @returns modifica el iva del producto introducido
  */
 const f5 = (obj, iva) =>{
-    const obj3 = structuredClone(obj); 
-    let result = obj3.equipo.precio;
-    obj3.equipo.precio = result - ((result*iva)/100);  
-    return obj3;    
+    const obj4 = structuredClone(obj); 
+    for(item of obj4){
+        item.equipo.precio = item.equipo.precio - ((item.equipo.precio*iva)/100);
+    }  
+    return obj4;  
 }
 
 //  6. Modificar la función anterior para que redondee el precio del
 //  IVA con 3 decimales.
 const f6 = (obj, iva) =>{
-    const obj3 = structuredClone(obj); 
-    let result = obj3.equipo.precio;
-    obj3.equipo.precio = result - ((result*iva)/100).toFixed(3);  
-    return obj3;    
+    const obj4 = structuredClone(obj); 
+    for(item of obj4){
+        item.equipo.precio = (item.equipo.precio - ((item.equipo.precio*iva)/100)).toFixed(3);
+        console.log(item.equipo.precio);
+    }  
+    return obj4;      
 }
 
 
 
-const arrayNumber = [1,2,3,4,5,6,7,8,9,10,11];
+const arrayNumber = [1,2,10,4,5,6,10,8,9,10,11];
 /**
  * @description //  7. Dado un array de números enteros (generar vosotros uno
 //  cualquiera). Crear una función imperativa que le pase como
@@ -114,7 +120,7 @@ const arrayNumber = [1,2,3,4,5,6,7,8,9,10,11];
  */
 const f7 = (array, numero) =>{
     const arraycloned = structuredClone(array); 
-    for(item in arraycloned){
+    for(item of arraycloned){
         if(item == numero){
             return item;
         }
@@ -133,7 +139,7 @@ const f7 = (array, numero) =>{
 const f8 = (array, numero) =>{
     const arraycloned = structuredClone(array); 
     let contador = 0;
-    for(item in arraycloned){
+    for(item of arraycloned){
         if(item == numero){
             contador++;
         }

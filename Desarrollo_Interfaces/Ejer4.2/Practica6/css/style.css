@@ -1,22 +1,25 @@
-@font-face {
-    font-family: 'Comforter_Brush';
-    src: url('../fuentes/ComforterBrush-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
-@font-face {
-    font-family: 'FuzzyBubbles';
-    src: url('../fuentes/FuzzyBubbles-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
+body{
+    margin: 0px 10px;
 }
 h1{
-    font-family: Comforter_Brush;
+    border: 2px solid #00F;
+    padding: 10px;
+    margin: 30px 0px;
 }
-
 h2{
-    font-family: FuzzyBubbles;
+    border: 2px solid #AAA;
+    padding: 5px;
+    margin: 15px 0px;
 }
-h3{
-    font-family: Tangerine;
+ul{
+    border: 2px solid #0F0;
+}
+li{
+    margin: 15px 0px;;
+}
+li:first-of-type{
+    margin-top: 5px;
+}
+li:last-of-type{
+    margin-bottom:5px;
 }
