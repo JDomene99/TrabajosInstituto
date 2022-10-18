@@ -1,0 +1,15 @@
+body{
+    width: 1280px;
+    height: 800px;
+    border: 1px solid black;
+    margin:0px;
+    padding : 0px;
+    
+
+}
+h1{
+    width: 80%;
+}
+h2{
+    width: 60%;
+}

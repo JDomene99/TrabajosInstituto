@@ -12,8 +12,6 @@ session_start();
 //cargamos los articulis
 $article = articleRepository::getArticle();
 
-//cargamos los comentarios
-// $comments = commentsRepository::getComments();
 
 //crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){
@@ -22,18 +20,25 @@ if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new User($datos);
 }
 
+
+//creamos los comentarios
+if( isset($_GET['comment']) ) {
+    require_once('controllers/commentsController.php');
+}
+
+//crear articulo
+if(isset($_GET['createArticle'])){
+    require_once('controllers/commentsController.php');
+}
+
+
 //ir al articulo seleecionado
 if(isset($_GET['article'])){ 
     require_once('controllers/articleController.php');
     
 }
 
-//crear comentario
-// if(isset($_GET['article'])) {
-//     echo 'holi';
-//     require_once('controllers/commentsController.php');
-//     die();
-// } 
+
 
 //ir al form de login
 if(isset($_GET['login'])) {

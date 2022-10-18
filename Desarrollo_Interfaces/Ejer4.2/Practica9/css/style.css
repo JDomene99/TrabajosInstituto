@@ -1,0 +1,22 @@
+
+article{
+    width: 100%;
+    border: 1px solid black;
+}
+div{  
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px auto;
+}
+.d1{
+    width: 50px;
+}
+.d2{
+    width: 10em;
+}
+.d3{
+    width:30%;
+}
+.d4{
+    width: 50px;
+}

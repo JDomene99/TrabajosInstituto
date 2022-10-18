@@ -1,0 +1,14 @@
+.div1, .div2{
+    border-top: 15px dotted  #DC143C;
+    border-right: 10px dashed green;
+    border-bottom: 10px double #FF00FF;
+    border-left: 40px ridge #2F4F4F;
+    padding: 30px 45px 0px 60px;
+    width: 200px;
+    margin: 20px;
+    display: inline-block;
+    background-color: #FFB6C1;
+    border-style: dotted;
+
+}
+

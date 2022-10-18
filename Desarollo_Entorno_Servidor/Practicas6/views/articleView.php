@@ -29,11 +29,9 @@ echo "<section>";
         echo "<div>";
             echo"<ul>";
                 // muestra los comentarios de cada articulo
-				if($commentArticleId){
-					foreach($commentArticleId as $itemComment) {
+				if($item->getComments()){
+					foreach($item->getComments() as $itemComment) {
 						echo "<li>".'<img src="./views/imagenes/'.$itemComment->getUser()->getImage().'"/>'.$itemComment->getUser()->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
-						
-						
 					}
 				}
                 else{
@@ -43,11 +41,10 @@ echo "<section>";
 
             //nuestro el formulario para comentar cuando se inicia sesion
             if($_SESSION['user']->getName()!=""){
-				echo '<form name="formulario" method="post" action="index.php?article='.$item->getAutor()->getId().'">
+				echo '<form name="formulario" method="post" action="index.php?comment&article='.$item->getIdArticle().'">
 					<input type="text" name="commentArticle" >
 					<input type="submit" name="sendcomment" value="send"/>
 				</form>';
-				require_once('controllers/commentsController.php');
             }
 			
         echo"<div>";

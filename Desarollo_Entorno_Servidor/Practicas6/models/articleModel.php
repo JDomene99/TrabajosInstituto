@@ -8,6 +8,7 @@ class Article{
     public $seccion; 
     public $tittle;   
     public $image;
+    public $comments;
 
     public function __construct ($datos){
         $this->idArticle = $datos['idArticle']; 
@@ -15,11 +16,16 @@ class Article{
         $this->date = $datos['date']; 
         $this->seccion = $datos['seccion']; 
         $this->tittle = $datos['tittle'];
-        $this->image = $datos['imagen'];              
+        $this->image = $datos['imagen'];
+        $this->comments = CommentsRepository::getCommentsByArticle($datos['idArticle']);        
     }   
 
     public function getAutor(){
         return $this->autor;
+    }
+
+    public function getComments(){
+        return $this->comments;
     }
 
     public function getDate(){

@@ -15,12 +15,16 @@
 
 	<a href="index.php">Inicio</a> -
 
+	
+	<a href="index.php?createArticle">Crear Articulos</a>
+
 	<!-- si la session existe -->
 	<?php
+
 	if($_SESSION['user']->getName()=="")
 		echo '<a href="index.php?login">Login</a>';
 	else{
-		echo 'Bienvenido '.$_SESSION['user']->getName().' 
+		 echo 'Bienvenido '.$_SESSION['user']->getName().' 
 		<a href="index.php?login&logout">Salir</a>';
 	}
 	?>

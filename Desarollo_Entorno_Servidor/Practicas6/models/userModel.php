@@ -4,13 +4,15 @@ class User{
     private $id;
     private $name;
     private $password;
+    private $role;
     // private $imagen;
     
     public function __construct($datos){
         $this->id = $datos['id'];
         $this->name = $datos['name'];
         // $this->password = $datos['password'];
-        $this->image = $datos['image'];         
+        $this->image = $datos['image'];  
+        $this->role = $datos['id_rol'];        
     }   
 
     public function getId(){

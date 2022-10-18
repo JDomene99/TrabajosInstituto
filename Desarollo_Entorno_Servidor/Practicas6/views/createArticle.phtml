@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login en web de pelis</title>
+</head>
+<body>
+<nav>
+<a href="index.php">Inicio</a>
+</nav>
+<h2>Crea tu propio articulo</h2>
+
+    <form action="index.php?createArticle" method="post">
+        <input type="text" name="tituloArticle" placeholder="Titulo"/>
+        <textarea name="textArea" placeholder="Comparte tu articulo">
+        <input type="file" name="imageArticle" id="">
+        <input type="submit" name="createArticle" value="Crear"/>
+    </form>
+
+</html>
