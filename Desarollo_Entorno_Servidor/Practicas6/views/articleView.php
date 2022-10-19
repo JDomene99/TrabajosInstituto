@@ -19,19 +19,27 @@
 <!-- muestra el articulo seleccionado -->
 <main>
 <?php
+
 foreach($articleFinal as $item){
 echo "<section>";
 
     echo "<article>";
         echo "<h1>".$item->getTittle()."</h1>";
         echo "<h2>(".$item->getDate().")</h2>";
+		foreach($item->getAutor() as $itemUser){
+			echo "<h2>(".$itemUser->getName().")</h2>";
+		}
 		echo "<p>".$item->getSeccion()."</p>";
         echo "<div>";
             echo"<ul>";
                 // muestra los comentarios de cada articulo
 				if($item->getComments()){
 					foreach($item->getComments() as $itemComment) {
-						echo "<li>".'<img src="./views/imagenes/'.$itemComment->getUser()->getImage().'"/>'.$itemComment->getUser()->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
+						
+						foreach($itemComment->getUser() as $itemUser){
+							echo "<li>".'<img src="./views/imagenes/'.$itemUser->getImage().'"/>'.$itemUser->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
+						}
+						
 					}
 				}
                 else{

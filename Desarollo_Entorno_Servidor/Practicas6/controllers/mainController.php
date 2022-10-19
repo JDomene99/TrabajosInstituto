@@ -17,6 +17,8 @@ $article = articleRepository::getArticle();
 if(!isset($_SESSION['user'])){
     $datos['id']=0;
     $datos['name']="";
+    $datos['image']="";
+    $datos['id_rol']="2";
     $_SESSION['user'] = new User($datos);
 }
 
@@ -28,7 +30,7 @@ if( isset($_GET['comment']) ) {
 
 //crear articulo
 if(isset($_GET['createArticle'])){
-    require_once('controllers/commentsController.php');
+    require_once('controllers/articleController.php');
 }
 
 

@@ -2,16 +2,16 @@
 
 class CommentsRepository{
 
-    public static function getComments(){
+    // public static function getComments(){
        
-        $db = Conectar::conexion();
-        $q = "SELECT * FROM comments" ;
-        $result = $db->query($q);
-        while($datos = $result->fetch_assoc()) {
-            $comments[] = new Comment($datos);
-        }   
-        return $comments;
-    }
+    //     $db = Conectar::conexion();
+    //     $q = "SELECT * FROM comments" ;
+    //     $result = $db->query($q);
+    //     while($datos = $result->fetch_assoc()) {
+    //         $comments[] = new Comment($datos);
+    //     }   
+    //     return $comments;
+    // }
 
     public static function getCommentsByArticle($id){
         $db = Conectar::conexion();
@@ -20,10 +20,10 @@ class CommentsRepository{
         $comments = [];
         while($datos = $result->fetch_assoc()) {
             $comments[] = new Comment($datos);
+    
         }   
-        
         return $comments;
-        
+        // require_once("views/mainController.phtml");
         
     }
 } 

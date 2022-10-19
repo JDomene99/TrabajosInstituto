@@ -24,16 +24,18 @@ class ArticleRepository{
         require_once("views/mainController.phtml");
     } 
 
-    public static function getArticleById2($id){
+    public static function findArticle($tittle){
         $db = Conectar::conexion();
-        $q = "SELECT * FROM article where idArticle = '".$id."' ";
+        $q = "SELECT name FROM article where tittle LIKE '".$tittle."' ";
         $result = $db->query($q);
-        $datos = $result->fetch_assoc();
-        $article[] = new Article($datos);    
+        $article=[];
+        while($datos = $result->fetch_assoc()) {
+            $article[] = new Article($datos);
+        }   
         return $article;
-        require_once("controller/articleController.php");
+        // require_once("views/mainController.phtml");
     } 
-
+    
 } 
 // 
 

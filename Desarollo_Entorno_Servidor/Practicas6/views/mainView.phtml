@@ -15,12 +15,12 @@
 
 	<a href="index.php">Inicio</a> -
 
-	
-	<a href="index.php?createArticle">Crear Articulos</a>
-
 	<!-- si la session existe -->
 	<?php
-
+	if($_SESSION['user']->getRole() == 1){
+		echo '<a href="index.php?createArticle">Crear Articulos</a>';
+	}
+	
 	if($_SESSION['user']->getName()=="")
 		echo '<a href="index.php?login">Login</a>';
 	else{

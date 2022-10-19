@@ -32,7 +32,8 @@
                 if(!$datos = $result->fetch_assoc()) {
                     $nombre = $_POST['user'];
                     $passwordUser = $_POST['password'];
-                    $result = $db->query("INSERT into users(id,name,password) VALUES( null, '$nombre' , '$passwordUser' ) ");    
+                    $result = $db->query("INSERT into users(id,name,password,image,id_rol) VALUES( null, '$nombre' , '$passwordUser', 'profile.png' , '2' ) ");   
+                    // INSERT INTO `users` (`id`, `name`, `password`, `image`, `id_rol`) VALUES (NULL, 'paco', '123', 'profile2.png', '2'); 
                     require_once("views/mainView.phtml");
                     return;
                     

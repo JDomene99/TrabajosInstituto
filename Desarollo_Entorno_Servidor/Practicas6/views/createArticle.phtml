@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login en web de pelis</title>
+    <style>
+        form{
+            width: 30%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+        }
+    </style>
 </head>
 <body>
 <nav>
@@ -14,9 +23,11 @@
 
     <form action="index.php?createArticle" method="post">
         <input type="text" name="tituloArticle" placeholder="Titulo"/>
-        <textarea name="textArea" placeholder="Comparte tu articulo">
-        <input type="file" name="imageArticle" id="">
+        <textarea name="textArea" rows="10" cols="50" placeholder="Escribe tu articulo"></textarea>
+        <!-- <input type="file" name="imageArticle" id=""> -->
         <input type="submit" name="createArticle" value="Crear"/>
     </form>
-
+<?php
+die();
+?>
 </html>
