@@ -8,7 +8,7 @@ class UserRepository{
         $q = "SELECT * FROM users where id = '".$id."' ";
         $result = $db->query($q);
         $datos = $result->fetch_assoc();
-        $user[] = new User($datos);
+        $user = new User($datos);
         return $user;  
         
     }

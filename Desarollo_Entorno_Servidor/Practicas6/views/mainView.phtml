@@ -27,6 +27,13 @@
 		 echo 'Bienvenido '.$_SESSION['user']->getName().' 
 		<a href="index.php?login&logout">Salir</a>';
 	}
+
+	if(isset($_GET['editRole'])) {
+		echo'<a href="index.php?role&roleOff">Editar Rol</a>';
+	}
+	else{
+		echo'<a href="index.php?role&roleOff&editRole">Editar Rol</a>';
+	}
 	?>
 
 </nav>

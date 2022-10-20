@@ -6,40 +6,40 @@
 </head>
 <body>
 
-
-
-
 <header>
 	<h1>Blogs de perros</h1>
 </header>
 
-<nav>
-<a href="index.php">Inicio</a>
-</nav>
 <!-- muestra el articulo seleccionado -->
-<main>
+
 <?php
 
 foreach($articleFinal as $item){
+echo "<nav>";
+	echo'<a href="index.php">Inicio</a>';
+	if(isset($_GET['editArticle'])) {
+		echo'<a href="index.php?article='.$item->getIdArticle().'">Editar Articulo</a>';
+	}
+	else{
+		echo'<a href="index.php?article='.$item->getIdArticle().'&editArticle">Editar Articulo</a>';
+	}
+	
+echo "</nav>";
+
+echo "<main>";
 echo "<section>";
 
     echo "<article>";
         echo "<h1>".$item->getTittle()."</h1>";
         echo "<h2>(".$item->getDate().")</h2>";
-		foreach($item->getAutor() as $itemUser){
-			echo "<h2>(".$itemUser->getName().")</h2>";
-		}
+		echo "<h2>(".$item->getAutor()->getName().")</h2>";
 		echo "<p>".$item->getSeccion()."</p>";
         echo "<div>";
             echo"<ul>";
                 // muestra los comentarios de cada articulo
 				if($item->getComments()){
 					foreach($item->getComments() as $itemComment) {
-						
-						foreach($itemComment->getUser() as $itemUser){
-							echo "<li>".'<img src="./views/imagenes/'.$itemUser->getImage().'"/>'.$itemUser->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
-						}
-						
+						echo "<li>".'<img src="./views/imagenes/'.$item->getAutor()->getImage().'"/>'.$item->getAutor()->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
 					}
 				}
                 else{
@@ -52,7 +52,7 @@ echo "<section>";
 				echo '<form name="formulario" method="post" action="index.php?comment&article='.$item->getIdArticle().'">
 					<input type="text" name="commentArticle" >
 					<input type="submit" name="sendcomment" value="send"/>
-				</form>';
+					</form>';
             }
 			
         echo"<div>";
@@ -60,6 +60,19 @@ echo "<section>";
 
 echo "</section>";
 }
+
+if(isset($_GET['editArticle'])) {
+	echo "<section>";
+echo '<form name="formulario" method="post" action="index.php?article='.$item->getIdArticle().'">
+			<input type="text" name="editTittle" placeholder="Titulo" >
+			<textarea name="editTextArea" rows="10" cols="50" placeholder="Edita el articulo"></textarea>
+			<input type="submit" name="sendDataArticle" value="send"/>
+	</form>';
+echo "</section>";
+}
+
+
+
 
 die();
 ?>

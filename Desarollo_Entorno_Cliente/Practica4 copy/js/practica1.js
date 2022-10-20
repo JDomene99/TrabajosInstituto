@@ -159,67 +159,47 @@ const f9 = (array, numero) =>{
    return array.find(element => element == numero);
 }
 
+const newArray = [1,2,3,4,5,6,7,8,9,10];
+
+// map, filter, reduce, (foreach), find all
+newArray.forEach( (numero, indice, miArray) => {
+    console.log(numero);
+    console.log(indice);
+    console.log(miArray);
+});
+
+newArray.map(numero => numero*2);
+console.log(newArray.map(numero => numero*2));
+
+console.log(newArray.filter(numero => numero<=5 && numero>=3 ).sort((a,b)=> a-b ));
+
 //     10.Utilizando el mismo array anterior crear una función en forma
 //     imperativa que le pase como parámetro el array y un número y
 //     seguidamente multiplique todos los elementos del array por
 //     el número indicado. Si el número es 0 o nada.. entonces no
 //     multiplicará por nada.
-const f10 = (array, numero) =>{
-    return array.map(element => element!= 0 ? element*numero : element);
- }
-
 //     11.Modificar la función anterior para convertirla en forma de
 //     programación declarativa .
-const f11= (array, numero) =>{
-    return array.map(element => element!= 0 ? element*numero : element);
- }
-
 //     12.Crear una función que calcule el máximo de los números de un
 //     array pasados como parámetro.
-const f12 = (array) =>{
-    return array.map((element,indice,miarray) => Math.max(...miarray));
- }
 //     13.Crear una función que al pasarle un array, obtenga SÓLO los
 //     números pares pero multiplicados por 10.
-const f13= (array) =>{
-    return array.filter(element => element%2 == 0 ).map(element => element*10);
- }
-
 //     14.Crear una función que le pasemos como primer parámetro un
 //     objeto (en nuestro caso el objeto estudiantes) y como segundo
 //     parámetro una cantidad en euros. Seguidamente me mostrará
 //     aquellos estudiantes que posean un portátil con un precio
 //     superior a la cantidad indicada.
-const f14= (array, cantidad) =>{
-    return array.filter((element) => element.equipo.precio > cantidad );
- }
-
 //     15.Crear una función que le pasemos como parámetro un Array de
 //     números (con números repetidos o no) y que seguidamente me
 //     devuelva el array sin ningún número repetido.
-// const f15= (array) =>{
-//     return array.filter((element) => element == element  );
-//  }
 //     16. Dado un objeto estudiantes. Se pide crear una función que
 //     al pasarle el objeto me devuelva sólo los alumnos menores de
 //     edad o que sean web development.
-const f16= (array) =>{
-    return array.filer((element) => element.edad>18 && element.curso == 'web development');
-}
 //     17.Crear una función que al pasarle el objeto estudiantes ordene
 //     los datos por el precio del equipo que posee el alumno, de
 //     menor a mayor.
-const f17= (array) =>{
-    return array.map((element) => element.equipo.precio*1.21 ).sort((a,b)=> b-a );
-}
 //     18.Crear una función que al pasarle el objeto estudiantes ponga
 //     el nombre en mayúsculas.
-const f18= (array) =>{
-    return array.map((element) => element.nombre.toUpperCase());
-}
 //     19.Usando las funciones que creadas hasta ahora… Aplica al array
 //     de estudiantes las mayúsculas de los nombres, el iva al precio
 //     y la ordenación por precio .. todo a la vez.
-const f19= (array) =>{
-    return array.map((element) => element.nombre.toUpperCase() && element.equipo.precio*1.21 ).sort((a,b)=> b-a );
-}

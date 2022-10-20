@@ -39,8 +39,11 @@ if(isset($_GET['article'])){
     require_once('controllers/articleController.php');
     
 }
-
-
+//editar role
+if(isset($_GET['role'])) {
+    require_once("views/roleListView.php");
+    die();
+} 
 
 //ir al form de login
 if(isset($_GET['login'])) {
