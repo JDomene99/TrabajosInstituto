@@ -24,19 +24,19 @@ a:hover{
 }
 main{
     background-color: #CCC;
-    /* dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
-    height: 500px;   
 }
 h2{
     text-align: center;
     padding: 20px; 
+}
+form{
+    text-align: center;
 }
 section{
     display: flex;
     flex-wrap: wrap;
     
 }
-
 article{
     text-align: center;
     margin: 1% 3% ;

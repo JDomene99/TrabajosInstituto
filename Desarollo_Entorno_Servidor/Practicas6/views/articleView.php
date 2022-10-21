@@ -10,6 +10,7 @@
 	<h1>Blogs de perros</h1>
 </header>
 
+
 <!-- muestra el articulo seleccionado -->
 
 <?php
@@ -17,12 +18,18 @@
 foreach($articleFinal as $item){
 echo "<nav>";
 	echo'<a href="index.php">Inicio</a>';
-	if(isset($_GET['editArticle'])) {
-		echo'<a href="index.php?article='.$item->getIdArticle().'">Editar Articulo</a>';
+	
+	if($_SESSION['user']->getName()!=""){
+		if(isset($_GET['editArticle'])) {
+			echo'<a href="index.php?article='.$item->getIdArticle().'">Editar Articulo</a>';
+		}
+		else{
+			echo'<a href="index.php?article='.$item->getIdArticle().'&editArticle">Editar Articulo</a>';
+		}
 	}
-	else{
-		echo'<a href="index.php?article='.$item->getIdArticle().'&editArticle">Editar Articulo</a>';
-	}
+
+
+	
 	
 echo "</nav>";
 

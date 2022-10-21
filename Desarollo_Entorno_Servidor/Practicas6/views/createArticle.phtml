@@ -4,29 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/createArticleView.css" >
     <title>Login en web de pelis</title>
-    <style>
-        form{
-            width: 30%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap:20px;
-        }
-    </style>
+
 </head>
 <body>
-<nav>
-<a href="index.php">Inicio</a>
-</nav>
-<h2>Crea tu propio articulo</h2>
 
-    <form action="index.php?createArticle" method="post">
-        <input type="text" name="tituloArticle" placeholder="Titulo"/>
-        <textarea name="textArea" rows="10" cols="50" placeholder="Escribe tu articulo"></textarea>
-        <!-- <input type="file" name="imageArticle" id=""> -->
-        <input type="submit" name="createArticle" value="Crear"/>
-    </form>
+    <header>
+        <h2>Crea tu propio articulo</h2>
+    </header>
+
+    <nav>
+        <a href="index.php">Inicio</a>
+    </nav>
+
+    <main>
+        <form action="index.php?createArticle" method="post" enctype="multipart/form-data">
+            <input type="text" name="tituloArticle" placeholder="Titulo" required/>
+            <textarea name="textArea" rows="10" cols="50" placeholder="Escribe tu articulo" required></textarea>
+            <input type="file" name="fileToUpload" />
+            <input type="submit" name="createArticle" value="Crear"/>
+        </form>
+    </main>
 <?php
 die();
 ?>

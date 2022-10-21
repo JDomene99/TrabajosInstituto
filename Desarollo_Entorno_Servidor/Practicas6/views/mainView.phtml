@@ -7,55 +7,56 @@
 </head>
 <body>
 
-<header>
-	<h1>Blogs de perros</h1>
-</header>
+	<header>
+		<h1>Blogs de perros</h1>
+	</header>
 
-<nav>
+	<nav>
 
-	<a href="index.php">Inicio</a> -
+		<a href="index.php">Inicio</a> -
 
-	<!-- si la session existe -->
+		<?php
+		//crear articulos si esta register
+		if($_SESSION['user']->getRol() == 'admin'){
+			echo '<a href="index.php?createArticle">Crear Articulos</a>';
+		}
+		
+		//si la session existe
+		if($_SESSION['user']->getName()=="")
+			echo '<a href="index.php?login">Login</a>';
+		else{
+			echo 'Bienvenido '.$_SESSION['user']->getName().' 
+			<a href="index.php?login&logout">Salir</a>';
+		}
+
+		//enlace editar role solo si es admin
+		if($_SESSION['user']->getRol()!="normal"){
+			echo'<a href="index.php?role">Editar Rol</a>';
+		}
+		?>
+
+	</nav>
+
+	<main>
+	<h2>Articulos</h2>
+	<form action="index.php" method="post">
+		<input type="text" name="textToFind" placeholder="Busca tu articulo" />
+		<input type="submit" name="findArticleButton" value="buscar" />
+	</form>
+	<!-- muestra los articulo -->
 	<?php
-	if($_SESSION['user']->getRole() == 1){
-		echo '<a href="index.php?createArticle">Crear Articulos</a>';
-	}
-	
-	if($_SESSION['user']->getName()=="")
-		echo '<a href="index.php?login">Login</a>';
-	else{
-		 echo 'Bienvenido '.$_SESSION['user']->getName().' 
-		<a href="index.php?login&logout">Salir</a>';
-	}
-
-	if(isset($_GET['editRole'])) {
-		echo'<a href="index.php?role&roleOff">Editar Rol</a>';
-	}
-	else{
-		echo'<a href="index.php?role&roleOff&editRole">Editar Rol</a>';
+	if(count($article)>0){
+		echo "<section>";
+		foreach($article as $item){
+			
+			echo "<article>";
+				echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
+				echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
+			echo "</article>";
+		}
+		echo "</section>";
 	}
 	?>
-
-</nav>
-
-<main>
-<h2>Articulos</h2>
-<!-- muestra los articulo -->
-<?php
-if(count($article)>0){
-	echo "<section>";
-	foreach($article as $item){
-		
-		echo "<article>";
-			echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
-			echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
-		echo "</article>";
-	}
-	echo "</section>";
-}
-
-// ?>
-</main>
-
+	</main>
 </body>
 </html>

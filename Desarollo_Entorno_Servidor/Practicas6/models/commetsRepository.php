@@ -13,6 +13,12 @@ class CommentsRepository{
         }   
         return $comments;
     }
+
+    public static function createComment($idUser,$idArticle,$comment){
+        $db = Conectar::conexion();
+        $fechaActual = date('d-m-Y H:i:s');
+        $result = $db->query("INSERT into comments(idUser,idArticle,comment,hora) VALUES( '$idUser', '$idArticle' ,'$comment', '$fechaActual' ) "); 
+    }
 } 
 
 

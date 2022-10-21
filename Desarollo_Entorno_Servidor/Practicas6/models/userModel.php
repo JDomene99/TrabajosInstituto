@@ -23,8 +23,15 @@ class User{
         return $this->name;
     }
 
-    public function getRole(){
-        return $this->role;
+    public function getRol(){
+        $rol = '';
+        if($this->role == 1){
+            $rol = 'admin';
+        }
+        else{
+            $rol = 'normal';
+        }
+        return $rol;
     }
 
     public function getpassword(){

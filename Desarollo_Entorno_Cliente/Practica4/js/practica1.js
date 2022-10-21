@@ -13,7 +13,7 @@ const estudiantes = [
         nombre: 'Lucía',
         Apellidos : 'Martos',
         edad: 21,
-        curso: 'Web devel opment',
+        curso: 'Web development',
         equipo: 
             {
             modelo : "Acer AK340", 
@@ -52,12 +52,12 @@ const f2 = (obj) =>{
  * @description //  3. Crear una función PURA que modifique el curso pero NO al
 //  objeto original.
  * @param {*} obj 
- * @returns modifica el nuevo objeto creado
+ * @returns modifica el curso de nuevo objeto creado
  */
 const f3 = (obj) =>{
     const obj2= structuredClone(obj);
     for(item of obj2){
-        item.curso = 'Web devel opment';
+        item.curso = 'Web development';
     } 
     return obj2;    
 }

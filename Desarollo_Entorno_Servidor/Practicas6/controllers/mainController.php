@@ -1,5 +1,6 @@
 <?php
-
+//botones por get
+//action form por post
 //cargamos el modelo
 require_once('models/userModel.php');
 require_once('models/userRepository.php');
@@ -7,10 +8,20 @@ require_once('models/articleModel.php');
 require_once('models/articleRepository.php');
 require_once('models/commentsModel.php');
 require_once('models/commetsRepository.php');
+require_once('models/roleModel.php');
+require_once('models/roleRepository.php');
 session_start();
 
-//cargamos los articulis
-$article = articleRepository::getArticle();
+//cargamos los articulos
+$article = [];
+if(!isset($_GET['findArticleButton']) ){
+    $article = articleRepository::getArticle();
+   
+} 
+//cargamos la lista de articulos de la busqueda
+if(isset($_POST['textToFind'])){
+    $article = ArticleRepository::findArticle($_POST['textToFind']);
+}
 
 
 //crea un usuario vacio para poder cargar mas despues
@@ -24,7 +35,7 @@ if(!isset($_SESSION['user'])){
 
 
 //creamos los comentarios
-if( isset($_GET['comment']) ) {
+if(isset($_GET['comment']) ) {
     require_once('controllers/commentsController.php');
 }
 
@@ -41,8 +52,8 @@ if(isset($_GET['article'])){
 }
 //editar role
 if(isset($_GET['role'])) {
-    require_once("views/roleListView.php");
-    die();
+    require_once("controllers/roleController.php");
+    
 } 
 
 //ir al form de login
