@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+}
+header img{
+    width: 100px;
+}
+nav{
+    padding: 30px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: rgb(231, 36, 36);
+}
+nav div{
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+}
+nav a{
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+.article1{
+    padding: 30px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.article1 h2{
+    width: 100%;
+}
+.article1 img{
+    width: 30%;
+}
+.article1 div{
+    padding: 0px  30px;
+    width: 60%;
+}
+.article1 div p{
+    padding-bottom: 15px;
+}
+.section2{
+    background-color: palevioletred;
+}
+.section2 img{
+    width: 80%;
+}
+.section2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; 
+    padding: 40px;
+}
+.section2 h2{
+    width: 100%;
+}
+.section2 article{
+    padding-top: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between; 
+    align-items: center;
+    width: 30%;
+}
+.section2 p{
+    justify-items: center;
+    padding-top: 20px;
+}
+.section3{
+    padding: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+.section3 h2{
+    padding: 30px; 
+    width: 100%;
+}
+.section3 img{
+    width: 30%;
+}
+.section3 div{
+    padding-top: 30px;
+    width: 60%;
+}
+.section3 div p{
+    padding-bottom: 15px;
+}
+
+.section4{
+    background-color: palevioletred;
+    padding: 30px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.section4 h2{
+    padding: 30px; 
+    width: 100%;
+}
+.section4 img{
+    padding: 30px; 
+    width: 30%;
+}
+.section4 div{
+    padding-left: 30px;
+    width: 60%;
+}
+.section4 form, p, h3{
+    padding: 30px;  
+
+}

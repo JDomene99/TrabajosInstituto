@@ -29,6 +29,7 @@
     
     }
 
+    
 
     //mostrar el articulo seleccionado
     $articleFinal = ArticleRepository::getArticleById($_GET['article']);

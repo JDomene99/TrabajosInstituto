@@ -45,18 +45,32 @@
 	</form>
 	<!-- muestra los articulo -->
 	<?php
+	
 	if(count($article)>0){
 		echo "<section>";
-		foreach($article as $item){
+		
+		
+			foreach($article as $item){
 			
-			echo "<article>";
-				echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
-				echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
-			echo "</article>";
-		}
+				echo "<article>";
+					echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
+					echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
+				echo "</article>";
+			}
+		
+		
 		echo "</section>";
 	}
 	?>
 	</main>
+
+	<footer>
+		<?php
+			for ($i = 1; $i <= $articleNumero; $i++) {
+				echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
+			}
+		?>
+		
+	</footer>
 </body>
 </html>

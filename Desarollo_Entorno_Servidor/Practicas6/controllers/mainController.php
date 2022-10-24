@@ -12,16 +12,33 @@ require_once('models/roleModel.php');
 require_once('models/roleRepository.php');
 session_start();
 
+$articleNumero = ArticleRepository::getCountarticle();
 //cargamos los articulos
 $article = [];
 if(!isset($_GET['findArticleButton']) ){
     $article = articleRepository::getArticle();
+    
    
 } 
 //cargamos la lista de articulos de la busqueda
 if(isset($_POST['textToFind'])){
+    $articleNumero = ArticleRepository::getCountarticleFindArticle($_POST['textToFind']);
     $article = ArticleRepository::findArticle($_POST['textToFind']);
+    
 }
+
+//si llama a una pagina
+if(isset($_GET['pagina'])){ 
+    if($_GET['pagina']== 1){
+        $article = articleRepository::getArticle();
+    }
+    else{
+        
+        $article =ArticleRepository::get3article($_GET['pagina']);
+    }
+}
+
+
 
 
 //crea un usuario vacio para poder cargar mas despues
@@ -50,6 +67,7 @@ if(isset($_GET['article'])){
     require_once('controllers/articleController.php');
     
 }
+
 //editar role
 if(isset($_GET['role'])) {
     require_once("controllers/roleController.php");
