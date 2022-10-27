@@ -15,8 +15,9 @@
     if(isset($_POST['sendDataArticle']) && isset($_POST['editTittle']) && isset($_POST['editTextArea']) && isset($_FILES["editImage"])  ){          
         ArticleRepository::editArticle( $_GET['article'],$_POST['editTextArea'],$_POST['editTittle'],$_FILES["editImage"]); 
     }
-
+    
     //mostrar el articulo seleccionado
     $articleFinal = ArticleRepository::getArticleById($_GET['article']);
+    $valoracion = Valoracion::getValoracion($_GET['article']);
     require_once("views/articleView.php");
 ?>

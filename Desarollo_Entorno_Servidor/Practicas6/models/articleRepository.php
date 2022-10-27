@@ -81,5 +81,9 @@ class ArticleRepository{
         }  
               
     } 
+
+    // public static function($valoracion, $idUser){
+        
+    // }
 } 
 ?>

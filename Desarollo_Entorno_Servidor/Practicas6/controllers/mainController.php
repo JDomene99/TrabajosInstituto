@@ -10,6 +10,8 @@ require_once('models/commentsModel.php');
 require_once('models/commetsRepository.php');
 require_once('models/roleModel.php');
 require_once('models/roleRepository.php');
+require_once('models/valoracionModel.php');
+require_once('models/valoracionRepository.php');
 session_start();
 
 $articleNumero = ArticleRepository::getCountarticle();
@@ -55,6 +57,13 @@ if(isset($_GET['createArticle'])){
     require_once('controllers/articleController.php');
 }
 
+
+if(isset($_GET['valoracion'])){
+    if(isset($_GET['article'])){ 
+        require_once('controllers/valoracionController.php'); 
+    }
+   
+}
 
 //ir al articulo seleecionado
 if(isset($_GET['article'])){ 

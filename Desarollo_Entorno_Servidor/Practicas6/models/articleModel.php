@@ -2,13 +2,14 @@
 
 class Article{
 
-    public $idArticle;
-    public $autor;
-    public $date;
-    public $seccion; 
-    public $tittle;   
-    public $image;
-    public $comments;
+    private $idArticle;
+    private $autor;
+    private $date;
+    private $seccion; 
+    private $tittle;   
+    private $image;
+    private $comments;
+    private $valoracion;
 
     public function __construct ($datos){
         $this->idArticle = $datos['idArticle']; 
@@ -17,7 +18,8 @@ class Article{
         $this->seccion = $datos['seccion']; 
         $this->tittle = $datos['tittle'];
         $this->image = $datos['imagen'];
-        $this->comments = CommentsRepository::getCommentsByArticle($datos['idArticle']);        
+        $this->comments = CommentsRepository::getCommentsByArticle($datos['idArticle']); 
+        $this->valoracion = $datos['valoracion'];       
     }   
 
     public function getAutor(){
@@ -26,6 +28,10 @@ class Article{
 
     public function getComments(){
         return $this->comments;
+    }
+
+    public function getValoracion(){
+        return $this->valoracion;
     }
 
     public function getDate(){

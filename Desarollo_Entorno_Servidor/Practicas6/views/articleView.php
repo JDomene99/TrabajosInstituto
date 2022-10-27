@@ -37,16 +37,31 @@ echo "<main>";
 echo "<section>";
 
     echo "<article>";
+		
         echo "<h1>".$item->getTittle()."</h1>";
         echo "<h2>(".$item->getDate().")</h2>";
-		echo "<h2>(".$item->getAutor()->getName().")</h2>";
-		echo "<p>".$item->getSeccion()."</p>";
+		echo "<h2>(".$item->getAutor()->getName().")</h2><br>";
+		echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
+		// foreach($valoracion as $val){
+			echo $valoracion->getValoracion();
+		// }
+		for ($i = 1; $i <= 5; $i++) {
+			echo '<a href="index.php?article='.$item->getIdArticle().'&valoracion='.$i.'">'.$i.'</a>';				
+		}
+
+		echo "<p>".$item->getSeccion()."</p>";	
         echo "<div>";
             echo"<ul>";
                 // muestra los comentarios de cada articulo
 				if($item->getComments()){
 					foreach($item->getComments() as $itemComment) {
+						
 						echo "<li>".'<img src="./views/imagenes/'.$item->getAutor()->getImage().'"/>'.$item->getAutor()->getName().": ".$itemComment->getComment()."(".$itemComment->getTime().")</li>";
+						echo ' <form name="formulario" method="post" action="index.php?comment&article='.$item->getIdArticle(). ''. '">
+								<input type="submit" name="ocultarComment" value="Ocultar"/> 
+								<input type="hidden"  name="idComment" value="'.$itemComment->getIdComment().'"/>
+							</form>';
+						
 					}
 				}
                 else{

@@ -49,6 +49,9 @@ article div{
     margin: 30px auto;
     border: 1px solid black;
 }
+article img{
+    width: 200px;
+}
 section h1, section h2{
     text-align : center;
     display: inline;
@@ -71,7 +74,6 @@ li{
     list-style-type: none;
 }
 img{
-    width: 20px;
     vertical-align:middle;
 }main{
     height: 75%;
@@ -91,6 +93,9 @@ article h1{
 }
 article div{
     border: 1px solid black;
+}
+article div img{
+    width: 20px;
 }
 h1{
     text-align : center;
