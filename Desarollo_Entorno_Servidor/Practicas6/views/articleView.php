@@ -70,12 +70,15 @@ echo "</section>";
 
 if(isset($_GET['editArticle'])) {
 	echo "<section>";
-echo '<form name="formulario" method="post" action="index.php?article='.$item->getIdArticle().'">
-			<input type="text" name="editTittle" placeholder="Titulo" >
-			<textarea name="editTextArea" rows="10" cols="50" placeholder="Edita el articulo"></textarea>
-			<input type="submit" name="sendDataArticle" value="send"/>
-	</form>';
-echo "</section>";
+		foreach($articleFinal as $article){
+			echo '<form name="formulario" method="post" enctype="multipart/form-data" action="index.php?article='.$item->getIdArticle().'">
+							<input type="text" name="editTittle" placeholder="'.$item->getTittle().'" >
+							<textarea name="editTextArea" rows="10" cols="50" placeholder="'.$item->getSeccion().'"></textarea>
+							<input type="file" name="editImage" required />
+							<input type="submit" name="sendDataArticle" value="send"/>
+					</form>';
+		}
+	echo "</section>";
 }
 
 

@@ -16,7 +16,7 @@ class CommentsRepository{
 
     public static function createComment($idUser,$idArticle,$comment){
         $db = Conectar::conexion();
-        $fechaActual = date('d-m-Y H:i:s');
+        $fechaActual = date('Y-m-d H:i:s');
         $result = $db->query("INSERT into comments(idUser,idArticle,comment,hora) VALUES( '$idUser', '$idArticle' ,'$comment', '$fechaActual' ) "); 
     }
 } 

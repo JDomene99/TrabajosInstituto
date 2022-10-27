@@ -452,10 +452,30 @@ const users = [
     }
 ];
 //1.-mostar los id y username en mayuscula cuya edad sea inferior a 35
-const ejer1 = users.map( users =>  users.edad < 35 ? users.id : ) ;
-// 2.- mostar en un array {nombre,city} de los usuarios cuya edad sea > que la edad promedio
-const ejer2 = users.reduce((a,b) =>{
-    if(b.edad>30){
-        a = b.edad ;
+const ejer1 = users.filer( (key) =>  key.edad < 35);
+
+function filterbyEdad(array){
+    const array2 = [];
+    const obj = {};
+    for(item of array){
+      if(item.edad<35){
+        obj.id=item.id;
+        obj.username=item.username.toUpperCase();
+        array2.push(obj);
+      }
+      
     }
-},[]);
+    return obj;
+}
+// 2.- mostar en un array {nombre,city} de los usuarios cuya edad sea > que la edad promedio
+  const ejer2 = users.reduce((a,b) =>{
+    console.log(b.edad);
+      if(b.edad>30){
+        a= a.push(b.edad) ;
+        
+      }
+      return a;
+  },[]);
+
+
+  

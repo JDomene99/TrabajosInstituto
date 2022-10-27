@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Roboto;
 }
 header{
     padding: 20px;
@@ -52,7 +52,7 @@ nav a{
     background-color: palevioletred;
 }
 .section2 img{
-    width: 80%;
+    width: 100%;
 }
 .section2{
     display: flex;
@@ -64,7 +64,7 @@ nav a{
     width: 100%;
 }
 .section2 article{
-    padding-top: 20px;
+    padding-top: 20px ;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between; 
@@ -82,7 +82,6 @@ nav a{
     
 }
 .section3 h2{
-    padding: 30px; 
     width: 100%;
 }
 .section3 img{
@@ -103,18 +102,53 @@ nav a{
     flex-flow: row wrap;
 }
 .section4 h2{
-    padding: 30px; 
+    padding-bottom: 30px; 
     width: 100%;
 }
 .section4 img{
-    padding: 30px; 
     width: 30%;
 }
 .section4 div{
     padding-left: 30px;
     width: 60%;
 }
-.section4 form, p, h3{
-    padding: 30px;  
 
+.section4 form,p{
+    padding: 10px 0px;
+}
+footer{
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;     
+}
+footer div{
+    display: flex;
+    flex-direction: column;
+   
+}
+footer a{
+    padding: 5px 0px;
+    text-decoration: none;
+    color: black;
+}
+footer h3{
+    color:  palevioletred;
+}
+.copy{
+    font-size: 40px;
+}
+footer ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}
+footer ul li{
+    list-style: none;
+}
+footer ul a{
+    font-size: 30px;
+}
+i{  
+    color: palevioletred;
 }

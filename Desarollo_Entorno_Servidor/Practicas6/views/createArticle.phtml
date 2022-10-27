@@ -16,13 +16,17 @@
 
     <nav>
         <a href="index.php">Inicio</a>
+        <?php
+            if(isset($_POST['createArticle']))
+            echo '<h1>Se ha creado correctamente</h1>';
+        ?>
     </nav>
 
     <main>
         <form action="index.php?createArticle" method="post" enctype="multipart/form-data">
             <input type="text" name="tituloArticle" placeholder="Titulo" required/>
             <textarea name="textArea" rows="10" cols="50" placeholder="Escribe tu articulo" required></textarea>
-            <input type="file" name="fileToUpload" />
+            <input type="file" name="fileToUpload" required />
             <input type="submit" name="createArticle" value="Crear"/>
         </form>
     </main>

@@ -3,14 +3,20 @@
     padding: 0;
     font-family: sans-serif;
 }
+body{
+    height: 100vh;
+}
+
 header h1{
     background-color: #CCC;
     padding:20px;
+    height: 10%;
 }
 nav{
     background-color: rgb(195, 183, 183);
     text-align: center;
     padding: 10px;
+    height: 5%;
 }
 a{
     margin: 20%;
@@ -40,6 +46,7 @@ article h1{
     color: red;
 }
 article div{
+    margin: 30px auto;
     border: 1px solid black;
 }
 section h1, section h2{
@@ -67,10 +74,10 @@ img{
     width: 20px;
     vertical-align:middle;
 }main{
+    height: 75%;
     background-color: #CCC;
     display: flex;
     flex-direction: row;
-    /* dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
 }
 article{
     background-color: rgb(195, 183, 183);

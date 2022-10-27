@@ -2,18 +2,6 @@
 
 class ArticleRepository{
 
-    public static function getArticle(){
-        
-        $db = Conectar::conexion();
-        $q = "SELECT * FROM article LIMIT 0,3";
-        $result = $db->query($q);
-        while($datos = $result->fetch_assoc()) {
-
-            $article[] = new Article($datos);
-        }   
-        return $article;
-    }
-
     public static function getArticleById($id){
         $db = Conectar::conexion();
         $q = "SELECT * FROM article where idArticle = '".$id."' ";
@@ -24,22 +12,24 @@ class ArticleRepository{
         require_once("views/mainController.phtml");
     } 
 
-    public static function findArticle($tittle){
-        $db = Conectar::conexion();
-        $q = "SELECT * FROM article where tittle LIKE '"."%".$tittle."%"."' LIMIT 0,3 ";
-        $result = $db->query($q);
-        $article=[];
-        while($datos = $result->fetch_assoc()) {
-            $article[] = new Article($datos);
-        }   
-        return $article;
-        require_once("controllers/mainController.php");
-    } 
+    public static function createArticle($texto, $tittle,$image,$idUser){
+            $ruta = './views/imagenes/';
+            $uploadfile = $ruta . basename($image['name']);
+            if (move_uploaded_file($image['tmp_name'], $uploadfile)) {} 
+            $db = Conectar::conexion();            
+            $fechaActual = date('Y-m-d H:i:s');
+            $imageToUpload = $image['name'];
+            $result = $db->query("INSERT into article(idArticle,date,seccion,tittle,imagen,autor) VALUES( null,'$fechaActual', '$texto' ,'$tittle', '$imageToUpload','$idUser' ) "); 
+    }
 
-    public static function editArticle($idArticle,$texto,$titulo){
-        $fechaActual = date('d-m-Y H:i:s');
+    public static function editArticle($idArticle,$texto,$titulo,$image){
+        $ruta = './views/imagenes/';
+        $uploadfile = $ruta . basename($image['name']);
+        if (move_uploaded_file($image['tmp_name'], $uploadfile)) {} 
+        $fechaActual = date('Y-m-d H:i:s');
+        $imageToUpload = $image['name'];
         $db = Conectar::conexion();
-        $result = $db->query("UPDATE article SET idArticle = ' $idArticle' , date = '$fechaActual' , seccion = '$texto', tittle = '$titulo' WHERE article.`idArticle` = $idArticle"); 
+        $result = $db->query("UPDATE article SET idArticle = ' $idArticle' , date = '$fechaActual' , seccion = '$texto', tittle = '$titulo' , imagen = '$imageToUpload' WHERE article.`idArticle` = $idArticle"); 
     }
 
     public static function getCountarticle(){
@@ -47,40 +37,49 @@ class ArticleRepository{
         $db = Conectar::conexion();
         $q =  "SELECT Count(*) FROM article";
         $result = $db->query($q);
-        $datos = $result->fetch_assoc();
-        $numTotal = 0;
-        foreach($datos as $item){
-            $numTotal = $item;
-        }
-        return  ceil($numTotal/3);
-            
+        $totalArticle = (int)$result->fetch_column();
+        return ceil($totalArticle/3);
+                    
     }
 
-    public static function get3article($numeroPagina){
+    public static function getArticle($numeroPagina){
         $numeroTotal = ArticleRepository::getCountarticle();
-        echo $numeroTotal;
-        $db = Conectar::conexion();
-        $q = "SELECT * FROM article LIMIT $numeroPagina , 3 ";
-        $result = $db->query($q);
-        while($datos = $result->fetch_assoc()) {
-            $article[] = new Article($datos);
-        } 
-        return $article;
+        
+        if($numeroPagina <= $numeroTotal){
+            $pagFinal = 3*($numeroPagina-1);
+            $db = Conectar::conexion();
+            $q = "SELECT * FROM article LIMIT $pagFinal , 3 ";
+            $result = $db->query($q);
+            while($datos = $result->fetch_assoc()) {
+                $article[] = new Article($datos);
+            } 
+            return $article;
+        }
+        
     }
 
     public static function getCountarticleFindArticle($tittle){
         $db = Conectar::conexion();
         $q = "SELECT Count(*) FROM article where tittle LIKE '"."%".$tittle."%"."' LIMIT 0,3 ";
         $result = $db->query($q);
-        $datos = $result->fetch_assoc();
-        $numeroTotal = 0;
-        foreach($datos as $item){
-            $numeroTotal = $item;
-        }
-        return $numeroTotal/3;
+        $totalArticleFind = (int)$result->fetch_column();
+        return ceil($totalArticleFind/3);
     }
     
+    public static function findArticle($tittle, $numeroPagina){
+        $numeroTotal = ArticleRepository::getCountarticleFindArticle($tittle);
+        if($numeroPagina <= $numeroTotal){
+            $pagFinal = 3*($numeroPagina-1);
+            $db = Conectar::conexion();
+            $q = "SELECT * FROM article where tittle LIKE '"."%".$tittle."%"."' LIMIT $pagFinal,3 ";
+            $result = $db->query($q);
+            $article=[];
+            while($datos = $result->fetch_assoc()) {
+                $article[] = new Article($datos);
+            } 
+            return $article;  
+        }  
+              
+    } 
 } 
-// 
-
 ?>

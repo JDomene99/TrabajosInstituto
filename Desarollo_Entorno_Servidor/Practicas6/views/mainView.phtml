@@ -39,16 +39,15 @@
 
 	<main>
 	<h2>Articulos</h2>
-	<form action="index.php" method="post">
+	<form action="index.php" method="get">
 		<input type="text" name="textToFind" placeholder="Busca tu articulo" />
-		<input type="submit" name="findArticleButton" value="buscar" />
+		<input type="submit"  value="buscar" />
 	</form>
 	<!-- muestra los articulo -->
 	<?php
 	
-	if(count($article)>0){
+	if(($article)>0){
 		echo "<section>";
-		
 		
 			foreach($article as $item){
 			
@@ -61,16 +60,23 @@
 		
 		echo "</section>";
 	}
+	else{
+		echo 'No se ha encontrado ninguno';
+	}
 	?>
 	</main>
 
 	<footer>
 		<?php
 			for ($i = 1; $i <= $articleNumero; $i++) {
-				echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
+				if(isset($_GET['textToFind']) ){
+					echo '<a href="index.php?textToFind='.$_GET['textToFind'].'&pagina='.''.$i.'">'.$i.'</a>';
+				}
+				else{
+					echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
+				}
 			}
 		?>
-		
 	</footer>
 </body>
 </html>

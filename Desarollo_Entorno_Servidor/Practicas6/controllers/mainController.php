@@ -16,30 +16,24 @@ $articleNumero = ArticleRepository::getCountarticle();
 //cargamos los articulos
 $article = [];
 if(!isset($_GET['findArticleButton']) ){
-    $article = articleRepository::getArticle();
-    
+    $article = ArticleRepository::getArticle(1);
    
 } 
-//cargamos la lista de articulos de la busqueda
-if(isset($_POST['textToFind'])){
-    $articleNumero = ArticleRepository::getCountarticleFindArticle($_POST['textToFind']);
-    $article = ArticleRepository::findArticle($_POST['textToFind']);
-    
-}
-
 //si llama a una pagina
 if(isset($_GET['pagina'])){ 
-    if($_GET['pagina']== 1){
-        $article = articleRepository::getArticle();
-    }
-    else{
-        
-        $article =ArticleRepository::get3article($_GET['pagina']);
+    if($_GET['pagina']> 1 || $_GET['pagina'] <$articleNumero){        
+        $article =ArticleRepository::getArticle($_GET['pagina']);
     }
 }
 
-
-
+//cargamos la lista de articulos de la busqueda
+if(isset($_GET['textToFind'])){
+    $articleNumero = ArticleRepository::getCountarticleFindArticle($_GET['textToFind']); 
+    $article = ArticleRepository::findArticle($_GET['textToFind'],1);
+    if(isset($_GET['pagina']) && $_GET['pagina']> 1 && $_GET['pagina'] <= $articleNumero){ 
+        $article = ArticleRepository::findArticle($_GET['textToFind'],$_GET['pagina']);
+    }
+}
 
 //crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){
