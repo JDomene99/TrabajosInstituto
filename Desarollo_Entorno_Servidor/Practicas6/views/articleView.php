@@ -50,7 +50,7 @@ echo "<section>";
 					}
 				}
                 else{
-					echo "<li> No hay comentarios actualmente</li>";
+					echo "<li> <b> No hay comentarios actualmente </b></li>";
 				}
             echo"</ul>";
 
@@ -61,6 +61,9 @@ echo "<section>";
 					<input type="submit" name="sendcomment" value="send"/>
 					</form>';
             }
+			else{
+				echo 'Inicia sesion para poder comentar';
+			}
 			
         echo"<div>";
     echo "</article>";

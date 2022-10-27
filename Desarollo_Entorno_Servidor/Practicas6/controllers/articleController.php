@@ -1,8 +1,8 @@
 <?php
 
-    //crear article
+    
     if(isset($_GET['createArticle'])){
-        
+        //crear article
         if( isset($_POST['tituloArticle']) && isset($_POST['textArea']) && $_FILES["fileToUpload"]) {
             ArticleRepository::createArticle($_POST['textArea'],$_POST['tituloArticle'],$_FILES["fileToUpload"],$_SESSION['user']->getId());
         }
