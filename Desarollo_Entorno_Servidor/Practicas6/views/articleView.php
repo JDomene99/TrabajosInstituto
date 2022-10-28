@@ -19,7 +19,7 @@ foreach($articleFinal as $item){
 echo "<nav>";
 	echo'<a href="index.php">Inicio</a>';
 	
-	if($_SESSION['user']->getName()!=""){
+	if($_SESSION['user']->getRol() =="admin"){
 		if(isset($_GET['editArticle'])) {
 			echo'<a href="index.php?article='.$item->getIdArticle().'">Editar Articulo</a>';
 		}
