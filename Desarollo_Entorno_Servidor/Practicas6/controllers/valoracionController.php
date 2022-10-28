@@ -3,8 +3,9 @@
 
     if( isset($_GET['valoracion']) && isset($_GET['article']) ){
          
-        ValoracionRepository::setValoracion($_GET['valoracion'],$_GET['article'] ,$_SESSION['user']->getId());
-        require_once("views/mainView.phtml");
+        ValoracionRepository::setValoracion($_SESSION['user']->getId(),$_GET['article'],$_GET['valoracion']);
+        require_once("controllers/mainController.php");
+        return;
     }
     
     die();  

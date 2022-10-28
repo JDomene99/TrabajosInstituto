@@ -41,12 +41,13 @@ echo "<section>";
         echo "<h1>".$item->getTittle()."</h1>";
         echo "<h2>(".$item->getDate().")</h2>";
 		echo "<h2>(".$item->getAutor()->getName().")</h2><br>";
-		echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
-		// foreach($valoracion as $val){
-			echo $valoracion->getValoracion();
-		// }
-		for ($i = 1; $i <= 5; $i++) {
-			echo '<a href="index.php?article='.$item->getIdArticle().'&valoracion='.$i.'">'.$i.'</a>';				
+		echo '<img src="./views/imagenes/'.$item->getImage().'"/> <br>'; 
+		echo 'La valoracion del articulo es <b>'.$valoracion. '</b> <br>';
+		
+		if($_SESSION['user']->getName()!=""){
+			for ($i = 1; $i <= 5; $i++) {
+				echo '<a href="index.php?article='.$item->getIdArticle().'&valoracion='.$i.'">'.$i.'</a>';				
+			}
 		}
 
 		echo "<p>".$item->getSeccion()."</p>";	
