@@ -134,19 +134,36 @@ const aerolineas = [
 
 ];
  
-const pureba = aerolineas.from()
+const mapAerolineas = new Map();
 
+// for(item of aerolineas){
+//   console.log(mapAerolineas.set(item.nombre, item.Pais));
 
-const mapAerolineas = new Map([aerolineas]);
-
-// const preuba = aerolineas.forEach((value, key));
-// console.log(preuba);
-for(item of aerolineas){
-    console.log(item);
-}
+// }
 // console.log(mapAerolineas);
 
-// for(item of mapAerolineas){
-//   console.log(item);
-// }
+// const obj = {};
+// for(item of aerolineas){
 
+//   const horas = {...item.SalidasA};
+//   for(item2 in horas){
+//     obj[item2]=(horas[item2]);
+//     mapAerolineas.set(item.nombre,obj);
+//   }
+// }
+// console.log(mapAerolineas);
+
+
+
+function getPrueba(nombreAerBase,destino){
+  
+  for(item of aerolineas){
+
+      if(item.AeropuertoBase == nombreAerBase){
+          console.log(item.SalidasA[destino]);
+          console.log(item.LlegadasD[destino]);
+
+      }
+      
+  }   
+}
