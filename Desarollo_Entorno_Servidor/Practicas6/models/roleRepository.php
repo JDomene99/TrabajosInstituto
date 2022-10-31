@@ -12,7 +12,6 @@ class RolRepository{
             $roles[] = new Rol($datos);
         }   
         return $roles;
-        
     } 
     
 } 

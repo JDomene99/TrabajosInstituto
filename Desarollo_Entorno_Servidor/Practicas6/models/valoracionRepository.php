@@ -18,7 +18,6 @@ class ValoracionRepository{
         $db = Conectar::conexion();  
         //si no ha introducido ya una valoracion la introduce        
         if($entra){
-            echo 'asdas';
             $result = $db->query("INSERT INTO valoracion (id_user, id_article, valoracion) VALUES ('$idUser', '$idArticle', '$valoracion')");
         }          
     }

@@ -38,8 +38,7 @@ class ArticleRepository{
         $q =  "SELECT Count(*) FROM article";
         $result = $db->query($q);
         $totalArticle = (int)$result->fetch_column();
-        return ceil($totalArticle/3);
-                    
+        return ceil($totalArticle/3);         
     }
 
     public static function getArticle($numeroPagina){
@@ -55,7 +54,6 @@ class ArticleRepository{
             } 
             return $article;
         }
-        
     }
 
     public static function getCountarticleFindArticle($tittle){
@@ -78,12 +76,7 @@ class ArticleRepository{
                 $article[] = new Article($datos);
             } 
             return $article;  
-        }  
-              
+        }      
     } 
-
-    // public static function($valoracion, $idUser){
-        
-    // }
 } 
 ?>

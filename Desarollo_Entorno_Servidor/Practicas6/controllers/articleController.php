@@ -1,6 +1,5 @@
 <?php
-
-    
+  
     if(isset($_GET['createArticle'])){
         //crear article
         if( isset($_POST['tituloArticle']) && isset($_POST['textArea']) && $_FILES["fileToUpload"]) {

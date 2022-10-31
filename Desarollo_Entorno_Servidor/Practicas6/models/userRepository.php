@@ -34,7 +34,6 @@ class UserRepository{
                 $_SESSION['user'] = new User($datos);
                 
             }
-        
         }
     }
 
@@ -42,9 +41,7 @@ class UserRepository{
         $db = Conectar::conexion();
         $result = $db->query("SELECT * FROM users WHERE name = '".$nombre."' ");
         if(!$datos = $result->fetch_assoc()) {
-            $result = $db->query("INSERT into users(id,name,password,image,id_rol) VALUES( null, '$nombre' , '$passwordUser', 'profile.png' , '2' ) ");   
-            
-            
+            $result = $db->query("INSERT into users(id,name,password,image,id_rol) VALUES( null, '$nombre' , '$passwordUser', 'profile.png' , '2' ) ");      
         }
     }
     

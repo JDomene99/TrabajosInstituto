@@ -22,8 +22,5 @@ class Valoracion{
     public function getIdArticle(){
         return $this->id_article;
     }
-
-    
 } 
-// 
 ?>

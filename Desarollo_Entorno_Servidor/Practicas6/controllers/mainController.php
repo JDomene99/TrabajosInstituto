@@ -62,19 +62,16 @@ if(isset($_GET['valoracion'])){
     if(isset($_GET['article'])){ 
         require_once('controllers/valoracionController.php'); 
     }
-   
 }
 
 //ir al articulo seleecionado
 if(isset($_GET['article'])){ 
     require_once('controllers/articleController.php');
-    
 }
 
 //editar role
 if(isset($_GET['role'])) {
     require_once("controllers/roleController.php");
-    
 } 
 
 //ir al form de login
@@ -82,7 +79,6 @@ if(isset($_GET['login'])) {
     require_once('controllers/loginController.php');
     die();
 }  
-// 
-// cargar la vista
+
 require_once("views/mainView.phtml");
 ?>

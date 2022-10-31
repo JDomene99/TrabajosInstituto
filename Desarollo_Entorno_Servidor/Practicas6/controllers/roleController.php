@@ -16,10 +16,4 @@ if(isset($_GET['editIdRol']) ){
 
 $userList = UserRepository::getRoleAllUserRegister();
 require_once("views/roleListView.php");
-
-
-    
-
-
-
 ?>
