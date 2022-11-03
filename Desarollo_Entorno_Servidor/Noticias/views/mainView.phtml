@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css/mainView.css" >
+	<title>Noticas</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		article{
+			border: 1px solid black;
+			
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1>Noticias</h1>
+	</header>
+
+	<nav>
+
+		<a href="index.php">Inicio</a> -
+
+		<?php
+		//si la session existe
+		if($_SESSION['user']->getName()=="")
+			echo '<a href="index.php?login">Login</a>';
+		else{
+			echo 'Bienvenido '.$_SESSION['user']->getName().' 
+			<a href="index.php?login&logout">Salir</a> -';
+			echo '<a href="index.php?newNoticia">Crear Noticia</a>';
+		}	
+		?>
+
+	</nav>
+
+
+	<section>
+
+
+		<?php
+		if($noticias > 0){
+			foreach($noticias as $noticia){
+				echo '<article>';
+					if($noticia->getVisibilidad() == 1){
+						echo '<h1>'.$noticia->getTittle()."(".$noticia->getAutor().")".'<a href="'.$noticia->getUrl().'">'.$noticia->getUrl().'</a></h1>';
+						echo $noticia->getLike();
+						echo '<a href="index.php?valoracion&like='.$noticia->getIdNoticia().'"><i class="fa fa-solid fa-thumbs-up"></i></a> ';
+						
+						echo $noticia->getDisLike();
+						echo '<a href="index.php?valoracion&dislike='.$noticia->getIdNoticia().'"><i class="fa fa-solid fa-thumbs-down"></i></a>';
+						
+						//ocultar si solo si es admin
+						if($_SESSION['user']->getRol()=="0"){
+							echo '<a href="index.php?ocultarNotica='.$noticia->getIdNoticia().'"> ocultar noticia </a>';
+							
+						}
+					}
+					
+				echo '</article>';
+			}
+		}
+		else{
+			echo 'no hay noticias';
+		}
+		
+		?>
+
+
+	</section>
+
+
+</body>
+</html>
