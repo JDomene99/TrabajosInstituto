@@ -2,8 +2,17 @@
     margin: 0;
     padding: 0;
     font-family: Roboto;
+    
+}
+body{
+    display: flex;
+    flex-flow: row wrap;
+    font-size:20px;
+    width: 100%;
 }
 header{
+    
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -22,6 +31,7 @@ nav{
     justify-content: space-between; 
     align-items: center;
     background-color: #ef717a;
+    width: 100%;
 }
 nav ul{
     padding: 5px 0px;
@@ -31,7 +41,7 @@ nav ul{
     flex-flow: row wrap;
 }
 nav a{
-    padding:5px 10px;
+    padding:5px 15px;
     text-decoration: none;
     color: black;
 }
@@ -48,7 +58,11 @@ nav input{
     background-position: 2%;
     background-repeat: no-repeat;
 }
+main{
+    width: 100%;
+}
 .section1{
+    background-color: #f1f1f1;
     padding: 30px;
     display: flex;
     flex-flow: row wrap;
@@ -57,9 +71,21 @@ nav input{
     width: 30%;
 }
 
-.section1 div{
+.section1 > div{
     display: flex;
     flex-flow: row wrap;
+}
+.section1 > div > div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+} 
+.section1 p {
+    padding: 20px;
+}
+.section1 > div > div {
+    width: 60%;
 }
 .section2{
     background-color: #ef717a;
@@ -93,7 +119,14 @@ nav input{
     padding-top: 20px;
 }
 .section3{
-    padding: 30px;
+    background-color: #f1f1f1;
+}
+.section3 h2{
+    padding-top: 30px;
+    padding-left: 30px;
+}
+.section3 .parrafos{
+    padding-left: 30px;
 }
 .section3 img{
     width: 30%;
@@ -103,12 +136,10 @@ nav input{
     flex-flow: row wrap;
 }
 .parrafos{
-    padding-bottom: 15px;
-    width: 60%;
+    width: 50%;
 }
 .section4{
     background-color:  #ef717a;
-    padding: 30px;
     display: flex;
     flex-flow: row wrap;
 }
@@ -126,10 +157,12 @@ nav input{
 }
 
 footer{
+    background-color: #f1f1f1;
     padding: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;     
+    justify-content: space-between;  
+    width: 100%;   
 }
 
 footer a{
@@ -166,4 +199,110 @@ footer ul:last-of-type a{
 }
 i{  
     color: #ef717a;
+}
+
+/* Media */
+@media only screen and (max-width: 780px) {
+    header{
+      display: flex;
+      flex-flow: column wrap;
+      text-align: left;
+    }
+    nav{
+        flex-flow: column-reverse;
+        align-items: flex-start;
+    }
+    nav ul{
+        margin-bottom: 20px;
+    }
+    h2{
+        text-align: center;
+    }
+    .section1 img{
+        width: 100%;
+        height: 400px;
+    }
+    .section1 .parrafos{
+        width: 100%;
+    }
+    .section3 img{
+        width: 100%;
+    }
+    .section3 .parrafos{
+        width: 100%;
+    }
+   
+}
+@media only screen and (max-width: 480px) {
+    header{
+      display: flex;
+      flex-flow: column wrap;
+      text-align: left;
+    }
+    nav{
+        flex-flow: column-reverse;           
+        align-items: center;
+        
+    }
+    nav li, nav a{
+        padding: 5px 5px;
+    }
+    nav ul{
+        margin-bottom: 20px;
+    }
+    h2{
+        text-align: center;
+    }
+    .section1 img{
+        width: 100%;
+        height: 400px;
+    }
+    .section1 .parrafos{
+        margin: 0 3%;
+        width: 100%;
+    }
+    .section2 article{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .section3 img{
+        width: 100%;
+        height: 400px;
+    }
+    .section3 .parrafos{
+        margin: 0 3%;
+        width: 100%;
+    }
+    p{
+        padding: 15px 0px;
+    }
+    .section4 img{
+        width: 90%;
+        margin: 0 5%;
+        height: 400px;
+        padding-bottom: 20px;
+    }
+    .section4{
+        height: 900px;
+    }
+    .section4 h2{
+        text-align: center;
+    }
+    .section4 div div{
+        justify-content: center;
+        margin: 0 3%;
+        width: 100%;
+    }
+    footer{
+        flex-flow: column;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    footer ul{
+        padding: 15px;
+        width: 70%;
+    }
+    
+   
 }

@@ -14,6 +14,7 @@ body{
     grid-template-columns: 25% 75%;
 }
 header{
+    
     grid-area: header;
     display: flex;
     flex-flow: row nowrap;
@@ -76,6 +77,7 @@ aside a {
     color: black;
 }
 main{
+    background-color: #f1f1f1;
     grid-area: main;
 }
 main section{
@@ -93,7 +95,7 @@ article{
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
-    height: 400px; 
+    height: 450px; 
 }
 article h2{
     flex: 0 0 auto;
@@ -109,7 +111,6 @@ article img{
     width: 100%;
     height: auto;
 }
-
 
 body > footer{
     grid-area: footer;
@@ -151,7 +152,71 @@ footer ul:last-of-type li:first-of-type{
 }
 footer ul:last-of-type a{
     font-size: 30px;
+    
+}
+footer ul:last-of-type li:first-of-type{
+   margin: 0%;
+   padding: 0%;
 }
 i{  
     color: #ef717a;
+}
+
+/* Media */
+@media only screen and (max-width: 780px) {
+    header{
+      display: flex;
+      
+    }
+    nav{
+        flex-flow: column;
+        align-items: flex-start;
+    }
+    nav ul{
+        margin-top: 20px;
+    }
+    article{
+        height: 300px;
+    }
+   
+}
+@media only screen and (max-width: 480px) {
+    
+    body{
+        display: grid;
+        grid-template-areas: 
+          "header header"
+          "nav nav"
+          "aside  aside"
+          "main main"
+          "footer footer";
+        grid-template-rows: 1fr 0.5fr 0.5fr 10fr 1fr;
+        grid-template-columns: 100%
+    }
+    aside{
+        text-align: center;
+    }
+    
+    article{
+        width: 90%;
+       
+        height: 500px;
+    }
+    
+    footer{
+        flex-flow: column;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    footer ul{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        margin: 0px 30%;
+        padding: 15px;
+        width: 70%;
+    }
+    
+   
 }
