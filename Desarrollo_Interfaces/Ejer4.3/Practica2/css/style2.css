@@ -14,7 +14,7 @@ body{
     grid-template-columns: 25% 75%;
 }
 header{
-    
+    font-size: 40px;
     grid-area: header;
     display: flex;
     flex-flow: row nowrap;
@@ -88,7 +88,7 @@ main section{
 }
 
 article{
-    margin-top: 30px;
+    margin: 30px 0px;
     width: 25%;
     border: 1px solid black;
     display: flex;
@@ -133,6 +133,7 @@ footer h3{
     font-size: 40px;
 }
 
+
 footer ul li{
     list-style: none;
    
@@ -140,23 +141,17 @@ footer ul li{
 footer ul a{
     font-size: 14px;
 }
-footer ul:last-of-type{
+footer ul div{
     display: flex;
     flex-flow: row wrap;
-    gap: 20px;
     align-items: center;
+    gap: 20%;  
+    font-size: 30px; 
 
 }
-footer ul:last-of-type li:first-of-type{
-    width: 100%;
-}
+
 footer ul:last-of-type a{
     font-size: 30px;
-    
-}
-footer ul:last-of-type li:first-of-type{
-   margin: 0%;
-   padding: 0%;
 }
 i{  
     color: #ef717a;
