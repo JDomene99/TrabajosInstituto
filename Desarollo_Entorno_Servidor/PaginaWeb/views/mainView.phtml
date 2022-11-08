@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css/mainView.css" >
+	<title>Pagina Web</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		article{
+			border : 1px solid black;
+			width: 25%
+		}
+		article a{
+			border : 1px solid black;
+		}
+		img{
+			width: 400px
+		}
+
+	</style>
+	
+</head>
+<body>
+
+	<header>
+		<h1>Pagina Web</h1>
+	</header>
+
+	<nav>
+
+		<a href="index.php">Inicio</a> -
+
+		<?php
+		//si la session existe
+		if($_SESSION['user']->getName()=="")
+			echo '<a href="index.php?login">Login</a>';
+		else{
+			echo 'Bienvenido '.$_SESSION['user']->getName().' 
+			<a href="index.php?login&logout">Salir</a> -';
+			echo '<a href="index.php?newProducto">Crear Producto</a>';
+		}	
+		?>
+
+	</nav>
+
+
+	<section>
+
+
+		<?php
+		if($productos > 0){
+			foreach($productos as $producto){
+				echo '<article>';	
+					echo '<img src="./views/imagenes/'.$producto->getImage().'"/> <br>'; 
+					echo '<h1>'.'<a href="'.$producto->getIdProducto().'">'.$producto->getName()."(".$producto->getAutor().")".'</a></h1>';	
+					echo '<a href="index.php?producto='.$producto->getIdProducto().'">+</a>';
+				echo '</article>';
+			}
+		}
+		else{
+			echo 'no hay productos';
+		}
+		
+		?>
+
+
+	</section>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/createArticleView.css" >
+    <title>Create Noticia</title>
+
+</head>
+<body>
+
+    <header>
+        <h2>Crea tu propio articulo</h2>
+    </header>
+
+    <nav>
+        <a href="index.php">Inicio</a> --
+        <?php
+            if(isset($_POST['createArticle']))
+            echo '<h1>Se ha creado correctamente</h1>';
+        ?>
+    </nav>
+
+    <main>
+        <form action="index.php?newProducto" method="post" enctype="multipart/form-data">
+            <input type="text" name="name_producto" placeholder="Nombre" required/>
+            <input type="text" name="descripcion_producto" placeholder="Descripcion" required/>
+            <input type="text" name="precio_producto" placeholder="precio" required/>
+            <input type="number" name="stock_producto" placeholder="stock" required/>
+            <input type="file" name="imagen_producto" required/>
+            <input type="submit" name="createProducto" value="➕"/>
+        </form>
+    </main>
+
+<?php
+die();
+?>
+</html>
