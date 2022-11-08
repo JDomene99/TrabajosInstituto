@@ -128,6 +128,9 @@ main{
 .section3 img{
     width: 30%;
 }
+.section3 > div > div {
+    width: 60%;
+}
 .section3 div{
     display: flex;
     flex-flow: row wrap;
@@ -215,26 +218,26 @@ i{
     h2{
         text-align: center;
     }
-    .section1 img{
-        width: 100%;
-        height: 400px;
-    }
     .section1 .parrafos{
         width: 100%;
     }
-    .section3 img{
-        width: 100%;
+    .section1 img, .section3 img{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 300px;
     }
     .section3 .parrafos{
         width: 100%;
     }
    
 }
+
 @media only screen and (max-width: 480px) {
     header{
       display: flex;
       flex-flow: column wrap;
-      text-align: left;
+      text-align: center;
     }
     nav{
         flex-flow: column-reverse;           
