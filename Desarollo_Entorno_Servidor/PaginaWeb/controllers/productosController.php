@@ -8,9 +8,9 @@
     
    
   }   
+  //comprobamos si hay stock del producto
   if(isset($_GET['producto'])){
-    echo $_GET['producto'];
-    
+    ProductosRepository::getStockByProduct($_GET['producto']);
     require_once("views/mainView.phtml");
     return;
   }   

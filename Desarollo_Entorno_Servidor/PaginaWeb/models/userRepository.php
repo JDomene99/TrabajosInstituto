@@ -32,6 +32,18 @@ class UserRepository{
             $result = $db->query("INSERT into users(id_user,name,password) VALUES( null, '$nombre' , '$passwordUser') ");      
         }
     }
+
+    public static function getRoleAllUserRegister(){  
+        
+        $db = Conectar::conexion();
+        $q = "SELECT * from users where id_rol = (SELECT id_rol)" ;
+        $result = $db->query($q);
+        while($datos = $result->fetch_assoc()) {
+            $users[] = new User($datos);
+        }   
+        return $users;  
+        
+    } 
     
 } 
 

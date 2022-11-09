@@ -5,6 +5,11 @@
 	<title>Pagina Web</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
+		section{
+			display: flex;
+			flex-flow: row wrap;
+			
+		}
 		article{
 			border : 1px solid black;
 			width: 25%
@@ -13,7 +18,20 @@
 			border : 1px solid black;
 		}
 		img{
-			width: 400px
+			width: 80%
+		}
+		nav{
+			border:1px solid black;
+			padding:5px;
+			text-align:center;
+		}
+		footer{
+			text-align: center;
+			padding: 10px;
+		}	
+		footer a{
+			border:1px solid black;
+			padding: 5px;
 		}
 
 	</style>
@@ -37,7 +55,14 @@
 			echo 'Bienvenido '.$_SESSION['user']->getName().' 
 			<a href="index.php?login&logout">Salir</a> -';
 			echo '<a href="index.php?newProducto">Crear Producto</a>';
-		}	
+		}
+		
+		//enlace editar role solo si es admin
+		if($_SESSION['user']->getRol()==0){
+			echo'<a href="index.php?role">Editar Rol</a>';
+		}
+
+		echo '-<a href="index.php?carrito">🛒</a>';
 		?>
 
 	</nav>
@@ -53,6 +78,7 @@
 					echo '<img src="./views/imagenes/'.$producto->getImage().'"/> <br>'; 
 					echo '<h1>'.'<a href="'.$producto->getIdProducto().'">'.$producto->getName()."(".$producto->getAutor().")".'</a></h1>';	
 					echo '<a href="index.php?producto='.$producto->getIdProducto().'">+</a>';
+					echo 'Stock:'.$producto->getStock();
 				echo '</article>';
 			}
 		}
@@ -64,6 +90,19 @@
 
 
 	</section>
+
+	<footer>
+		<?php
+			for ($i = 1; $i <= $porductCount; $i++) {
+				if(isset($_GET['textToFind']) ){
+					echo '<a href="index.php?textToFind='.$_GET['textToFind'].'&pagina='.''.$i.'">'.$i.'</a>';
+				}
+				else{
+					echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
+				}
+			}
+		?>
+	</footer>
 
 
 </body>
