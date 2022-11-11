@@ -7,11 +7,13 @@
     }
     
    
-  }   
-  //comprobamos si hay stock del producto
+  } 
+  // $itemCarrito = 0;
+  //añadimos un producto
   if(isset($_GET['producto'])){
-    ProductosRepository::getStockByProduct($_GET['producto']);
-    require_once("views/mainView.phtml");
+    // $itemCarrito = 1;
+    OrderRepository::createOrderLineItem($_SESSION['Order']->getIdOrder(),$_GET['producto']);
+    header('Location: index.php');
     return;
   }   
   

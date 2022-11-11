@@ -18,7 +18,8 @@
 			border : 1px solid black;
 		}
 		img{
-			width: 80%
+			width: 80%;
+			height: 300px;
 		}
 		nav{
 			border:1px solid black;
@@ -61,14 +62,20 @@
 		if($_SESSION['user']->getRol()==0){
 			echo'<a href="index.php?role">Editar Rol</a>';
 		}
-
+		
 		echo '-<a href="index.php?carrito">🛒</a>';
 		?>
 
 	</nav>
 
+	<h2>Productos</h2>
+	<form action="index.php" method="get">
+		<input type="text" name="nameProducto" placeholder="Busca tu produto" />
+		<input type="submit"  value="buscar" />
+	</form>
 
 	<section>
+
 
 
 		<?php
@@ -77,7 +84,9 @@
 				echo '<article>';	
 					echo '<img src="./views/imagenes/'.$producto->getImage().'"/> <br>'; 
 					echo '<h1>'.'<a href="'.$producto->getIdProducto().'">'.$producto->getName()."(".$producto->getAutor().")".'</a></h1>';	
-					echo '<a href="index.php?producto='.$producto->getIdProducto().'">+</a>';
+					if($producto->getStock()!=0 && $_SESSION['user']->getName()!=""){
+						echo '<a href="index.php?producto='.$producto->getIdProducto().'">+</a>';
+					}
 					echo 'Stock:'.$producto->getStock();
 				echo '</article>';
 			}
@@ -94,8 +103,8 @@
 	<footer>
 		<?php
 			for ($i = 1; $i <= $porductCount; $i++) {
-				if(isset($_GET['textToFind']) ){
-					echo '<a href="index.php?textToFind='.$_GET['textToFind'].'&pagina='.''.$i.'">'.$i.'</a>';
+				if(isset($_GET['nameProducto']) ){
+					echo '<a href="index.php?nameProducto='.$_GET['nameProducto'].'&pagina='.''.$i.'">'.$i.'</a>';
 				}
 				else{
 					echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';

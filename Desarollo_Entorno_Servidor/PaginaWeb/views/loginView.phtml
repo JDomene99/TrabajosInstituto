@@ -21,8 +21,8 @@
         <div class="form">
             <h2>Logeo</h2>
             <form action="index.php?login" method="post">
-                <input type="text" name="user" placeholder="Usuario"/>
-                <input type="password" name="password" placeholder="Contraseña"/>
+                <input type="text" name="user" placeholder="Usuario" required/>
+                <input type="password" name="password" placeholder="Contraseña" required />
                 <input type="submit" name="logeo" value="Entrar"/>
             </form>
         </div>
@@ -30,9 +30,9 @@
         <div class="form">
             <h2>Registro</h2>
             <form action="index.php?login" method="post">
-                <input type="text" name="user" placeholder="Usuario"/>
-                <input type="password" name="password" placeholder="Contraseña"/>
-                <input type="password" name="password2" placeholder="Repite la contraseña"/>
+                <input type="text" name="user" placeholder="Usuario" required/>
+                <input type="password" name="password" placeholder="Contraseña" required/>
+                <input type="password" name="password2" placeholder="Repite la contraseña" required/>
                 <input type="submit" name="registro" value="Registro"/>
             </form>
         </div>

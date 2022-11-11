@@ -8,6 +8,9 @@ require_once('models/productosModel.php');
 require_once('models/productosRepository.php');
 require_once('models/roleModel.php');
 require_once('models/roleRepository.php');
+require_once('models/orderModel.php');
+require_once('models/orderLineItemModel.php');
+require_once('models/orderRepository.php');
 session_start();
 
 $porductCount = ProductosRepository::getCountProduct();
@@ -26,17 +29,13 @@ if(isset($_GET['pagina'])){
 }
 
 //cargamos la lista de articulos de la busqueda
-// if(isset($_GET['textToFind'])){
-//     $articleNumero = ArticleRepository::getCountarticleFindArticle($_GET['textToFind']); 
-//     $article = ArticleRepository::findArticle($_GET['textToFind'],1);
-//     if(isset($_GET['pagina']) && $_GET['pagina']> 1 && $_GET['pagina'] <= $articleNumero){ 
-//         $article = ArticleRepository::findArticle($_GET['textToFind'],$_GET['pagina']);
-//     }
-// }
-
-//carga toda las productos
-// $productos = ProductosRepository::getProductos();
-
+if(isset($_GET['nameProducto'])){
+    $porductCount = ProductosRepository::getCountProductFind($_GET['nameProducto']); 
+    $productos = ProductosRepository::findProduct($_GET['nameProducto'],1);
+    if(isset($_GET['pagina']) && $_GET['pagina']> 1 && $_GET['pagina'] <= $porductCount){ 
+        $productos = ProductosRepository::findProduct($_GET['nameProducto'],$_GET['pagina']);
+    }
+}
 
 //crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){
@@ -57,7 +56,7 @@ if(isset($_GET['producto'])){
 }
 
 if(isset($_GET['carrito'])){
-    require_once('controllers/carritoController.php');
+    require_once('controllers/orderController.php');
 }
 
 if(isset($_GET['role'])){

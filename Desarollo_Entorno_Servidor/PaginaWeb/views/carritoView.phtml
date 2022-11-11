@@ -17,9 +17,32 @@
     </nav>
 
     <main>
-
+    
+    <?php
+    
+   		if(count($orderItems)>0){
+            foreach($orderItems as $item){
+                echo '<article>';
+    
+                echo $item->getProduct()->getName();
+                echo ': ';
+                echo $item->getProduct()->getPrecio();
+                echo '€ x ';
+                echo $item->getCantidad(); 
+    
+                echo '</article>';
+            }
+            echo '</br>Precio total = '.$precioFinal ;
+            
+            echo '</br><a href="index.php?carrito&confirmarPedido">Confirmar Pedido</a>';
+        }
+        else{
+            echo 'No hay pedidos';
+        }
+        
+		?>
         
     
     </main>
-<!-- </body> -->
+</body>
 </html>
