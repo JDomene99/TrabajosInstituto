@@ -277,15 +277,17 @@ i{
         padding: 15px 0px;
     }
     .section4 img{
-        width: 90%;
-        margin: 0 5%;
-        height: 400px;
+        padding: 0 0;
+        width: 80%;
+        margin: 0 auto;
+        height: 300px;
         padding-bottom: 20px;
     }
     .section4{
         height: 900px;
     }
     .section4 h2{
+        padding-bottom: 0%;
         text-align: center;
     }
     .section4 div div{

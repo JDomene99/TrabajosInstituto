@@ -83,10 +83,10 @@ main{
     grid-area: main;
 }
 main section{
+    margin: 0 2%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    /* align-content: space-between; */
 }
 
 article{
@@ -99,7 +99,7 @@ article{
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
-    height: 300px; 
+    height: 400px; 
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 article h2{
@@ -165,7 +165,7 @@ i{
       display: flex;
     }
     nav{
-        flex-flow: column;
+        flex-flow: column-reverse;
         align-items: flex-start;
     }
     nav ul{
@@ -178,8 +178,8 @@ i{
         justify-content: space-between;
     }
     article{
-        width: 30%;
-        height: 300px;
+        width: 40%;
+        height: 400px;
     }
     article img{
         width: 100%;
@@ -187,20 +187,17 @@ i{
     }
    
 }
-@media only screen and (max-width: 480px) {
-    
+@media only screen and (max-width: 591px) {
     body{
         display: grid;
         grid-template-areas: 
           "header header"
           "nav nav"
-          "aside  aside"
-          "main main"
+          "aside  main"
           "footer footer";
-        grid-template-rows: 1fr 0.5fr 0.5fr 10fr 1fr;
-        grid-template-columns: 100%
+        grid-template-rows: 0.5fr 0.5fr 10fr 0.3fr;
+        grid-template-columns: 25% 75%;
     }
-
     header{
         display: flex;
         flex-flow: column wrap;
@@ -211,8 +208,48 @@ i{
         text-align: center;
     }
     article{
+        width: 80%;
+        height: 500px;
+    }   
+   
+}
+
+@media only screen and (max-width: 480px) {
+    
+    body{
+        display: grid;
+        grid-template-areas: 
+          "header header"
+          "nav nav"
+          "aside  aside"
+          "main main"
+          "footer footer";
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 10fr 1fr;
+        grid-template-columns: 100%
+    }
+    header div:first-of-type{
+       display: none;
+    }
+    header{
+        display: flex;
+        flex-flow: column wrap;
+        text-align: center;
+    }
+    nav li{
+        padding: 5px;
+    }
+    nav ul{
+        margin-bottom: 10px;
+    }
+    nav a:hover{
+        color: #ef717a;
+        background-color: white;
+    }
+    aside{
+        text-align: center;
+    }
+    article{
         width: 90%;
-       
         height: 500px;
     }
     
