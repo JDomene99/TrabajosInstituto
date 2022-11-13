@@ -1,5 +1,4 @@
-import sumar from "./importExport.js";
-
+import { getInfoUser, saveUser, getEdad, checkDni, checkCp } from "./importExport.js";
 /**
  *  clase nombre,dni,fechaNacimiento,cp
  * a) crear un fichero adicional que sea comporbaciones.js que me calcule la edad que tengo(calculoEdad) verifique que el dni es correcto
@@ -12,3 +11,46 @@ import sumar from "./importExport.js";
  * 
  */
 
+ class Usuario{
+    constructor(name,dni,fechaNacimiento,cp){
+        this._name = name;
+        this._dni = dni;
+        this._fechaNacimiento = fechaNacimiento;
+        this._cp = cp;
+    }
+  
+    //metodos
+    set setNombre(newNombre){
+        this._name = newNombre;
+    }
+
+    get getNombre(){
+        return this._name;
+    }
+
+    set setDni(newDni){
+        this._dni = newNombre;
+    }
+
+    get getDni(){
+        return this._dni;
+    }
+
+    set setfechaNacimiento(newfecha){
+        this._fechaNacimiento = fechaNacimiento;
+    }
+
+    get getfechaNacimiento(){
+        return this._fechaNacimiento;
+    }
+
+    set setCp(newfecha){
+        this._cp = cp;
+    }
+
+    get getCp(){
+        return this._cp;
+    }
+
+  
+}
