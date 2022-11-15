@@ -16,12 +16,15 @@ class Order{
     public function getIdOrder(){
         return $this->id_order;
     }
+
     public function getIdUser(){
         return $this->id_user;
     }
+
+    public function getPriceTotal(){
+        return $this->$precioTotal;
+    }
     
-
-
 
 } 
 

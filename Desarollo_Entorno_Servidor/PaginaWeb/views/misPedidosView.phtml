@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css/mainView.css" >
+	<title>Pagina Web</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		
+		header{
+			text-align: center;
+			font-size:20px
+		}
+		nav a{
+			padding:5px 50px;
+			color: black;
+			text-decoration:none;
+		}
+		
+		nav{
+			background-color: grey;
+			padding:5px;
+			text-align:center;
+		}
+		article a{
+			border: 1px solid black;
+			padding:5px 50px;
+			color: black;
+			text-decoration:none;
+		}
+		article{
+			padding: 20px 0px;
+		}
+		article a{
+			border : 1px solid black;
+		}
+		.container{
+			display:flex;
+			flex-flow: row wrap;
+		}
+		section{
+			width: 45%;
+		}
+
+	</style>
+	
+</head>
+<body>
+
+	<header>
+		<h1>Pagina Web</h1>
+	</header>
+
+	<nav>
+
+		<a href="index.php">Inicio</a> 
+
+	</nav>
+
+	<h2>Pedidos</h2>
+
+	<div class="container">
+		<section>
+
+			<?php
+			if($pedidoHistory > 0){
+				foreach($pedidoHistory as $order){
+					echo '<article>';
+						echo 'Numero de pedido'.'<a href="index.php?misPedidos&idPedido='.$order->getIdOrder().'">'.$order->getIdOrder().'</a>';
+					echo '</article>';
+				}
+			}
+			else{
+				echo 'no hay orders';
+			}
+			?>
+
+
+		</section>
+
+		<section>
+		<?php
+			if(isset($_GET['idPedido'])){
+				if($orderItemHistory > 0){
+					foreach($orderItemHistory as $order){
+						echo '<article>';
+							echo $order->getCantidad(). ' X '.$order->getProduct()->getName().' '.$order->getProduct()->getPrecio().'€';
+							
+						echo '</article>';
+					}
+					echo '-------------- <br />';
+					echo 'Total: '.$precioFinalHistory;
+				}
+				else{
+					echo 'no hay orders';
+				}
+			} 
+
+			die();
+		?>
+		</section>
+	</div>
+</body>
+</html>

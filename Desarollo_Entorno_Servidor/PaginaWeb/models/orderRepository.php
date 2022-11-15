@@ -9,6 +9,7 @@ class OrderRepository{
         
         $resutl2 = $db->query("SELECT * FROM order2 WHERE id_order= '".$idOrder."'");
         if($datos = $resutl2->fetch_assoc()) {
+            //creo la session order
             $_SESSION['Order'] = new Order($datos);
         }
     
@@ -67,7 +68,7 @@ class OrderRepository{
     public static function getTotalPriceByOrder($orderItemArray,$id_order){
         $suma = 0;
         foreach($orderItemArray as $orderItem){
-            $suma += ($orderItem->getCantidad() *$orderItem->getProduct()->getPrecio())+$suma;
+            $suma += ($orderItem->getCantidad() *$orderItem->getProduct()->getPrecio());
         }
         $db = Conectar::conexion();
         $result = $db->query("UPDATE order2 SET precioTotal = '$suma' WHERE order2.id_order = '$id_order'");
@@ -78,6 +79,17 @@ class OrderRepository{
     public static function confirmOrder($id_order){
         $db = Conectar::conexion();
         $result = $db->query("UPDATE order2 SET estado = 'confirmado' WHERE order2.id_order = '$id_order' ");
+    }
+
+    public static function getOrderHistory($id_user){
+        $db = Conectar::conexion();
+        $q = "SELECT * FROM order2 where id_user = '$id_user' AND estado = 'confirmado' ";
+        $result = $db->query($q);
+        $order = [];
+        while($datos = $result->fetch_assoc()) {
+            $order[] = new Order($datos);
+        } 
+        return $order;
     }
 
 }   

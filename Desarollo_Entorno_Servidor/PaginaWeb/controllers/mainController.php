@@ -18,11 +18,10 @@ $porductCount = ProductosRepository::getCountProduct();
 $productos = [];
 if(!isset($_GET['findArticleButton']) ){
     $productos = ProductosRepository::getProductos(1);
-   
 } 
+
 //si llama a una pagina
 if(isset($_GET['pagina'])){ 
-    echo $_GET['pagina'];
     if($_GET['pagina']> 1 || $_GET['pagina'] <$porductCount){        
         $productos =ProductosRepository::getProductos($_GET['pagina']);
     }
@@ -50,15 +49,22 @@ if(isset($_GET['newProducto'])){
     require_once('controllers/productosController.php');
 }
 
+//Vista de ver mis pedidos
+if(isset($_GET['misPedidos'])){
+    require_once('controllers/orderController.php');
+}
+
 //Vista de crear producto
 if(isset($_GET['producto'])){
     require_once('controllers/productosController.php');
 }
 
+//añadir productos al carrito
 if(isset($_GET['carrito'])){
     require_once('controllers/orderController.php');
 }
 
+//modifico el rol
 if(isset($_GET['role'])){
     require_once('controllers/roleController.php');
 }
