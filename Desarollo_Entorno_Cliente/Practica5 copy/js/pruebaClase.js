@@ -54,3 +54,8 @@ import { getInfoUser, saveUser, getEdad, checkDni, checkCp } from "./importExpor
 
   
 }
+
+const dniValidate = document.getElementById('dniUser');
+dniValidate.addEventListener('blur', (event) => {
+    const dni2 = event.target.value;
+});

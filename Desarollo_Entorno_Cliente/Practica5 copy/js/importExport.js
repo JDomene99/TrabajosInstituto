@@ -8,7 +8,8 @@ export function getInfoUser(){
     if(checkCp(cp) && checkDni(dni) ){
         const user = new Usuario(name,dni,fechaNaci,cp);
         saveUser(user);
-        document.getElementById('usuariosAdded').innerText ='Nombre: '+ user.getNombre;
+        document.createElement("p");
+        document.getElementById('usuariosAdded').appendChild(document.createTextNode('Nombre: '+ user.getNombre));
     } 
 }
 
@@ -22,7 +23,12 @@ export function saveUser(user){
     }
     
 }
-
+export function confirmDni(){
+    
+    if(localStorage.getItem(user.getDni) != dniValidate){
+        
+    }
+}
 export function getEdad(fechaNaci){
     const date = new Date(fechaNaci);
     if(date.getMonth()+1 < new Date().getMonth()+1){
