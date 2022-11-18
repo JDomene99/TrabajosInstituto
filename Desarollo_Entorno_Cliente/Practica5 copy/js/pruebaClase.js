@@ -11,48 +11,48 @@ import { getInfoUser, saveUser, getEdad, checkDni, checkCp } from "./importExpor
  * 
  */
 
- class Usuario{
-    constructor(name,dni,fechaNacimiento,cp){
-        this._name = name;
-        this._dni = dni;
-        this._fechaNacimiento = fechaNacimiento;
-        this._cp = cp;
-    }
-  
-    //metodos
-    set setNombre(newNombre){
-        this._name = newNombre;
-    }
+class Usuario{
+constructor(name,dni,fechaNacimiento,cp){
+    this._name = name;
+    this._dni = dni;
+    this._fechaNacimiento = fechaNacimiento;
+    this._cp = cp;
+}
 
-    get getNombre(){
-        return this._name;
-    }
+//metodos
+set setNombre(newNombre){
+    this._name = newNombre;
+}
 
-    set setDni(newDni){
-        this._dni = newNombre;
-    }
+get getNombre(){
+    return this._name;
+}
 
-    get getDni(){
-        return this._dni;
-    }
+set setDni(newDni){
+    this._dni = newNombre;
+}
 
-    set setfechaNacimiento(newfecha){
-        this._fechaNacimiento = fechaNacimiento;
-    }
+get getDni(){
+    return this._dni;
+}
 
-    get getfechaNacimiento(){
-        return this._fechaNacimiento;
-    }
+set setfechaNacimiento(newfecha){
+    this._fechaNacimiento = fechaNacimiento;
+}
 
-    set setCp(newfecha){
-        this._cp = cp;
-    }
+get getfechaNacimiento(){
+    return this._fechaNacimiento;
+}
 
-    get getCp(){
-        return this._cp;
-    }
+set setCp(newfecha){
+    this._cp = cp;
+}
 
-  
+get getCp(){
+    return this._cp;
+}
+
+
 }
 
 const dniValidate = document.getElementById('dniUser');

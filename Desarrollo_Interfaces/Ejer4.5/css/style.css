@@ -200,6 +200,13 @@ footer ul:last-of-type a{
 i{  
     color: #ef717a;
 }
+body > nav li:nth-child(odd) { 
+    font-weight: bold;
+}
+  
+body > nav li:nth-child(even) { 
+    font-style: italic; 
+}
 
 /* Media */
 @media only screen and (max-width: 780px) {
