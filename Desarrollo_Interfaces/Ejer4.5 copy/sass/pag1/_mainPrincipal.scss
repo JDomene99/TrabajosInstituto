@@ -1,0 +1,118 @@
+main{
+    width: 100%;
+
+    section{ 
+
+        padding: 20px 20px;
+
+        h2{
+            padding-left: 20px;
+            padding-bottom: 20px;
+            width: 100%;
+        }    
+    }
+
+    section:first-of-type{
+
+        background-color: #f1f1f1;
+        display: flex;
+        flex-flow: row wrap;
+
+        & img{
+            width: 30%;
+        }
+        &  div{
+            display: flex;
+            flex-flow: row wrap;
+
+            & div {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                width: 60%;
+            } 
+        }
+
+        & p {
+            padding: 20px;
+        }
+        
+    }
+    
+    section:nth-child(2){
+        background-color: #ef717a;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between; 
+        padding: 0px 20px;
+
+        & article{
+            padding: 20px 20px;
+            padding-bottom: 40px;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-between; 
+            align-items: center;
+            width: 25%;
+        }
+        & img{
+            width: 100%;
+        }
+
+        & p{
+            justify-items: center;
+            padding-top: 20px;
+        }
+    }
+    
+    section:nth-child(3){
+        background-color: #f1f1f1;
+
+        & .parrafos{
+            padding-left: 20px;
+        }
+
+        & img{
+            width: 30%;
+        }
+        
+        & div{
+            display: flex;
+            flex-flow: row wrap;
+
+            & div {
+                width: 60%;
+            }
+        }
+        
+    }
+
+    section:nth-child(4){
+        background-color:  #ef717a;
+        display: flex;
+        flex-flow: row wrap;
+        padding-bottom: 50px;
+
+        & div{
+            display: flex;
+            flex-flow: row wrap;
+
+            & div{
+                padding:0 2%;
+                width: 60%;
+                height: 50%;
+            }
+        }
+
+        & img{
+            padding-left: 20px;
+            width: 30%;
+        }
+
+    }
+
+}
+
+
+
+

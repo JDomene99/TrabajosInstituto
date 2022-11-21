@@ -1,0 +1,29 @@
+aside{
+    font-size: 20px;
+    grid-area: aside;
+    background-color: palevioletred;
+    box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.75) inset;
+
+    li{
+        padding: 5% 5%; 
+        list-style: none;
+
+        a{
+            text-decoration: none;
+            color: black;
+
+            &:hover{
+                color:white;
+            }
+        }
+        
+    }
+
+    li:last-child{
+        border: 1px solid black;
+    }
+    li:first-child{
+        border: 1px solid black;
+    }
+    
+}

@@ -1,0 +1,52 @@
+footer{
+    background-color: #f1f1f1;
+    padding: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;  
+    color: $color-footer;
+    grid-area: footer;
+   
+
+    .copy{
+        font-size: 40px;
+    }
+
+    ul{
+        li{
+            list-style: none;
+
+            a{
+                padding: 5px 0px;
+                text-decoration: none;
+                color: $color-footer;
+                font-size: 14px;
+            }
+        }
+
+        &:last-of-type{
+            display: flex;
+            flex-flow: row wrap;
+            gap: 20px;
+            justify-content: right;
+
+            li:first-of-type{
+                width: 100%;
+                text-align: right;
+            }
+            
+            li:nth-child(2),&:nth-child(3),&:nth-child(4) {
+                a{
+                    i{
+                        font-size: 40px;
+                    }
+                    
+                }
+            }
+        }
+    } 
+
+    
+    
+}
+

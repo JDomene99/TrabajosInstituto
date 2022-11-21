@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    grid-area: head;
+
+    div:first-of-type{
+        flex: 1 0 auto;
+        margin-left: $margin5;
+    }
+
+    div img{
+        width: 150px;
+    }
+
+    h1{
+        margin-right: $margin5;
+    }
+}

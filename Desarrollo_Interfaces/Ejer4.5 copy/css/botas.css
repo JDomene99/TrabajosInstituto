@@ -1,0 +1,17 @@
+
+
+
+
+
+/* ejercicio pseudoselectores */
+
+
+body > nav li:nth-child(odd) { 
+    font-weight: bold;
+}
+  
+body > nav li:nth-child(even) { 
+    font-style: italic; 
+}
+
+

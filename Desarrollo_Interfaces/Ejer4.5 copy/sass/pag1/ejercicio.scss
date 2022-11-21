@@ -1,0 +1,17 @@
+@import "colors";
+@import "margin";
+@import "header";
+@import "nav";
+@import "mainPrincipal";
+@import "footer";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+body{
+    display: flex;
+    flex-flow: row wrap;
+    font-size:20px;
+}

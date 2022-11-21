@@ -2,17 +2,20 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8" />
         
-        <link rel="stylesheet" href="./css/style.css" >
+        <link rel="stylesheet" href="./sass/pag1/ejercicio.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
     
     <header>
-        
+        <div><img src="./imagenes/icon.png" ></div>
+        <div><h1> El tacon de oro </h1></div>
     </header>
     
     <nav>
+        <input type="text" placeholder="Buscar">
+        
         <ul>
 
             <li><a href="#taconDeOro">El tacon de oro</a></li>
@@ -26,14 +29,77 @@
     </nav>
 
     <main>
-
-        <section >
-            <article>
-              
+        <section id="taconDeOro">
+            <article class="section1">
+                <h2>El tacon de oro</h2>
+                <div>
+                    <img src="./imagenes/botas.webp" alt="">
+                
+                    <div class="parrafos">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis odio labore perferendis minima saepe aut error necessitatibus accusantium. Impedit, libero fuga, assumenda ratione ut culpa placeat odio tenetur dolor molestiae sapiente provident dolorum recusandae cumque, atque dolorem commodi quibusdam facilis!    </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odio omnis nis fugiat ducimus atque voluptatum quam accusamus totam, ad eligendi non ex. Magni blanditiis explicabo, culpa placea atque ducimus atque voluptatum quam accusamus totam, ad eligendi non ex placea atque ducimus atque voluptatum quam accusamus totam, ad eligendi non edolorem commodi quibusdam facilis!    </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia reprehenderit alias enim sapiente voluptatibus debitis eveniet non laudantium blanditiis corporis, modi nobis odio labore perferendis minima saepe aut error necessitatibus accusantium. Impedit, libero fuga, assumenda ratione ut culpa placeat odio tenetur dolor molestiae sapiente provident dolorum recusandae cumque, atque dolorem commodi quibusdam facilis!    </p>
+                    </div>
+                    
+                </div>
+                
             </article>
         </section>
 
-    
+        <section id="productos" class="section2">
+            <h2>Productos</h2>
+
+            <article>
+                <img src="./imagenes/bota1.jpg" alt="">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam ea minima repellendus sequi minus voluptatum perferendis error. Dolore, a beatae.    </p>
+            </article>
+
+            <article>
+                <img src="./imagenes/bota2.jpg" alt="">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam ea minima repellendus sequi minus voluptatum perferendis error. Dolore, a beatae.    </p>
+            </article>
+
+            <article>
+                <img src="./imagenes/bota3.jpg" alt="">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam ea minima repellendus sequi minus voluptatum perferendis error. Dolore, a beatae.    </p>
+            </article>
+        </section>
+
+        <section id="piel">
+            <article class="section3">
+                <h2>La piel</h2>    
+                <div>
+                    <div class="parrafos">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis odio labore perferendis minima saepe aut error necessitatibus accusantium. Impedit, libero fuga, assumenda ratione ut culpa placeat odio tenetur dolor molestiae sapiente provident dolorum recusandae cumque, atque dolorem commodi quibusdam facilis!    </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odio omnis nis fugiat ducimus atque voluptatum quam accusamus totam, ad eligendi non ex. Magni blanditiis explicabo, culpa placea atque ducimus atque voluptatum quam accusamus totam, ad eligendi non ex placea atque ducimus atque voluptatum quam accusamus totam, ad eligendi non edolorem commodi quibusdam facilis!    </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia reprehenderit alias enim sapiente voluptatibus debitis eveniet non laudantium blanditiis corporis, modi nobis odio labore perferendis minima saepe aut error necessitatibus accusantium. Impedit, libero fuga, assumenda ratione ut culpa placeat odio tenetur dolor molestiae sapiente provident dolorum recusandae cumque, atque dolorem commodi quibusdam facilis!    </p>
+                    </div>
+
+                    <img src="./imagenes/botas.webp" alt="">
+                </div>
+                
+                
+            </article>
+        </section>
+
+        <section id='tiendas'>
+            <article class="section4">
+                <h2>Tiendas</h2>
+
+                <div>
+                    <img src="./imagenes/mpa.png" alt="">
+                    <div>
+                        <h3>Localiza tu tienda mas cercana</h3>
+                        <p>Lorem ipsum ratione enim sapiente voluptatibus debitis eveniet non laudantium blanditiis corporis, modi nobis odio labore perferendis minima saepe aut error necessitatibus accusantium. Impedit, libero fuga, assumenda ratione ut culpa placeat odio tenetur dolor molestiae sapiente provident dolorum recusandae cumque, atque dolorem commodi quibusdam facilis!    </p>
+                        <form action="">
+                            <input type="text" placeholder="CP">
+                            <input type="button" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </section>
+
     </main>        
     
     <footer>
@@ -45,7 +111,20 @@
             <li><a href="">Enlace 2</a></li>
             <li><a href="">Enlace 3</a></li>
 
-        </ul>      
+        </ul>
+
+        <ul>
+            <li><h3>CopyRight </h3></li>
+            <li> <h3 class="copy">&copy;</h3></li>
+        </ul>
+
+        <ul>
+            <li> <h3>Redes sociales</h3></li>
+            <li><a href=""><i class="fa fa-brands fa-instagram"></i></a></li>
+            <li><a href=""><i class="fa fa-brands fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-brands fa-facebook"></i></a></li>
+        </ul>
+        
         
     </footer>
 
