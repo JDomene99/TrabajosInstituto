@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="./css/mainView.css" >
-	<title>Pagina Web</title>
+	<title>Chat</title>
 	<script>
 	let refresh = document.getElementById('refresh');
 	refresh.addEventListener('click', _ => {
@@ -18,6 +18,10 @@
 		section{
 			border: 1px solid black;
 		}
+		.connect{
+			width : 100%;
+			text-align: right;
+		}
 		nav a{
 			padding:5px 50px;
 			color: black;
@@ -29,15 +33,22 @@
 		article{
 			padding: 5px;
 			margin: 10px 0px;
-			border : 1px solid black;
-			width: 25%
+			
 		}
 		article a{
 			border : 1px solid black;
 		}
-		img{
-			width: 80%;
-			height: 300px;
+		.chat {
+		
+			display: flex;
+			flex-flow : row wrap;
+			background-color: grey;
+			justify-content : space-between;
+		}
+		.chat article{
+			border-radius: 10px;
+			width: 49%;
+			background-color: lightgrey;
 		}
 		nav{
 			background-color: grey;
@@ -45,21 +56,27 @@
 			text-align:center;
 		}
 		footer{
-			text-align: center;
+			text-align: right;
 			padding: 10px;
-		}	
-		footer a{
-			border:1px solid black;
-			padding: 5px;
+			background-color: grey;
 		}
-
+		footer form{
+			
+			margin-right: 0px;
+		}	
+		form input[type="text"]{
+			width : 40%;
+		}
+		span{
+			font-size:11px;
+		}
 	</style>
 	
 </head>
 <body>
 
 	<header>
-		<h1>Pagina Web</h1>
+		<h1>Chat</h1>
 	</header>
 
 	<nav>
@@ -84,16 +101,37 @@
 
 	
 
-	<section>
+	<section class="connect">
 		
+		<?php
+		if($usersConected>0){
+			echo '<article>';
 			
+			
+			if(isset($_GET['infoConnectedUser'])){
+				foreach($usersConectedInfo as $user){	
+					echo $user->getName().'🟢';
+				}
+				echo '<a href="index.php?close">Ocultar</a>';
+			}
+			else{
+				echo $usersConected;
+				echo  '<a href="index.php?infoConnectedUser&close">Contectados</a>';
+				
+			}
 
+			echo '</article>'; 
+		}
+		?>
+	</section>
+
+	<section class="chat">
 		<?php
 			
 			if(($messages)>0){
 				foreach($messages as $msg){
 					echo '<article>';
-						echo $msg->getUser().': '.$msg->getMessage().'('.$msg->getDate().')';
+						echo '<b>'.$msg->getUser().'</b>: '.$msg->getMessage().' <span>'.$msg->getDate().'</span>';
 					echo '</article>'; 
 				}
 			}
@@ -102,18 +140,7 @@
 					echo 'no hay mensajes todavia';
 				echo '</article>' ;
 			}
-			
-			;
-			if($_SESSION['user']->getName()!=""){
-				
-				
-				echo '<form action="index.php" method="post">
-                <input type="text" name="textChat" placeholder="habla..." required/>
-                <input type="submit" id="refresh" name="sendText" value="Send"/>
-           		</form>';
-
-			}
-				
+							
 		?>
 
 
@@ -121,6 +148,14 @@
 
 	<footer>
 		<?php
+		if($_SESSION['user']->getName()!=""){
+					
+			echo '<form action="index.php" method="post">
+			<input type="text" name="textChat" placeholder="habla..." required/>
+			<input type="submit" id="refresh" name="sendText" value="💬"/>
+			</form>';
+
+		}
 			
 		?>
 	</footer>

@@ -1,0 +1,22 @@
+@mixin grid_mixin {
+    display: grid;
+    grid-template-areas: 
+        "nav2 nav2 nav2"
+        "article1 article2 article3"
+        "article4 article5 article6";
+    grid-template-rows: 0.5fr 5fr 5fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+@mixin flex_mixin{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+@mixin flex_mixinColum{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+

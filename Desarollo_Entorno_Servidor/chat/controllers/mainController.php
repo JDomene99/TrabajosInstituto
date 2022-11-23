@@ -10,10 +10,12 @@ session_start();
 
 $messages = MessageRepository::getAllMessages();
 
+$usersConected = UserRepository::getUserConected();
+$usersConectedInfo = UserRepository::getUserInfoConected();
+
 if(isset($_POST['sendText'])) {
     require_once('controllers/chatController.php');
 }  
-
 
 //crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){
@@ -22,6 +24,7 @@ if(!isset($_SESSION['user'])){
     $datos['id_rol']=0;
     $_SESSION['user'] = new User($datos);
 }
+    
 
 //modifico el rol
 if(isset($_GET['role'])){
@@ -32,6 +35,7 @@ if(isset($_GET['role'])){
 //ir al form de login
 if(isset($_GET['login'])) {
     require_once('controllers/loginController.php');
+    
     die();
 }  
 

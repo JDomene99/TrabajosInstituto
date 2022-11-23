@@ -1,4 +1,33 @@
 @charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "head head" "navv navv" "aside  main" "footer footer";
+  grid-template-rows: 0.4fr 0.3fr 2fr 0.3fr;
+  grid-template-columns: 25% 75%;
+}
+
+.bolsos article h2::before {
+  content: "👜";
+}
+
+.zapatos article h2::before {
+  content: "👞";
+}
+
+.comple article h2::before {
+  content: "💎";
+}
+
+.botas article h2::before {
+  content: "🥾";
+}
+
 header {
   display: flex;
   flex-flow: row nowrap;
@@ -23,7 +52,6 @@ nav {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #ef717a;
   grid-area: navv;
 }
 nav ul {
@@ -88,7 +116,7 @@ main section {
   grid-template-rows: 0.5fr 5fr 5fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  padding: 0px 30px;
+  padding: 0px 30px 20px 30px;
 }
 main section nav {
   width: 100%;
@@ -139,15 +167,12 @@ main section article:nth-child(4) {
 main section article:nth-child(5) {
   grid-area: article5;
 }
-main section article:nth-child(6) {
-  grid-area: article6;
-}
 
 footer {
   background-color: #f1f1f1;
   padding: 50px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   color: #ef717a;
   grid-area: footer;
@@ -166,7 +191,7 @@ footer ul li a {
 }
 footer ul:last-of-type {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   gap: 20px;
   justify-content: right;
 }
@@ -174,12 +199,12 @@ footer ul:last-of-type li:first-of-type {
   width: 100%;
   text-align: right;
 }
-footer ul:last-of-type li:nth-child(2) a i, footer ul:last-of-type:nth-child(3) a i, footer ul:last-of-type:nth-child(4) a i {
+footer ul:last-of-type li:nth-child(n+2) a i {
   font-size: 40px;
 }
 
 /* Media */
-@media only screen and (max-width: 780px) {
+@media screen and (max-width: 780px) {
   header {
     display: flex;
   }
@@ -202,38 +227,9 @@ footer ul:last-of-type li:nth-child(2) a i, footer ul:last-of-type:nth-child(3) 
     padding: 0px 30px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   body {
     display: grid;
-    grid-template-areas: "head " "nav2 " "aside  " "main " "footer ";
-    grid-template-rows: 0.5fr 0.5fr 0.5fr 10fr 1fr;
+    grid-template-areas: "head" "navv" "aside" "main" "footer";
   }
-}
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Roboto;
-}
-
-body {
-  display: grid;
-  grid-template-areas: "head head" "navv navv" "aside  main" "footer footer";
-  grid-template-rows: 1.5fr 1fr 7fr 1fr;
-  grid-template-columns: 25% 75%;
-}
-
-.bolsos article h2::before {
-  content: "👜";
-}
-
-.zapatos article h2::before {
-  content: "👞";
-}
-
-.comple article h2::before {
-  content: "💎";
-}
-
-.botas article h2::before {
-  content: "🥾";
-}/*# sourceMappingURL=ejercicio.css.map */
+}/*# sourceMappingURL=ejercicio2.css.map */

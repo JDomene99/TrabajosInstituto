@@ -1,5 +1,4 @@
-/* Media */
-@media only screen and (max-width: 780px) {
+@media screen and (max-width: 780px) {
 
     header{
       display: flex;
@@ -19,6 +18,7 @@
 
     main {
         section{
+        
             display: grid;
             grid-template-areas: 
                 "nav2 nav2"
@@ -26,7 +26,7 @@
                 "article3 article4" 
                 "article5 article6";
             grid-template-rows: 0.5fr 5fr 5fr 5fr;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr ;
             gap: 20px;
             padding: 0px 30px;
         }
@@ -36,32 +36,34 @@
    
 }
 
-@media only screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
     
     body{
-        
-        // display: grid;
         grid-template-areas: 
-          "head"
-          "navv"
-          "aside"
-          "main"
-          "footer";
+                "head"
+                "navv"
+                "aside"
+                "main"
+                "footer";
         grid-template-rows: 0.5fr 0.5fr 0.5fr 10fr 1fr;
         grid-template-columns: 1;
+
+   
+        
         
         header{
+            
             display: flex;
             flex-flow: column wrap;
             text-align: center;
-
+           
             div:first-of-type{
                 display: none;
             }
         }
       
         nav{
-            background-color: aqua;
+
             ul{
             margin-bottom: 10px;
                 li{
@@ -91,7 +93,7 @@
                     "article4" 
                     "article5"
                     "article6";
-                grid-template-rows: 0.5fr 5fr 5fr 5fr 5fr 5fr 5fr;
+                grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 0px 30px;

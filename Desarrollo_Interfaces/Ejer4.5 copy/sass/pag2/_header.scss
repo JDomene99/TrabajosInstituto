@@ -1,6 +1,5 @@
 header{
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex_mixin;
     align-items: center;
     grid-area: head;
 

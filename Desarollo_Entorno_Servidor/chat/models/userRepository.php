@@ -20,7 +20,7 @@ class UserRepository{
         if($datos = $result->fetch_assoc()) {
             if($datos['password'] == $password) {
                 $_SESSION['user'] = new User($datos);
-                
+                UserRepository::updateToOnline($datos['id_user']);
             }
         }
     }
@@ -32,6 +32,41 @@ class UserRepository{
             $result = $db->query("INSERT into users(id_user,name,password) VALUES( null, '$nombre' , '$passwordUser') ");      
         }
     }
+
+    public static function updateToOnline($id_user){
+        $db = Conectar::conexion();
+        $result = $db->query("UPDATE users SET online = '1' WHERE users.id_user =  $id_user");
+        
+    }
+
+    public static function updateToDesconect($id_user){
+        $db = Conectar::conexion();
+        $result = $db->query("UPDATE users SET online = '0' WHERE users.id_user =  $id_user");
+        
+    }
+
+
+    public static function getUserConected(){
+        $db = Conectar::conexion();
+        $result = $db->query("SELECT COUNT(*) FROM users WHERE online = '1' ");
+        $userConnected = (int)$result->fetch_column();
+        return $userConnected;
+        
+    }
+
+    public static function getUserInfoConected(){
+        $db = Conectar::conexion();
+        $users = [];
+        $result = $db->query("SELECT * FROM users WHERE online = '1' ");
+        while($datos = $result->fetch_assoc()) {
+            $users[] = new User($datos);
+        }
+        
+            return  $users;
+        
+    }
+
+
     
 } 
 

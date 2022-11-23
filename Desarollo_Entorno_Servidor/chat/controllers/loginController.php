@@ -1,15 +1,16 @@
 <?php
 
     if(isset($_GET['logout']) ){
+        userRepository::updateToDesconect($_SESSION['user']->getId());
         unset($_SESSION['user']);
-        unset($_SESSION['order']);
         header('Location: index.php');
     }
 
     if(isset($_POST['logeo'])){
          if( isset($_POST['user']) && isset($_POST['password']) ){
             UserRepository::loginUser($_POST['user'],$_POST['password']);
-            require_once("views/mainView.phtml");
+            // require_once("views/mainView.phtml");
+            header('Location: index.php');
             die();
         }
     }

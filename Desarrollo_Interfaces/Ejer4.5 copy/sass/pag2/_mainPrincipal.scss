@@ -1,25 +1,18 @@
 main{
 
-    background-color: #f1f1f1;
+    background-color:$color-grey;
     grid-area: main;
     
     section{
         
-        display: grid;
-        grid-template-areas: 
-            "nav2 nav2 nav2"
-            "article1 article2 article3"
-            "article4 article5 article6";
-        grid-template-rows: 0.5fr 5fr 5fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
-        padding: 0px 30px;
+        @include  grid_mixin;
+        padding:0px 30px 20px 30px;
 
 
         nav{
             width: 100%;
             margin: 0 auto;
-            background-color: #f1f1f1;
+            background-color:$color-grey;
             grid-area: nav2;
         }
         
@@ -28,8 +21,7 @@ main{
             padding: 10px;
             border: 1px solid black;
             border-radius: 25px;
-            display: flex;
-            flex-flow: column nowrap;
+            @include flex_mixinColum;
             align-items: center;
             text-align: center;
             height: 500px; 
@@ -57,25 +49,12 @@ main{
                 border-radius: 25px;
             }
         }
+        
 
-        article:nth-child(1){
-            grid-area: article1;
-        }
-
-        article:nth-child(2){
-            grid-area: article2;
-        }
-        article:nth-child(3){
-            grid-area: article3;
-        }
-        article:nth-child(4){
-            grid-area: article4;
-        }
-        article:nth-child(5){
-            grid-area: article5;
-        }
-        article:nth-child(6){
-            grid-area: article6;
+        @for $num from $inicio to $fin {
+            article:nth-child(#{$num}) {
+                grid-area: article#{$num};
+            }
         }
 
         
