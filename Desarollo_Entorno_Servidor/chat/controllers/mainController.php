@@ -6,16 +6,23 @@ require_once('models/roleModel.php');
 require_once('models/roleRepository.php');
 require_once('models/messageModel.php');
 require_once('models/messageRepository.php');
+require_once('models/salaModel.php');
+require_once('models/salaRepository.php');
+require_once('models/chatModel.php');
+require_once('models/chatRepository.php');
 session_start();
 
-$messages = MessageRepository::getAllMessages();
+$salas = SalaRepository::getAllSale();
+// $messages = MessageRepository::getAllMessages();
 
-$usersConected = UserRepository::getUserConected();
-$usersConectedInfo = UserRepository::getUserInfoConected();
 
 if(isset($_POST['sendText'])) {
     require_once('controllers/chatController.php');
 }  
+
+if(isset($_GET['sala'])){
+    require_once('controllers/salaController.php');
+}
 
 //crea un usuario vacio para poder cargar mas despues
 if(!isset($_SESSION['user'])){

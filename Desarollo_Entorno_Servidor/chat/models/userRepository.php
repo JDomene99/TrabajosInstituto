@@ -20,6 +20,8 @@ class UserRepository{
         if($datos = $result->fetch_assoc()) {
             if($datos['password'] == $password) {
                 $_SESSION['user'] = new User($datos);
+                session_set_cookie_params(0, "/", $HTTP_SERVER_VARS["HTTP_HOST"], 0);
+                $_SESSION["ultimoAcceso"]= date("Y-n-j H:i:s");
                 UserRepository::updateToOnline($datos['id_user']);
             }
         }
@@ -40,9 +42,11 @@ class UserRepository{
     }
 
     public static function updateToDesconect($id_user){
+        unset($_SESSION["ultimoAcceso"]);
+        unset($_SESSION['user']);
         $db = Conectar::conexion();
         $result = $db->query("UPDATE users SET online = '0' WHERE users.id_user =  $id_user");
-        
+        header('Location: index.php');
     }
 
 
@@ -55,17 +59,33 @@ class UserRepository{
     }
 
     public static function getUserInfoConected(){
+        UserRepository::checkTimeUser();
         $db = Conectar::conexion();
         $users = [];
         $result = $db->query("SELECT * FROM users WHERE online = '1' ");
         while($datos = $result->fetch_assoc()) {
             $users[] = new User($datos);
         }
-        
-            return  $users;
+        return  $users;
         
     }
 
+    public static function checkTimeUser(){ 
+        $db = Conectar::conexion();
+        if(isset($_SESSION["ultimoAcceso"])){
+            $tiempoInicio = $_SESSION["ultimoAcceso"];
+            $ahora = date('Y-m-d H:i:s');       
+            $tiempo_transcurrido = (strtotime($ahora)-strtotime($tiempoInicio));  
+            if($tiempo_transcurrido >= 1000) {
+                echo $tiempo_transcurrido;
+                UserRepository::updateToDesconect($_SESSION["user"]->getId());
+            }
+            
+        }
+        
+        
+            
+    }
 
     
 } 

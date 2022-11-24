@@ -1,5 +1,19 @@
 <?php
 
+    if(isset($_GET['checkTime'])){        
+        echo UserRepository::checkTimeUser();
+        $usersConectedInfo = UserRepository::getUserInfoConected();
+        if(isset($_GET['close'])){
+            header('Location: index.php');
+        }
+    
+        require_once("views/mainView.phtml");
+        die();
+        
+    }
+
+    
+
     if(isset($_GET['logout']) ){
         userRepository::updateToDesconect($_SESSION['user']->getId());
         unset($_SESSION['user']);
@@ -9,7 +23,6 @@
     if(isset($_POST['logeo'])){
          if( isset($_POST['user']) && isset($_POST['password']) ){
             UserRepository::loginUser($_POST['user'],$_POST['password']);
-            // require_once("views/mainView.phtml");
             header('Location: index.php');
             die();
         }
@@ -25,6 +38,8 @@
             }
         }
     }
+
+    
 
     require_once("views/loginView.phtml");
 

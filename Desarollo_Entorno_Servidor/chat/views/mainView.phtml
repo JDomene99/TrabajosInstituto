@@ -39,11 +39,10 @@
 			border : 1px solid black;
 		}
 		.chat {
-		
+
 			display: flex;
 			flex-flow : row wrap;
 			background-color: grey;
-			justify-content : space-between;
 		}
 		.chat article{
 			border-radius: 10px;
@@ -65,10 +64,13 @@
 			margin-right: 0px;
 		}	
 		form input[type="text"]{
-			width : 40%;
+			width : 10%;
 		}
 		span{
 			font-size:11px;
+		}
+		section a{
+			padding: 0px 10px;
 		}
 	</style>
 	
@@ -87,53 +89,72 @@
 		//si la session existe
 		if($_SESSION['user']->getName()=="")
 			echo '<a href="index.php?login">Login</a>';
+
 		else{
 			echo 'Bienvenido '.$_SESSION['user']->getName().' 
 			<a href="index.php?login&logout">Salir</a> -';
-			
+
+			echo '<a href="index.php?sala">Crear Sala</a>';
 		}
-		
 		
 		
 		?>
 
 	</nav>
 
-	
-
 	<section class="connect">
 		
 		<?php
-		if($usersConected>0){
 			echo '<article>';
 			
-			
-			if(isset($_GET['infoConnectedUser'])){
+			if(isset($_GET['checkTime'])){
+				echo '<a href="index.php?login&checkTime&close">Ocultar</a> <br/>';
 				foreach($usersConectedInfo as $user){	
-					echo $user->getName().'🟢';
+					echo '<a href="index.php?sala&privateChat='.$user->getId().'"> "'.$user->getName().'🟢"</a>';
 				}
-				echo '<a href="index.php?close">Ocultar</a>';
 			}
 			else{
-				echo $usersConected;
-				echo  '<a href="index.php?infoConnectedUser&close">Contectados</a>';
-				
+				echo  '<a href="index.php?login&checkTime">Conectados</a>';				
 			}
 
 			echo '</article>'; 
-		}
+		
 		?>
+
 	</section>
 
-	<section class="chat">
+	
+	
+		
+	<nav>
+	<?php
+		if($salas>0){
+			foreach($salas as $sala){	
+				
+				echo '<a href="index.php?sala&id_sala='.$sala->getIdSala().'"> "'.$sala->getName().'"</a>';
+			}
+		}
+	?>
+	</nav>
+		
+	<?php
+	if(isset($_GET['sala'])){
+	
+	?>
+	
+	<section >
+
 		<?php
 			
-			if(($messages)>0){
-				foreach($messages as $msg){
+			if($salaById->getMessages() != null ){
+				
+				foreach($salaById->getMessages() as $message){
 					echo '<article>';
-						echo '<b>'.$msg->getUser().'</b>: '.$msg->getMessage().' <span>'.$msg->getDate().'</span>';
+					echo '<b>'.$message->getUser().'</b>: '.$message->getMessage().' <span>'.$message->getDate().'</span>';
 					echo '</article>'; 
+					
 				}
+				
 			}
 			else{
 				echo '<article>';
@@ -148,17 +169,22 @@
 
 	<footer>
 		<?php
-		if($_SESSION['user']->getName()!=""){
-					
-			echo '<form action="index.php" method="post">
+		if($_SESSION['user']->getName()!=""){	
+			echo '<form action="index.php?sala&id_sala='.$salaById->getIdSala().'" method="post">
 			<input type="text" name="textChat" placeholder="habla..." required/>
+			<input type="hidden" name="idSalaToMessage" value="'.$salaById->getIdSala().'" />
 			<input type="submit" id="refresh" name="sendText" value="💬"/>
 			</form>';
 
 		}
-			
+	}
 		?>
-	</footer>
+	</footer> 
+    
+
+	
+
+	
 
 
 </body>

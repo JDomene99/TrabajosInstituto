@@ -81,7 +81,7 @@ const $testoDom = document.querySelector('.textoModificado');
 
 const category= ['animals','nature','people','tech'];
 function generateImage(){
-    const array = new Array(Math.floor(Math.random() * 10000));
+    const array = new Array(Math.floor(Math.random() * 100));
     const $body = document.querySelector('body');
 
     for(let i=0; i<array.length; i++) {
@@ -92,6 +92,7 @@ function generateImage(){
         console.log(i);
     }
 }
+
 
 
 
