@@ -8,6 +8,7 @@ class Chat{
     
     public function __construct($datos){
         $this->id_chat = $datos['id_chat']; 
+        echo $datos['id_chat'];
         $this->id_user1 = UserRepository::getUserById($datos['id_user1']);
         $this->id_user2 = UserRepository::getUserById($datos['id_user2']);
         $this->messages = MessageRepository::getMessagesByChat($datos['id_chat']);

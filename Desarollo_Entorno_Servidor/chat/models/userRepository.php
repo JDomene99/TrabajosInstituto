@@ -76,15 +76,11 @@ class UserRepository{
             $tiempoInicio = $_SESSION["ultimoAcceso"];
             $ahora = date('Y-m-d H:i:s');       
             $tiempo_transcurrido = (strtotime($ahora)-strtotime($tiempoInicio));  
-            if($tiempo_transcurrido >= 1000) {
+            if($tiempo_transcurrido >= 10000) {
                 echo $tiempo_transcurrido;
                 UserRepository::updateToDesconect($_SESSION["user"]->getId());
             }
-            
-        }
-        
-        
-            
+        }       
     }
 
     

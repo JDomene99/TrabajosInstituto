@@ -1,0 +1,31 @@
+.frutas{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.ficha{
+    display: flex;
+    flex-flow: column;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow:5px 5px 15px black;
+}
+.ficha .fruta{
+    margin: 0px;
+    font-size: 600%;
+    flex: 0 1 auto;
+}
+.ficha .texto{
+   flex: 1 1 auto;
+   height: 140px;
+}
+.ficha  .nombre{
+    flex: 0 1 auto;
+    height: 40px;
+    background-color: lightgrey;
+ 
+}
+ 
+
