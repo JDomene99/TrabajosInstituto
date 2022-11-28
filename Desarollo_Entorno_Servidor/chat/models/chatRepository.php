@@ -27,14 +27,15 @@ class ChatRepository{
     public static function ckeckChat($id_user1,$id_user2){  
         
         $db = Conectar::conexion();
-        $q = "SELECT * FROM chat where id_user1 = '".$id_user1."' AND id_user2 = '".$id_user2."' ";
+        $q = "Select * from chat where (id_user1 = '".$id_user1."' and id_user2 = '".$id_user2."') OR (id_user1 = '".$id_user2."' and id_user2 = '".$id_user1."');";
         $result = $db->query($q);
         if($datos = $result->fetch_assoc()){
-            return true;
+            return $chat = new Chat($datos);
         }else{
-            return false;
+            $result = $db->query("INSERT INTO chat (id_chat, id_user1, id_user2) VALUES (NULL, '$id_user1', '$id_user2')");
         }
     }  
+
 
     public static function findChat($id_user1,$id_user2){  
         

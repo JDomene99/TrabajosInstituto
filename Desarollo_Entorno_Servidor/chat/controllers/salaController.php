@@ -16,18 +16,7 @@
 
     if(isset($_GET['privateChat'])){
         //comprueba si ya existe un chat 
-        if(ChatRepository::ckeckChat($_SESSION['user']->getId(),$_GET['privateChat'])){
-            $chat = ChatRepository::findChat($_SESSION['user']->getId(),$_GET['privateChat']);
-            
-        }
-        //si no existe lo crea
-        else{
-            $idChat = ChatRepository::createChat($_SESSION['user']->getId(),$_GET['privateChat']);     
-            $chat = ChatRepository::getChatById($idChat);
-        }
-
-        
-         
+        $chat = ChatRepository::ckeckChat($_SESSION['user']->getId(),$_GET['privateChat']);
         require_once("views/privateChat.phtml");
         die();
           

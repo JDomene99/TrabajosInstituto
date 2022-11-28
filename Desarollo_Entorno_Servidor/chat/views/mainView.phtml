@@ -159,7 +159,7 @@
 			if($salas>0 ){
 				foreach($salas as $sala){	
 					
-					echo '<a href="index.php?sala&id_sala='.$sala->getIdSala().'"> "'.$sala->getName().'"</a>';
+					echo '<a href="index.php?sala&id_sala='.$sala->getIdSala().'"> '.$sala->getName().'</a>';
 				}
 			}
 		?>
@@ -173,7 +173,6 @@
 		<section class="messages" >
 
 			<?php
-				
 				if($salaById->getMessages() != null ){
 					
 					foreach($salaById->getMessages() as $message){
@@ -188,8 +187,6 @@
 								echo '<b>'.$message->getUser().'</b>: '.$message->getMessage().' <span>'.$message->getDate().'</span>';
 							echo '</article>'; 
 						}
-						
-						
 					}
 					
 				}
@@ -197,10 +194,8 @@
 					echo '<article>';
 						echo 'no hay mensajes todavia';
 					echo '</article>' ;
-				}
-								
+				}				
 			?>
-
 
 		</section>
 	</main>
@@ -212,17 +207,10 @@
 			<input type="hidden" name="idSalaToMessage" value="'.$salaById->getIdSala().'" />
 			<input type="submit" id="refresh" name="sendText" value="💬"/>
 			</form>';
-
 		}
 	}
 		?>
 	</footer> 
-    
-
-	
-
-	
-
 
 </body>
 </html>
