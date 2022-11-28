@@ -22,9 +22,10 @@ class MessageRepository{
         }
         $db = Conectar::conexion();
         $fechaActual = date('Y-m-d H:i:s');
-        $result = $db->query("INSERT INTO `messages` (`id_message`, `message`, `incoming_msg`, `id_sala`, `date`) VALUES (NULL, '$message', '$id_user', '$id_sala', '$fechaActual' )");      
+        $result = $db->query("INSERT INTO messages (id_message, message, incoming_msg, id_sala, date) VALUES (NULL, '$message', '$id_user', '$id_sala', '$fechaActual' )");      
         
     }
+
 
     public static function getMessagesBySala($id){  
         

@@ -88,9 +88,9 @@
 
 		<?php
 			
-			if($messageChat->getMessages() != null ){
+			if($chat->getMessages() != null ){
 				
-				foreach($messageChat->getMessages() as $message){
+				foreach($chat->getMessages() as $message){
 					echo '<article>';
 					echo '<b>'.$message->getUser().'</b>: '.$message->getMessage().' <span>'.$message->getDate().'</span>';
 					echo '</article>'; 
@@ -112,9 +112,9 @@
 	<footer>
 		<?php
 		if($_SESSION['user']->getName()!=""){	
-			echo '<form action="index.php?sala&id_sala='.$messageChat->getIdChat().'" method="post">
+			echo '<form  method="post">
 			<input type="text" name="textChat" placeholder="habla..." required/>
-			<input type="hidden" name="idSalaToMessage" value="'.$messageChat->getIdChat().'" />
+			<input type="hidden" name="idChat" value="'.$chat->getIdChat().'" />
 			<input type="submit" id="refresh" name="sendText" value="💬"/>
 			</form>';
 
