@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogs de perros</title>
+	<link rel="stylesheet" href="./css/mainView.css" >
+	
+</head>
+<body>
+
+	<header>
+		<h1>Blogs de perros</h1>
+	</header>
+
+	<nav>
+
+		<a href="index.php">Inicio</a> -
+
+		<?php
+
+		//si la session existe
+		if($_SESSION['user']->getName()=="")
+			echo '<a href="index.php?login">Login</a>';
+		else{
+			echo 'Bienvenido '.$_SESSION['user']->getName().' 
+			<a href="index.php?login&logout">Salir</a>';
+		}
+
+		//crear articulos y editar rol si es admin
+		if($_SESSION['user']->getRol() == '0'){
+			echo '<a href="index.php?createArticle">Crear Articulos</a>';
+			echo'<a href="index.php?role">Editar Rol</a>';
+		}
+		?>
+
+	</nav>
+
+	<main>
+	<h2>Articulos</h2>
+	<form action="index.php" method="get">
+		<input type="text" name="textToFind" placeholder="Busca tu articulo" />
+		<input type="submit"  value="buscar" />
+	</form>
+	
+	<?php
+	// muestra los articulos
+	if(($article)>0){
+		echo "<section>";
+		
+			foreach($article as $item){
+			
+				echo "<article>";
+					echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
+					echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
+				echo "</article>";
+			}
+		
+		
+		echo "</section>";
+	}
+	else{
+		echo 'No hay articulos';
+	}
+	?>
+	</main>
+
+	<footer>
+		<?php
+			for ($i = 1; $i <= $articleNumero; $i++) {
+				if(isset($_GET['textToFind']) ){
+					echo '<a href="index.php?textToFind='.$_GET['textToFind'].'&pagina='.''.$i.'">'.$i.'</a>';
+				}
+				else{
+					echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
+				}
+			}
+		?>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+*{
+    margin : 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    background-color: #CCC;
+}
+header{
+    text-align: center;
+    background-color: #CCC;
+    padding:20px;
+}
+nav{
+    text-align: left;
+    background-color: rgb(195, 183, 183);
+    padding: 10px;
+}
+main{
+    background-color: #CCC;
+}
+form{
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
