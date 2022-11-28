@@ -3,8 +3,7 @@
 class User{
     private $id;
     private $name;
-    private $password;
-    private $role;
+    private $id_rol;
     
     public function __construct($datos){
         $this->id = $datos['id_user'];
@@ -24,14 +23,9 @@ class User{
         return $this->name;
     }
 
-    public function getpassword(){
-        return $this->password;
-    }
-
     public function __toString(){
         return $this->name;
     }
     
-} 
-// 
+}
 ?>
