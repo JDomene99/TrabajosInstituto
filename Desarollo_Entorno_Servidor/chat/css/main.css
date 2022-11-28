@@ -1,0 +1,95 @@
+body{
+    display:flex;
+    flex-flow: row wrap;
+
+}
+header{
+    text-align: center;
+    font-size:20px;
+    width: 100%;
+    height:10%;
+}
+section{
+    border: 1px solid black;
+}
+.connect{
+    width : 100%;
+    text-align: right;
+}
+nav a{
+    padding:5px 50px;
+    color: black;
+    text-decoration:none;
+}
+form{
+    padding-bottom: 10px;
+}
+.messages article{
+    padding: 5px;
+    margin: 10px 0px;
+    border: 2px solid rgb(0, 99, 105);
+    background-color: lightblue;
+    border-radius: 15px;
+    width: 48%;
+}
+.messages #emisor{
+    background-color: lightgreen;
+    border: 2px solid rgb(0, 105, 51);
+}
+section article{
+    padding: 5px;
+}
+article a{
+    border : 1px solid black;
+}
+.chat {
+
+    display: flex;
+    flex-flow : row wrap;
+    background-color: grey;
+}
+.chat article{
+    border-radius: 10px;
+    width: 49%;
+    background-color: lightgrey;
+}
+body > nav{
+    width: 100%;
+    height:10%;
+    background-color: grey;
+    padding:17px;
+    text-align:center;
+}
+main nav{
+    background-color: grey;
+    padding:15px;
+    text-align:center;
+}
+footer{
+    text-align: right;
+    padding: 10px;
+    background-color: grey;
+    width: 100%;
+    height:10%;
+}
+footer form{
+    
+    margin-right: 0px;
+}	
+form input[type="text"]{
+    width : 10%;
+}
+span{
+    font-size:11px;
+}
+main{
+    width: 100%;
+    height:80%;
+}
+section a{
+    padding: 0px 10px;
+}
+.messages{
+    height: 600px;
+    overflow-y: auto;
+}

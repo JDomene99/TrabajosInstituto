@@ -1,0 +1,71 @@
+header{
+    text-align: center;
+    font-size:20px
+}
+section{
+    border: 1px solid black;
+}
+.connect{
+    width : 100%;
+    text-align: right;
+}
+nav a{
+    padding:5px 50px;
+    color: black;
+    text-decoration:none;
+}
+form{
+    padding-bottom: 10px;
+}
+article{
+    padding: 5px;
+    margin: 10px 0px;
+    
+}
+article a{
+    border : 1px solid black;
+}
+.chat {
+
+    display: flex;
+    flex-flow : row wrap;
+    background-color: grey;
+    justify-content : space-between;
+}
+.chat article{
+    border-radius: 10px;
+    width: 49%;
+    background-color: lightgrey;
+}
+nav{
+    background-color: grey;
+    padding:5px;
+    text-align:center;
+}
+footer{
+    text-align: right;
+    padding: 10px;
+    background-color: grey;
+}
+footer form{
+    
+    margin-right: 0px;
+}	
+form input[type="text"]{
+    width : 40%;
+}
+span{
+    font-size:11px;
+}
+section article{
+    padding: 5px;
+    margin: 10px 0px;
+    border: 2px solid rgb(0, 99, 105);
+    background-color: lightblue;
+    border-radius: 15px;
+    width: 48%;
+}
+section #emisor{
+    background-color: lightgreen;
+    border: 2px solid rgb(0, 105, 51);
+}
