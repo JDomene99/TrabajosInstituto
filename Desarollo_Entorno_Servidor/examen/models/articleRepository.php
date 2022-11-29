@@ -14,19 +14,21 @@ class ArticleRepository{
     public static function createArticle($seccion,$tittle,$image,$id_autor){
             $ruta = './views/imagenes/';
             $uploadfile = $ruta . basename($image['name']);
-            if (move_uploaded_file($image['tmp_name'], $uploadfile)) {} 
-            $db = Conectar::conexion();            
+            move_uploaded_file($image['tmp_name'], $uploadfile);
             $fechaActual = date('Y-m-d H:i:s');
             $imageToUpload = $image['name'];
+
+            $db = Conectar::conexion();            
             $result = $db->query("INSERT into articles(id_article, id_autor, tittle, seccion, date, rating, image) VALUES( null, $id_autor,'$tittle', '$seccion', '$fechaActual', '0' , '$imageToUpload' ) "); 
     }
 
     public static function editArticle($id_article,$seccion,$titulo,$image){
         $ruta = './views/imagenes/';
         $uploadfile = $ruta . basename($image['name']);
-        if (move_uploaded_file($image['tmp_name'], $uploadfile)) {} 
+        move_uploaded_file($image['tmp_name'], $uploadfile);
         $fechaActual = date('Y-m-d H:i:s');
         $imageToUpload = $image['name'];
+        
         $db = Conectar::conexion();
         $result = $db->query("UPDATE articles SET id_article = ' $id_article' , seccion = '$seccion', tittle = '$titulo' , date = '$fechaActual' , imagen = '$imageToUpload' WHERE article.`idArticle` = $idArticle"); 
     }

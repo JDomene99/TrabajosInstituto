@@ -35,33 +35,35 @@
 	</nav>
 
 	<main>
-	<h2>Articulos</h2>
-	<form action="index.php" method="get">
-		<input type="text" name="textToFind" placeholder="Busca tu articulo" />
-		<input type="submit"  value="buscar" />
-	</form>
-	
-	<?php
-	// muestra los articulos
-	if(($article)>0){
-		echo "<section>";
+		<h2>Articulos</h2>
+		<form action="index.php" method="get">
+			<input type="text" name="textToFind" placeholder="Busca tu articulo" />
+			<input type="submit"  value="buscar" />
+		</form>
 		
-			foreach($article as $item){
+		<?php
+		// muestra los articulos
+		if(($article)>0){
+			echo "<section>";
 			
-				echo "<article>";
-					echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
-					echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
-				echo "</article>";
-			}
-		
-		
-		echo "</section>";
-	}
-	else{
-		echo 'No hay articulos';
-	}
-	?>
+				foreach($article as $item){
+				
+					echo "<article>";
+						echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
+						echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
+					echo "</article>";
+				}
+			
+			
+			echo "</section>";
+		}
+		else{
+			echo 'No hay articulos';
+		}
+		?>
 	</main>
+
+
 
 	<footer>
 		<?php
@@ -75,5 +77,7 @@
 			}
 		?>
 	</footer>
+
+
 </body>
 </html>

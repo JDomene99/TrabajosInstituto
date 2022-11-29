@@ -17,6 +17,5 @@
     
     //mostrar el articulo seleccionado
     $articleFinal = ArticleRepository::getArticleById($_GET['article']);
-    $valoracion = ValoracionRepository::getValoracion($_GET['article']);
     require_once("views/articleView.php");
 ?>

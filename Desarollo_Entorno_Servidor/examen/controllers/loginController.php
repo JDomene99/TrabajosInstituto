@@ -22,7 +22,7 @@
                 
             }
             else{
-                echo 'Contraseña incorrecta';
+                echo ' Las contraseñas no coinciden';
             }
         }
     }
