@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/createArticleView.css" >
+    <title>Login en web de pelis</title>
+
+</head>
+<body>
+
+    <header>
+        <h2>añade tu pokemon</h2>
+    </header>
+
+    <nav>
+        <a href="index.php">Inicio</a>
+    </nav>
+
+    <main>
+        
+
+        <?php
+            if(isset($_POST['insertPokemon']) && $control){
+                foreach($pokemon as $poke){
+                    echo $poke->getName().'<a href="index.php?team&pokemon_id='.$poke->getIdPokemon().'">🤑</a></br>';
+                }
+            }
+            else{
+               echo '<form action="index.php?team" method="post" enctype="multipart/form-data">
+               <input type="text" name="nameTeam" placeholder="name" required/> </br>
+               <input type="submit" name="insertPokemon" value="Crear"/>
+                </form>';
+            }
+                   
+        ?> 
+    </main>
+<?php
+die();
+?>
+</html>
