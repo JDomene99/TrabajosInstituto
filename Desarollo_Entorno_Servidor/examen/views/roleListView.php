@@ -9,36 +9,37 @@
 </head>
 <body>
 
-<header> 
-    <h2>Lista de roles</h2>
-</header>
+    <header> 
+        <h2>Lista de roles</h2>
+    </header>
 
-<nav>
-	<a href="index.php">Inicio</a>
-</nav>
+    <nav>
+        <a href="index.php">Inicio</a>
+    </nav>
 
-<main>
-    <section>
-        <ul>
-            <?php
-                foreach($userList as $user){
-                    
-                    if($user->getRol() == '0'){
-                        echo'<li>'.$user->getName()." actualmente es admin".' <a href="index.php?role&id_rol='.$user->getId().'">Cambiar a normal</a></li>';
-                    }
-                    else{
-                        echo '<li>'.$user->getName()." actualmente no es admin ".'   <a href="index.php?role&id_rol='.$user->getId().'">Cambiar a Admin</a></li>';
-                    }
-                } 
-            ?>
-        </ul>
-       
-    </section>
+    <main>
+        <section>
+            <ul>
+                <?php
+                    foreach($userList as $user){
+                        
+                        if($user->getRol() == '0'){
+                            echo'<li>'.$user->getName()." actualmente es admin".' <a href="index.php?role&id_rol='.$user->getId().'">Cambiar a normal</a></li>';
+                        }
+                        else{
+                            echo '<li>'.$user->getName()." actualmente no es admin ".'   <a href="index.php?role&id_rol='.$user->getId().'">Cambiar a Admin</a></li>';
+                        }
+                    } 
+                ?>
+            </ul>
+        
+        </section>
 
-</main>
-<?php
-die();
-?>
+    </main>
+    
+    <?php
+    die();
+    ?>
 </body>
 
 </html>
