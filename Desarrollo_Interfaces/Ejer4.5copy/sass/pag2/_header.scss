@@ -16,3 +16,6 @@ header{
         margin-right: $margin5;
     }
 }
+
+@include mediaHedaer780px;
+@include mediaHedaer480px;
