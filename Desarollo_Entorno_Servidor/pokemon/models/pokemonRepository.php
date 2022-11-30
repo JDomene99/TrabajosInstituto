@@ -99,5 +99,19 @@ class PokemonRepository{
         return $user;
     }
 
+    // public static function getPokemonByIdTeam($id_pokemon){
+    //     $db = Conectar::conexion();
+    //     $q = "SELECT * FROM pokemon where id_pokemon = '".$id_pokemon."' ";
+    //     $result = $db->query($q);
+    //     $pkemon = [];
+    //     while($datos = $result->fetch_assoc()) {
+    //         $pkemon[] = new Pokemon($datos);
+    
+    //     }   
+    //     return $pkemon;
+    // } 
+
+    
+
 } 
 ?>

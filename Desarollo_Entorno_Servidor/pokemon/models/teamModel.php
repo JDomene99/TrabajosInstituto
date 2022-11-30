@@ -13,7 +13,7 @@ class Team{
         $this->id_team = $datos['id_team'];  
         $this->id_maestro = UserRepository::getUserById($datos['id_maestro']); 
         $this->name = $datos['name'];  
-        // $this->id_pokemon =PokemonRepository::getPokemonByTeam($datos['id_team']); 
+        
        
     }   
 

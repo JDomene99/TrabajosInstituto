@@ -14,12 +14,23 @@ class TeamPokemonRepository{
         $result = $db->query($q);
         if($result->fetch_column() >= 5) {
             return false;
-    
         }   
         else{
             return true;
         }
     }
+
+    // public static function getTeamPokemonAdded($id_team){
+    //     $db = Conectar::conexion();
+    //     $q = "SELECT * from team_pokemon where id_team = '".$id_team."' ";
+    //     $result = $db->query($q);
+    //     if($datos = $result->fetch_assoc()) {
+    //         $teamPoke = new TeamPokemon($datos);
+    //     }
+    //     return $teamPoke;
+        
+    // }
+
     
 } 
 

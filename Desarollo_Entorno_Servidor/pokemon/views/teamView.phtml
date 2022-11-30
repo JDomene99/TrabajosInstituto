@@ -22,18 +22,27 @@
         
 
         <?php
-            if(isset($_POST['insertPokemon']) && $control){
-                foreach($pokemon as $poke){
-                    echo $poke->getName().'<a href="index.php?team&pokemon_id='.$poke->getIdPokemon().'">🤑</a></br>';
-                }
-            }
-            else{
-               echo '<form action="index.php?team" method="post" enctype="multipart/form-data">
+            if($name == ''){
+                echo '<form action="index.php?team" method="post" enctype="multipart/form-data">
                <input type="text" name="nameTeam" placeholder="name" required/> </br>
                <input type="submit" name="insertPokemon" value="Crear"/>
                 </form>';
+                
             }
-                   
+            else{
+                echo 'Para añadir: </br>';
+                foreach($pokemon as $poke){
+                    echo $poke->getName().'<a href="index.php?team&pokemon_id='.$poke->getIdPokemon().'">🤑</a></br>';
+                }   
+            }
+
+            // if($teamAdded>0){
+            // echo 'Ya añadidos: </br>';
+            // foreach($teamAdded->getPokemon() as $poke){
+            //     echo $poke->getName().'</br>';
+            // } 
+            // }
+            
         ?> 
     </main>
 <?php

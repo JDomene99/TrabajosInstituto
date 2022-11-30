@@ -42,6 +42,16 @@ class TeamRepository{
         $user = UserRepository::getUserById($maxPokemon);
         return $user;
     }
+
+    public static function checkName($id_team){
+        $db = Conectar::conexion();
+        $q = "SELECT name from team where id_team = '$id_team'";
+        $result = $db->query($q);
+        $name = $result->fetch_column();
+        return $name;
+    }
+    
+    
     
 } 
 
