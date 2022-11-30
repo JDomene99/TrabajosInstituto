@@ -21,6 +21,9 @@
         <section>
             <ul>
                 <?php
+                    echo $maxPokemonUser->getName();
+                    echo $maxTeamUser->getName();
+                   
                     foreach($userList as $user){
                         
                         if($user->getRol() == '0'){

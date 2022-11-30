@@ -25,7 +25,12 @@
     <main>
         <form action="index.php?addPokemon" method="post" enctype="multipart/form-data">
             <input type="text" name="namePokemon" placeholder="name" required/>
-            <input type="text" name="typePokemon" placeholder="type">
+            <!-- <input type="text" name="typePokemon" placeholder="type"> -->
+            <select name="typePokemon">
+                <option value="fuego" selected>Fuego</option>
+                <option value="agua" >Agua</option>
+                <option value="planta">Planta</option>
+            </select>
             <input type="file" name="fileToUpload" required />
             <input type="submit" name="insertPokemon" value="Crear"/>
         </form>

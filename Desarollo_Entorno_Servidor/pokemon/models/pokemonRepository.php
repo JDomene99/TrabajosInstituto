@@ -89,5 +89,15 @@ class PokemonRepository{
             return $article;  
         }      
     } 
+
+    public static function getTheMostUserCreatePokemon(){
+        $db = Conectar::conexion();
+        $q = "SELECT id_maestro,COUNT(id_pokemon) from pokemon GROUP BY id_maestro";
+        $result = $db->query($q);
+        $maxPokemon = $result->fetch_column();
+        $user = UserRepository::getUserById($maxPokemon);
+        return $user;
+    }
+
 } 
 ?>

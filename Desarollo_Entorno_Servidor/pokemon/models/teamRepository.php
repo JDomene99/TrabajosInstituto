@@ -14,30 +14,6 @@ class TeamRepository{
         return $team;
     }
 
-    // public static function insertPokemonInTeam($id_pokemon,$id_maestro){
-    //     $db = Conectar::conexion();
-    //     if(PokedexRepository::checkPokemon($id_pokemon,$id_maestro)){
-    //         $result = $db->query("INSERT into team(id_team,id_pokemon,id_maestro) VALUES(null,'$id_pokemon', '$id_maestro' ) ");
-    //     }
-    //     else{
-    //         echo 'ya esta creado';
-    //     }
-         
-    // }
-
-    // public static function checkPokemon($id_pokemon, $id_maestro){
-    //     $db = Conectar::conexion();
-    //     $q = "SELECT * from pokedex where id_pokemon = '".$id_pokemon."' AND id_maestro = '".$id_maestro."' ";
-    //     $result = $db->query($q);
-    //     if($result->fetch_assoc()) {
-    //         return false;
-    
-    //     }   
-    //     else{
-    //         return true;
-    //     }
-    // }
-
     public static function createTeam($id_maestro){  
         $db = Conectar::conexion();            
         $result = $db->query("INSERT INTO team(id_team, id_maestro,name) VALUES (NULL, '$id_maestro', '') ");
@@ -57,6 +33,15 @@ class TeamRepository{
         $result = $db->query("UPDATE team SET id_team = '$id_team' , name = '$name' WHERE team.`id_team` = $id_team"); 
                 
     } 
+
+    public static function getTheMostUserCreateTeam(){
+        $db = Conectar::conexion();
+        $q = "SELECT id_maestro,COUNT(id_team) from team GROUP BY id_maestro";
+        $result = $db->query($q);
+        $maxPokemon = $result->fetch_column();
+        $user = UserRepository::getUserById($maxPokemon);
+        return $user;
+    }
     
 } 
 
