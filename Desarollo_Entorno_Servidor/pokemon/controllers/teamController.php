@@ -1,15 +1,17 @@
 <?php
 
-    $control=false;
+
 
     if(isset($_POST['insertPokemon']) && isset($_POST['nameTeam'])){
         TeamRepository::updateTeam($_SESSION['team']->getIdTeam(),$_POST['nameTeam']); 
-        $control = true;      
+             
     }
+    $name = TeamRepository::CheckName($_SESSION['team']->getIdTeam());
+    $pokemon = PokemonRepository::getPokemonByMaestro($_SESSION['user']->getId());
+    // $teamAdded = TeamPokemonRepository::getTeamPokemonAdded($_SESSION['team']->getIdTeam());
     
     if(isset($_GET['pokemon_id'])){
         if(TeamPokemonRepository::checkPokemonTeam_Pokemon($_SESSION['team']->getIdTeam())){
-            $control = true; 
             TeamPokemonRepository::insertPokemonInTeam_Pokemon($_SESSION['team']->getIdTeam(),$_GET['pokemon_id']);
         }
         else{
@@ -26,7 +28,7 @@
     }
    
 
-    $pokemon = PokemonRepository::getPokemonByMaestro($_SESSION['user']->getId());
+    
     require_once("views/teamView.phtml");
     die();
 
