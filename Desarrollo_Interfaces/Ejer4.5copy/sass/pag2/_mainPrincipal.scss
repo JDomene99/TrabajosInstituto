@@ -4,8 +4,14 @@ main{
     grid-area: main;
     
     section{
-        
-        @include  grid_mixin;
+        display: grid;
+        grid-template-areas: 
+            "nav2 nav2 nav2"
+            "article1 article2 article3"
+            "article4 article5 article6";
+        grid-template-rows: 0.5fr 5fr 5fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
         padding:0px 30px 20px 30px;
 
 
@@ -25,7 +31,7 @@ main{
             align-items: center;
             text-align: center;
             height: 500px; 
-            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: 10px 10px 5px 0px $color-black;
 
             &:target {
                 box-shadow: 10px 10px 5px 0px #ef717a;;
@@ -63,6 +69,5 @@ main{
     
 }
 
-
-
-
+@include mediaMain780px;
+@include mediaMain480px;
