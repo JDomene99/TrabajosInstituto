@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blogs de perros</title>
+	<title>Trabajos</title>
 	<link rel="stylesheet" href="./css/mainView.css" >
-	
+	<style>
+		a{
+			padding: 10px 10px;
+		}
+		article{
+			border: 1px solid black;
+			padding: 15px;
+		}
+	</style>
 </head>
 <body>
 
 	<header>
-		<h1>Blogs de perros</h1>
+		<h1>Trabajos</h1>
 	</header>
 
 	<nav>
@@ -19,7 +27,7 @@
 
 		//si la session existe
 		if($_SESSION['user']->getName()=="")
-			echo '<a href="index.php?login">Login</a>';
+			echo '<a href="index.php?login">crear perfil/loger perfil</a>';
 		else{
 			echo 'Bienvenido '.$_SESSION['user']->getName().' 
 			<a href="index.php?login&logout">Salir</a>';
@@ -27,56 +35,47 @@
 
 		//crear articulos y editar rol si es admin
 		if($_SESSION['user']->getRol() == '0'){
-			echo '<a href="index.php?createArticle">Crear Articulos</a>';
-			echo'<a href="index.php?role">Editar Rol</a>';
+			echo '<a href="index.php?addTrabajo">Crear trabajo</a>';
+			echo'<a href="index.php?login&editProfile">Editar Perfil</a>';
+			echo'<a href="index.php?informes">Ver informes</a>';
+			echo'<a href="index.php?addTrabajo&estado">Estado de los trabajos</a>';
 		}
 		?>
 
 	</nav>
+	<br/><br/>
 
 	<main>
-		<h2>Articulos</h2>
-		<form action="index.php" method="get">
-			<input type="text" name="textToFind" placeholder="Busca tu articulo" />
-			<input type="submit"  value="buscar" />
-		</form>
 		
 		<?php
-		// muestra los articulos
-		if(($article)>0){
-			echo "<section>";
-			
-				foreach($article as $item){
-				
-					echo "<article>";
-						echo '<img src="./views/imagenes/'.$item->getImage().'"/>';
-						echo  " <a href='?article=".$item->getIdArticle()."'> <h1>".$item->getTittle(). "<b> ( ".$item->getDate()." ) </b> </h1> </a>";
-					echo "</article>";
-				}
-			
-			
-			echo "</section>";
-		}
-		else{
-			echo 'No hay articulos';
-		}
-		?>
-	</main>
-
-
-
-	<footer>
-		<?php
-			for ($i = 1; $i <= $articleNumero; $i++) {
-				if(isset($_GET['textToFind']) ){
-					echo '<a href="index.php?textToFind='.$_GET['textToFind'].'&pagina='.''.$i.'">'.$i.'</a>';
-				}
-				else{
-					echo '<a href="index.php?pagina='.$i.'">'.$i.'</a>';
-				}
+			echo '<a href="index.php?jornada&addJornada='.$_SESSION['user']->getId().'">Iniciar jornada de trabajo</a> <br/> <br/><br/><br/>';
+			if(isset($message)){
+				// echo $message;
+				// echo '<a href="index.php?jornada&addJornada&incidencia='.$_SESSION['user']->getId().'">Si</a>';
 			}
+			echo '<a href="index.php?jornada&close='.$_SESSION['user']->getId().'">Cerrar jornada de trabajo</a>';
+			
 		?>
-	</footer>
+		<?php
+			
+			foreach($trabajos as $trabajo){
+				echo '<article>';
+				
+				if($_SESSION['user']->getName()!=''){
+					echo $trabajo->getDescription().'<br/>' ;
+					echo '<a href="index.php?addTrabajo&addUser&addWork='.$trabajo->getIdTrabajo().'">añadirse al trabajo</a>';
+					echo '<a href="index.php?addTrabajo&addUser&negateWork='.$trabajo->getIdTrabajo().'">Negarse al trabajo</a>';
+				}
+				
+				echo '</article>';
+			}
+			
+				
+		?>
+
+	
+
+
 
 
 </body>

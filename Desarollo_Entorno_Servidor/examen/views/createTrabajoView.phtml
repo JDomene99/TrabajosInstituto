@@ -17,17 +17,18 @@
     <nav>
         <a href="index.php">Inicio</a>
         <?php
-            if(isset($_POST['createArticle']))
+            if(isset($_POST['addTrabajo']))
             echo '<h1>Se ha creado correctamente</h1>';
         ?>
     </nav>
 
     <main>
-        <form action="index.php?createArticle" method="post" enctype="multipart/form-data">
-            <input type="text" name="tituloArticle" placeholder="Titulo" required/>
-            <textarea name="textArea" rows="10" cols="50" placeholder="Escribe tu articulo" required></textarea>
-            <input type="file" name="fileToUpload" required />
-            <input type="submit" name="createArticle" value="Crear"/>
+        <form action="index.php?addTrabajo" method="post" enctype="multipart/form-data">
+            <input type="text" name="descriptionTrabajo" placeholder="Descripcion" required/>
+            <input type="date" name="startDate" placeholder="Descripcion" required/>
+            <input type="date" name="finishDate" placeholder="Descripcion" required/>
+            <input type="number" name="sueldo" placeholder="sueldo" required/>
+            <input type="submit" name="addTrabajo" value="Crear"/>
         </form>
     </main>
 <?php

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogs de perros</title>
+	<link rel="stylesheet" href="./css/articleView.css" >
+</head>
+<body>
+
+	<header>
+		<h1>Blogs de perros</h1>
+	</header>
+
+	<nav>
+		<a href="index.php">Inicio</a>
+	</nav>
+	
+	<main>
+
+	<form action="index.php?informes" method="post" enctype="multipart/form-data">
+            <input type="date" name="startDate" placeholder="dia a buscar" required/>
+            <input type="submit" name="diaInforme" value="Crear"/>
+	</form>
+
+	<h1>buscar por user mes y año</h1>
+	<form action="index.php?informes" method="post" enctype="multipart/form-data">
+		<input type="date" name="startDate" placeholder="dia a buscar" required/>
+		<input type="text" name="userName" placeholder="User a buscar" required/>
+		<input type="submit" name="diaInforme2" value="Crear"/>
+	</form>
+
+			<?php
+				if(isset($_POST['diaInforme'])){
+					if($informes!=null){
+						foreach($informes as $informe){
+							echo $informe->getUser()->getName().'<br/>';
+							echo $informe->getStartDate().'<br/>'; 
+							echo $informe->getFinishDate().'<br/>';
+							if($informe->getIncidencia() >0){
+								echo 'Icidencia';
+							} 
+							else{
+								echo 'sin incidencias<br/>';
+							}
+							echo '-------------------<br/>';
+						}
+					}
+					else{
+						echo 'no hay informes en ese dia';
+					}
+					
+				}
+				
+
+			?>
+			
+	</main>
+
+<?php
+die();
+?>
+</body>
+</html>

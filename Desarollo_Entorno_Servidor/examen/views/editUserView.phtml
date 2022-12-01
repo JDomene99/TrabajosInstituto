@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogs de perros</title>
+	<link rel="stylesheet" href="./css/articleView.css" >
+</head>
+<body>
+
+	<header>
+		<h1>Blogs de perros</h1>
+	</header>
+
+	<nav>
+		<a href="index.php">Inicio</a>
+	</nav>
+	
+	<main>
+
+		<?php
+		echo 'Selecciona quien quieres editar <br/>';
+		foreach($allUser as $user){
+			echo '<a href="index.php?&login&editProfile&userId='.$user->getId().'">'.$user->getName().'</a> <br/>';
+		}
+
+		if(isset($_GET['userId'])){
+		echo	'<h2>Editar Perfil</h2>
+            	<form action="index.php?login&editProfile&userId='.$user->getId().'" method="post">
+                <input type="text" name="name" placeholder="name"/>
+                <input type="text" name="apellidos" placeholder="apellidos"/>
+                <input type="text" name="dni" placeholder="dni"/>
+                <input type="email" name="email" placeholder="email"/>
+                <input type="number" name="telefono" placeholder="telefono"/>
+                <input type="submit" name="editUserButton" value="Confirmar"/>
+            </form>
+        </div>';	
+			
+		}
+		?>
+			
+	</main>
+
+<?php
+die();
+?>
+</body>
+</html>

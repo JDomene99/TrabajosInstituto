@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/createArticleView.css" >
+    <title>Login en web de pelis</title>
+
+</head>
+<body>
+
+    <header>
+        <h2>Crea tu propio articulo</h2>
+    </header>
+
+    <nav>
+        <a href="index.php">Inicio</a>
+    </nav>
+
+    <main>
+    <?php
+			foreach($trabajosUser as $trabajo){
+				echo '<article>'; 
+				echo $trabajo->getIdUser()->getName().' ha aceptado ' ;
+                echo $trabajo->getIdTrabajo()->getDescription().' ';
+                echo $trabajo->getEstado().' a las ';
+                echo $trabajo->getDate().'<br/>';
+                echo '<a href="index.php?&addTrabajo&estado&id_trabajo='.$trabajo->getIdTrabajo()->getIdTrabajo().'"> cerrar Trabajo</a> <br/>';
+				echo '</article>';
+			}				
+		?>
+    </main>
+<?php
+die();
+?>
+</html>
