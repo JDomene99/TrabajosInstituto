@@ -3,11 +3,38 @@
 //mostar en una tarjeta toda la informacion
 //el estado del tiempo lo inidca con palabras, crear un array que tenga imagenes de sol, lloviendo,nublado.
 
-const $mostrar = document.querySelector('mostrar');
-$mostrar.addEventListener('click', deshabilitar() )
+const menu = document.querySelector("#myLinks");
+const closeMenu = document.querySelector("#ocultar");
+const showMenu = document.querySelector("#mostrar");
 
 
-const $myLinks = document.querySelector('myLinks');
-function deshabilitar(){
-  $myLinks.style.display = "none";
+// function toggleMenu() {
+//   if(menu.style.display = "block") {
+//     menu.style.display = "none";
+//     close.style.display = "none";
+//     show.style.display = "block";
+//   }else{
+//     // menu.style.display = "none";
+//     close.style.display = "block";
+//     show.style.display = "none";
+//   }
+// }
+
+function mostrarMenu(){
+  console.log('muestra');
+  menu.style.display = "visible";
+  closeMenu.style.display = "visible";
+  // showMenu.style.display = "none";
+
 }
+
+function ocultarMenu(){
+  console.log('no muestra');
+  menu.style.display = "hidden";
+  closeMenu.style.display = "hidden";
+  showMenu.style.display = "visible";
+
+}
+
+showMenu.addEventListener("click", mostrarMenu);
+closeMenu.addEventListener("click", ocultarMenu);
