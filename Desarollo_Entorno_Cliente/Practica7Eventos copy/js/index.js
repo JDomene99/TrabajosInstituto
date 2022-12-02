@@ -4,37 +4,17 @@
 //el estado del tiempo lo inidca con palabras, crear un array que tenga imagenes de sol, lloviendo,nublado.
 
 const menu = document.querySelector("#myLinks");
-const closeMenu = document.querySelector("#ocultar");
 const showMenu = document.querySelector("#mostrar");
 
+showMenu.addEventListener("click", () => {
+  window.getComputedStyle(menu).display == "none" ? menu.style.display ="block" : menu.style.display = "none";
+});
 
-// function toggleMenu() {
-//   if(menu.style.display = "block") {
-//     menu.style.display = "none";
-//     close.style.display = "none";
-//     show.style.display = "block";
-//   }else{
-//     // menu.style.display = "none";
-//     close.style.display = "block";
-//     show.style.display = "none";
-//   }
-// }
 
-function mostrarMenu(){
-  console.log('muestra');
-  menu.style.display = "visible";
-  closeMenu.style.display = "visible";
-  // showMenu.style.display = "none";
+const $buttonLocalidad = document.querySelector("#buttonLocalidad");
+const $localidadForm = document.querySelector("#formLocalidad");
 
-}
+$buttonLocalidad.addEventListener('click', () => {
+  window.getComputedStyle($localidadForm).display == "none" ? $localidadForm.style.display ="block" : $localidadForm.style.display = "none";
+});
 
-function ocultarMenu(){
-  console.log('no muestra');
-  menu.style.display = "hidden";
-  closeMenu.style.display = "hidden";
-  showMenu.style.display = "visible";
-
-}
-
-showMenu.addEventListener("click", mostrarMenu);
-closeMenu.addEventListener("click", ocultarMenu);

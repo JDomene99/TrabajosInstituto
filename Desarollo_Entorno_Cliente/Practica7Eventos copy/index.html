@@ -9,32 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="./js/index.js"  > </script>
         <style>
+
+            nav{
+                
+                height: 200px;
+            }
             section{
                 display: flex;
                 justify-content: center;
             }
-            ul{
-                display: hidden;
+            #myLinks,#formLocalidad{
+                display: none;
             }
-            #ocultar{
-                display: hidden;
-            }
+            
         </style>
 </head>
 
 <body>
     <nav>
-        <a href="" class="icon" id="mostrar">🥵</a>
-        <a href="" class="icon" id="ocultar">😈</a>
+        <li href="#" class="icon" id="mostrar">🥵</li>
+        
         
         <ul id="myLinks">
-            <li><a href="#news">Localidad</a> </li>
+            <li><a href="#news" id="buttonLocalidad">Localidad</a> </li>
             <li><a href="#news">News</a> </li>
             <li><a href="#news">News</a> </li>
 
-        </ul>
-         
+        </ul>         
     </nav>
+</br>
+    <section>
+
+        <form action="" id="formLocalidad">
+            <input type="text" id="nameLocalidad" placeholder="Introduce la localidad">
+
+        </form>
+
+    </section>
 
 
 </body>

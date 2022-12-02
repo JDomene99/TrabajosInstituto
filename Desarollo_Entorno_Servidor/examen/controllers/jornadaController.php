@@ -16,10 +16,17 @@
     }
 
     if(isset($_GET['close'])){
-        echo 'dad';
+        echo 'dasd';
         $id_jornada = JornadaRepository::getIdJornada($_SESSION["user"]->getId());
         JornadaRepository::editJornada($id_jornada);
-        header('Location: index.php');
+       
+    
+    }
+    if(isset($_GET['cerrar'])){
+        echo 'dasd';
+        // $id_jornada = JornadaRepository::getIdJornada($_SESSION["user"]->getId());
+        // JornadaRepository::editJornada($id_jornada);
+        // header('Location: index.php');
     
     }
 
