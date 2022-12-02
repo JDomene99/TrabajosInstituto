@@ -56,17 +56,13 @@ main{
             }
         }
         
-
         @for $num from $inicio to $fin {
             article:nth-child(#{$num}) {
                 grid-area: article#{$num};
             }
         }
-
         
-    }
-    
-    
+    } 
 }
 
 @include mediaMain780px;
