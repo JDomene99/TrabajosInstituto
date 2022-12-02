@@ -1,13 +1,11 @@
 footer{
-    background-color: #f1f1f1;
+    background-color: $color-grey;
     padding: 50px;
-    display: flex;
-    flex-flow: row wrap;
+    @include flex_mixin;
     justify-content: space-between;  
-    width: 100%;   
     color: $color-pink;
+    grid-area: footer;
    
-
     .copy{
         font-size: 40px;
     }
@@ -15,7 +13,6 @@ footer{
     ul{
         li{
             list-style: none;
-
             a{
                 padding: 5px 0px;
                 text-decoration: none;
@@ -25,8 +22,7 @@ footer{
         }
 
         &:last-of-type{
-            display: flex;
-            flex-flow: row wrap;
+            @include flex_mixin;
             gap: 20px;
             justify-content: right;
 
@@ -35,7 +31,7 @@ footer{
                 text-align: right;
             }
             
-            li:nth-child(2),&:nth-child(3),&:nth-child(4) {
+            li:nth-child(n+2) {
                 a{
                     i{
                         font-size: 40px;
@@ -44,9 +40,7 @@ footer{
                 }
             }
         }
-    } 
-
-    
-    
+    }     
 }
+@include mediaFooter480px;
 

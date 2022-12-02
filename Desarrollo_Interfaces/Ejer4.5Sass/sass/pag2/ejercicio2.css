@@ -32,7 +32,7 @@ body {
   body {
     display: grid;
     grid-template-areas: "head head" "navv navv" "aside aside" "main main" "footer footer";
-    grid-template-rows: 0.5fr 0.5fr 0.5fr 7fr 1fr;
+    grid-template-rows: 0.3fr 0.5fr 0.5fr 7fr 1fr;
     grid-template-columns: 2;
   }
 }
@@ -60,6 +60,7 @@ header h1 {
 }
 @media screen and (max-width: 480px) {
   header {
+    padding: 30px;
     display: flex;
     flex-flow: column wrap;
     text-align: center;

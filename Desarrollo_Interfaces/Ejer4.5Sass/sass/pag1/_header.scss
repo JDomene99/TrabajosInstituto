@@ -1,9 +1,7 @@
 header{
-    
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex_mixin;
     align-items: center;
+    grid-area: head;
 
     div:first-of-type{
         flex: 1 0 auto;
@@ -18,3 +16,6 @@ header{
         margin-right: $margin5;
     }
 }
+
+@include mediaHedaer780px;
+@include mediaHedaer480px;
