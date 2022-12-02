@@ -1,0 +1,32 @@
+aside{
+    font-size: 20px;
+    grid-area: aside;
+    background-color: $color-aside;
+    box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.75) inset;
+
+    li{
+        padding: 5%; 
+        list-style: none;
+
+        a{
+            text-decoration: none;
+            color: $color-black;
+
+            &:hover{
+                color:$color-white;
+            }
+        }
+        
+    }
+
+    li:last-child{
+        border: $borderBlack;
+    }
+    li:first-child{
+        border: $borderBlack;
+    }
+    
+}
+
+@include mediaAside780px;
+@include mediaAside480px;

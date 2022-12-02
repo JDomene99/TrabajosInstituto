@@ -1,13 +1,18 @@
+@import "reset";
 @import "colors";
+@import "variables";
 @import "mixin";
+@import "body";
 @import "margin";
 @import "header";
 @import "nav";
-@import "mainIndex";
+@import "aside";
+@import "mainTiendaOnline";
 @import "footer";
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Roboto;
-}
+
+
+
+
+
+
