@@ -98,11 +98,14 @@ console.log(infoPais());
 const $section = document.querySelector('#section');
 const $form = document.createElement('form');
 const $input = document.createElement('input');
-const $submit = document.createElement('submit');
+const $submit = document.createElement('input');
 
+$submit.setAttribute('type', 'submit')
 $submit.setAttribute('value', 'enviar')
 
 $form.appendChild($submit);
 $form.appendChild($input);
 $section.appendChild($form);
 
+
+console.log($submit);
