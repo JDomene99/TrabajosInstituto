@@ -14,9 +14,27 @@ $form.appendChild($submit);
 $form.appendChild($input);
 $section.appendChild($form);
 
+const $img = document.createElement('img');
+const $h1 = document.createElement('h1');
+$section.appendChild($img);
+$section.appendChild($h1);
 
 const pintar = (json) => {
     console.log(json);
+    json.forEach(element => {
+        $img.setAttribute('src', element.flags.png)
+        $h1.innerHTML = element.capital[0];
+    });
+    
+};
+
+const pintar2 = (json) => {
+    console.log(json);
+    // json.forEach(element => {
+    //     $img.setAttribute('src', element.flags.png)
+    //     $h1.innerHTML = element.capital[0];
+    // });
+    
 };
 
 let url = 'https://restcountries.com/v3.1/name/';
@@ -40,4 +58,6 @@ const infoPais = async () => {
     }
 
 };
+
+
 

@@ -5,165 +5,207 @@
         <link rel="stylesheet" href="./css/botas.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 
-    <header>
-        <div><img src="./imagenes/icon.png" ></div>
-        <div><h1> El tacon de oro </h1></div>
-    </header>
-    
-    <nav>
-        <input type="text" placeholder="Buscar">
-       
-            <ul>
+    <div class="container-fluid">
 
-                <li><a href="#taconDeOro">El tacon de oro</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#piel">La piel</a></li>
-                <li><a href="#tiendas">Tiendas</a></li>
-                <li><a href="#compraOnline">Compra online</a></li>
+        <header class="row align-items-center p-4">
 
-            </ul>        
-
-    </nav>
-
-    <aside>
-        <ul>
-            <li><a href="zapatos.html">Zapatos</a></li>
-            <li><a href="bolsos.html">Bolsos</a></li>
-            <li><a href="complementos.html">Complementos</a></li>
-        </ul>
-    </aside>
-    
-    <main>
-
-
-        <section class=" botas">
-
-            <nav>
-                <ul>
-                    <li><a href="#Producto1">Producto1</a></li>
-                    <li><a href="#Producto2">Producto2</a></li>
-                    <li><a href="#Producto3">Producto3</a></li>
-                    <li><a href="#Producto4">Producto4</a></li>
-                    <li><a href="#Producto5">Producto5</a></li>
-                    <li><a href="#Producto6">Producto6</a></li>
-    
-                </ul> 
-            </nav>
-
-            <article id="Producto1">
-                <h2>Nombre</h2>
-
-                <div>
-                    <img src="./imagenes/bota1.jpg" alt="">
-                </div>
-
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b></div>
-                </footer>
-
-            </article>
-
-            <article id="Producto2">
-                
-                <h2>Nombre</h2>
-                <div>
-                    <img src="./imagenes/bota2.jpg" alt="">
-                </div>
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b> </div>
-                </footer>
-            </article>
-
-            <article id="Producto3">
-                
-                <h2>Nombre</h2>
-                <div>
-                    <img src="./imagenes/bota3.jpg" alt="">
-                </div>
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b></div>
-                </footer>
-
-            </article>
-
-            <article id="Producto4">
-
-                <h2>Nombre</h2>
-                <div>
-                    <img src="./imagenes/bota4.jpg" alt="">
-                </div>
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b></div>
-                </footer>
-
-            </article>
-
-            <article id="Producto5">
-                
-                <h2>Nombre</h2>
-                <div>
-                    <img src="./imagenes/bota5.jpg" alt="">
-                </div>
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b></div>
-                </footer>
-
-            </article>
-
-            <article id="Producto6">
-                
-                <h2>Nombre</h2>
-                <div>
-                    <img src="./imagenes/bota6.jpg" alt="">
-                </div>
-                <footer>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <div> <b> Precio: 30€ </b></div>
-                </footer>
-
-            </article>
-           
-           
-        </section>
-
-    </main>        
-    
-    <footer>
-
-        <ul>
-        
-            <li><h3>Enlaces de interes </h3></li>
-            <li> <a href="">Enlace 1</a></li>
-            <li><a href="">Enlace 2</a></li>
-            <li><a href="">Enlace 3</a></li>
-
-        </ul>
-
-        <ul>
-            <li><h3>CopyRight </h3></li>
-            <li> <h3 class="copy">&copy;</h3></li>
-        </ul>
-
-        <ul>
-            <li> <h3>Redes sociales</h3></li>
-            <div>
-                <li><a href=""><i class="fa fa-brands fa-instagram"></i></a></li>
-                <li><a href=""><i class="fa fa-brands fa-twitter"></i></a></li>
-                <li><a href=""><i class="fa fa-brands fa-facebook"></i></a></li>
+            <div class="col-sm-6 text-sm-start text-center d-none d-sm-block">
+                <img src="./imagenes/icon.png" >
             </div>
-        </ul>
+
+            <div class="col-sm-6 text-sm-end text-center">
+                <h1>El tacon de oro</h1>
+            </div>
+
+        </header>
+
+    
+        <nav class="navbar row bg-warning text-dark bg-opacity-25">
+            
+            <div class="col-sm-12 col-md-4 order-sm-2 order-md-1 text-start ">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
+            </div>
+
+            <div class="col-sm-12 col-md-8 order-sm-1 order-md-2 p-2">
+
+                <ul class="navbar-nav flex-row justify-content-md-end justify-content-sm-start gap-3">
+                    <li class="nav-item border border-1 rounded p-1">
+                        <a class="nav-link active" href="#">El tacon de oro</a>
+                    </li>
+                    <li class="nav-item border border-1 rounded p-1">
+                        <a class="nav-link active" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item border border-1 rounded p-1">
+                        <a class="nav-link active" href="#">La piel</a>
+                    </li>
+                    <li class="nav-item border border-1 rounded p-1">
+                        <a class="nav-link active" href="#">Tienda</a>
+                    </li>
+                    <li class="nav-item border border-1 rounded p-1">
+                        <a class="nav-link active" href="#">Compra online</a>
+                        </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+        <div class="row">
+
+            <aside class="col-sm-2 text-sm-start text-center">
+                <ul class="navbar-nav flex-column  gap-3">
+                    <li ><a class="nav-link active" href="zapatos.html">Zapatos</a></li>
+                    <li><a class="nav-link active" href="bolsos.html">Bolsos</a></li>
+                    <li><a class="nav-link active" href="complementos.html">Complementos</a></li>
+            </aside>
+            
+            <main class="col-sm-10">
+                
+                <section class=" bolsos p-2 p-sm-4 row g-3">
+                    
+                    <nav class="col-12">
+                        <ul class="navbar-nav flex-md-row flex-column justify-content-md-ce justify-content-sm-start gap-1 text-center">
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto1">Producto1</a>
+                            </li>
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto2">Producto2</a>
+                            </li>
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto3">Producto3</a>
+                            </li>
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto4">Producto4</a>
+                            </li>
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto5">Producto5</a>
+                            </li>
+                            <li class="nav-item border border-1 rounded p-1">
+                                <a class="nav-link active" href="#Producto5">Producto6</a>
+                            </li>
+                        </ul>
+                    </nav>
         
+                    <article id="Producto1" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+                        <h2>Nombre</h2>
+        
+                        <div>
+                            <img src="./imagenes/bota1.jpg" class="img-thumbnail" alt="">
+                        </div>
+        
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b></div>
+                        </footer>
+        
+                    </article>
+        
+                    <article id="Producto2" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+                        
+                        <h2>Nombre</h2>
+                        <div>
+                            <img src="./imagenes/bota2.jpg" class="img-thumbnail" alt="">
+                        </div>
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b> </div>
+                        </footer>
+                    </article>
+        
+                    <article id="Producto3" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+                        
+                        <h2>Nombre</h2>
+                        <div>
+                            <img src="./imagenes/bota3.jpg" class="img-thumbnail" alt="">
+                        </div>
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b></div>
+                        </footer>
+        
+                    </article>
+        
+                    <article id="Producto4" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+        
+                        <h2>Nombre</h2>
+                        <div>
+                            <img src="./imagenes/bota4.jpg" class="img-thumbnail" alt="">
+                        </div>
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b></div>
+                        </footer>
+        
+                    </article>
+        
+                    <article id="Producto5" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+                        
+                        <h2>Nombre</h2>
+                        <div>
+                            <img src="./imagenes/bota5.jpg" class="img-thumbnail" alt="">
+                        </div>
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b></div>
+                        </footer>
+        
+                    </article>
+        
+                    <article id="Producto6" class="col-md-4 col-sm-6 col-12 border border-1 rounded p-1 text-center bg-warning text-dark bg-opacity-25">
+                        
+                        <h2>Nombre</h2>
+                        <div>
+                            <img src="./imagenes/botas6.jpg" class="img-thumbnail" alt="">
+                        </div>
+                        <footer>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <div> <b> Precio: 30€ </b></div>
+                        </footer>
+        
+                    </article>
+                    
+                    
+                </section>         
+                
+            </main>     
+
+        </div>
         
 
-    </footer>
+        <footer class="row justify-content-between p-4">
+
+            <ul class="col-sm-4 row list-unstyled text-center">
+                
+                <li class="col-12"><h3>Enlaces de interes </h3></li>
+                <li class="col-12"><a class="nav-link active" href="#productos">Enlace 1</a></li>
+                <li class="col-12"><a class="nav-link active" href="#piel">Enlace 2</a></li>
+                <li class="col-12"><a class="nav-link active" href="#tiendas">Enlace 3</a></li>
+        
+            </ul>
+ 
+            <ul class="col-sm-4 row list-unstyled text-center">
+                <li class="col-12"><h3>CopyRight </h3></li>
+                <li class="col-12"><h3 class="copy">&copy;</h3></li>        
+            </ul>
+
+            <ul class="col-sm-4 row list-unstyled text-center">
+                <li class="col-12"><h3>Redes Sociales</h3></li>
+                <li class="col-12"><i class="fa fa-brands fa-instagram"></i></li>
+                <li class="col-12"><i class="fa fa-brands fa-twitter"></i></li>   
+                <li class="col-12"><i class="fa fa-brands fa-facebook"></i></li>        
+            </ul>
+
+        </footer>
+
+    </div>
 
 </body>
 </html>
