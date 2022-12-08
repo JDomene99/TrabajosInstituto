@@ -1,5 +1,3 @@
-
-
 //crear un formulario que le pase como parametro (input box) introduciremos el nombre de un pais y nos mostraa el nombre, la capital, la bandera y dentro de un iframe el mapa de google map del pais
 const $section = document.querySelector('#section');
 const $form = document.createElement('form');
@@ -25,16 +23,13 @@ const pintar = (json) => {
         $img.setAttribute('src', element.flags.png)
         $h1.innerHTML = element.capital[0];
     });
-    
+
 };
 
 const pintar2 = (json) => {
     console.log(json);
-    // json.forEach(element => {
-    //     $img.setAttribute('src', element.flags.png)
-    //     $h1.innerHTML = element.capital[0];
-    // });
-    
+
+
 };
 
 let url = 'https://restcountries.com/v3.1/name/';
