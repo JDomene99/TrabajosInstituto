@@ -1,19 +1,29 @@
 {
   "product": [
     {
-      "id": 1,
+      "name": "ordenador",
+      "precio": "123",
+      "id": 7
+    },
+    {
       "name": "placa base",
-      "precio": 123
+      "precio": "123",
+      "id": 8
     },
     {
-      "id": 2,
       "name": "raton",
-      "precio": 12
+      "precio": "12",
+      "id": 9
     },
     {
-      "name": "teclado",
-      "precio": 22,
-      "id": 5
+      "name": "raton",
+      "precio": "12",
+      "id": 10
+    },
+    {
+      "name": "raton",
+      "precio": "12",
+      "id": 11
     }
   ]
 }
