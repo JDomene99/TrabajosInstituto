@@ -90,22 +90,3 @@ const infoPais = async () => {
     }
 
 };
-
-
-console.log(infoPais());
-
-//crear un formulario que le pase como parametro (input box) introduciremos el nombre de un pais y nos mostraa el nombre, la capital, la bandera y dentro de un iframe el mapa de google map del pais
-const $section = document.querySelector('#section');
-const $form = document.createElement('form');
-const $input = document.createElement('input');
-const $submit = document.createElement('input');
-
-$submit.setAttribute('type', 'submit')
-$submit.setAttribute('value', 'enviar')
-
-$form.appendChild($submit);
-$form.appendChild($input);
-$section.appendChild($form);
-
-
-console.log($submit);

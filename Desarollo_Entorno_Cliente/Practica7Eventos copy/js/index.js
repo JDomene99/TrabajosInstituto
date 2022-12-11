@@ -1,8 +1,3 @@
-//saber el tiempo que hay en una localidad
-//objeter el json de una localidad
-//mostar en una tarjeta toda la informacion
-//el estado del tiempo lo inidca con palabras, crear un array que tenga imagenes de sol, lloviendo,nublado.
-
 const menu = document.querySelector("#myLinks");
 const showMenu = document.querySelector("#mostrar");
 const $buttonLocalidad = document.querySelector("#buttonLocalidad");
@@ -21,28 +16,30 @@ $buttonLocalidad.addEventListener('click', () => {
 const $butonSendTextLocalidad = document.querySelector("#enviarLocalidad");
 $butonSendTextLocalidad.addEventListener('click', () => {
   const $name = document.querySelector("#nameLocalidad").value;
+  console.log($name);
+
+  const infoPais = async () => {
+    const key = '&appid=25acedae9f11a0f8f4329506d1037295';
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  
+    const endPoint = url + $name +key;
+    try {
+      const response = await fetch(endPoint, { cache: 'no-cache' });
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        console.log(jsonResponse.weather[0].main);
+        const icon = jsonResponse.weather[0].icon + '@2x.png'
+        const url2 = 'https://openweathermap.org/img/wn/';
+        const $img = document.querySelector('.imagen');
+        $img.setAttribute('src', url2+icon);
+        
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  
+  };
+  infoPais();
 
 });
 
-const url = 'https://restcountries.com/v3.1/name/';
-const pintar = (json) => {
-  console.log(json);
-};
-
-const infoPais = async () => {
-  const pais = 'peru';
-  const endPoint = url + pais;
-  try {
-    const response = await fetch(endPoint, { cache: 'no-cache' });
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      return pintar(jsonResponse);
-    }
-  } catch (e) {
-    console.log(e.message);
-  }
-
-};
-
-
-console.log(infoPais());

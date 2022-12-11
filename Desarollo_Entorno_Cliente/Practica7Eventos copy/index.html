@@ -12,7 +12,7 @@
 
             nav{
                 
-                height: 200px;
+                height: 100px;
             }
             section{
                 display: flex;
@@ -21,19 +21,31 @@
             #myLinks,#formLocalidad{
                 display: none;
             }
+            .icon img{
+            width: 40px;
+            }
+            li{
+                list-style: none;
+            }
+            a{
+                font-size: 20px;
+                text-decoration: none;
+                color: black;
+            }
             
         </style>
 </head>
 
 <body>
     <nav>
-        <li href="#" class="icon" id="mostrar">🥵</li>
+        <a href="#" class="icon" id="mostrar"><img src="hamburger-menu.webp" alt="">
+        </a>
         
         
         <ul id="myLinks">
-            <li><a href="#news" id="buttonLocalidad">Localidad</a> </li>
-            <li><a href="#news">News</a> </li>
-            <li><a href="#news">News</a> </li>
+            <li><a href="#news" id="buttonLocalidad">Consulta por localidad</a> </li>
+            <li><a href="#news">Sobre Nosotros</a> </li>
+            <li><a href="#news">Perfil</a> </li>
 
         </ul>         
     </nav>
@@ -44,6 +56,8 @@
             <input type="text" id="nameLocalidad" placeholder="Introduce la localidad">
             <input type="button" id="enviarLocalidad" value="Enviar">
         </form>
+        </br>
+        <img  class='imagen' src="" alt="">
 
     </section>
 
