@@ -66,3 +66,13 @@ function showCars(){
 
 const $button = document.querySelector('.boton')
 $button.addEventListener( 'click', showCars);
+
+
+// let counter = 0;
+// const i = setInterval(function(){
+//     counter++;
+    
+//     if(counter === 5) {
+//         clearInterval(i);
+//     }
+// }, 1000);
