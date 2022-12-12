@@ -1,9 +1,9 @@
-{
-  "name": "jose domene quesada",
-  "description": "ejemplo crud",
-  "version": "1.0.0",
-  "main": "promesa.js",
-  "scripts": {
-    "start": "json-server --watch ./db/db.json --port 4000"
-  }
-}
+// {
+//   "name": "jose domene quesada",
+//   "description": "ejemplo crud",
+//   "version": "1.0.0",
+//   "main": "promesa.js",
+//   "scripts": {
+//     "start": "json-server --watch ./db/db.json --port 4000"
+//   }
+// }

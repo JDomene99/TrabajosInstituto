@@ -61,8 +61,7 @@ document.addEventListener('submit', async (e) => {
 
     if (e.target == $form) {
         e.preventDefault();
-        console.log(e.target.id.value);
-        console.log(e.target.name.value);
+
         try {
             //cabecera
             const options = {
@@ -71,12 +70,15 @@ document.addEventListener('submit', async (e) => {
                 body: JSON.stringify({ name: e.target.name.value, precio: e.target.precio.value, })
             };
             let endPoint = '';
-            // if (e.target.id.value != undefined) {
-            //     endPoint = 'http://localhost:4000/product' + e.target.id.value;
-            // }
-            // else {
-            endPoint = 'http://localhost:4000/product';
-            // }
+            if (e.target.idOculto.value != undefined) {
+                options.method = "PUT";
+                endPoint = 'http://localhost:4000/product/' + e.target.idOculto.value;
+            }
+            else {
+                endPoint = 'http://localhost:4000/product';
+            }
+
+            console.log(endPoint);
 
             const response = await fetch(endPoint, options);
             const jsonResponse = await response.json();
@@ -130,35 +132,11 @@ function editItem(editButton) {
     editButton.forEach(button => {
 
         button.addEventListener('click', async (e) => {
-            // const options = {
-            //     method: "UPDATE",
-            //     headers: { "Content-Type": "application/json" },
-            // };
 
-            // const url =
-            //     "http://localhost:4000/product/" + button.dataset.id;
-
-            // try {
-            //     const res = await fetch(url, options);
-            //     const json = await res.json();
-
-            //     if (!res.ok) {
-            //         throw {
-            //             status: res.status,
-            //             statusText: res.statusText,
-            //         };
-            //     }
-            // } catch (error) {
-            //     console.log(error.message);
-            // }
             $nameItem.value = button.dataset.name;
             $precioItem.value = button.dataset.precio;
             $idItem.value = button.dataset.id;
 
-            console.log(button.dataset.id);
-            console.log(button.dataset.name);
-            console.log(button.dataset.precio);
         });
-
     });
 }
