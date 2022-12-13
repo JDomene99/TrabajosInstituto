@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+}
+input{
+    padding: 5px;
+    border-radius: 5px;
+}
+section{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+figure{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    width: 20%;
+}
+img{
+    width: 100%;
+    border-radius: 15px;
+}
+figcaption{
+    font-weight: bold;
+    font-size: 20px;
+}

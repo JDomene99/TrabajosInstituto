@@ -43,23 +43,23 @@ coche, coche2, coche3, coche4, coche5,
 
 function showCars(){
   const $section = document.querySelector('section');
-  const $template = document.querySelector('template').content;
-  const $fragement = document.createDocumentFragment();
+  
   
   const img = ['https://www.rastreator.com/wp-content/uploads/AudiA1-rastreator-com-300x300.jpg', 'https://www.rastreator.com/wp-content/uploads/2017/06/50-300x300.jpg', 'https://www.rastreator.com/wp-content/uploads/mejores-coches-para-conductores-noveles-1-300x300.png', 'https://neumaticosparacoches.com/wp-content/uploads/2022/09/modelo-de-coche-por-matricula-gratis-300x300.jpg', 'https://www.autosreina.es/wp-content/uploads/2022/12/Coches-Compra-Venta-Autos-Reina-VW-POLO-1.4-TDI-BMT-Advance-75CV-Frontal-300x300.jpg'];
-  let i = 0;
-  for (let coches of objetosCoches) {
+  objetosCoches.forEach( (coches, i) => {  
+    const $figure = document.createElement('figure');
+    const $img = document.createElement('img');
+    const $figcaption = document.createElement('figcaption');
+
+    $img.setAttribute('src', img[i]);  
+    $figcaption.textContent = coches.modelo;
+    $figure.appendChild($img);
+    $figure.appendChild($figcaption);
     
-    $template.querySelector('.img').setAttribute('src', img[i]); 
-    console.log( coches.modelo); 
-    $template.querySelector('.text').textContent = coches.modelo;
-    //clonamos e importamos el template
-    let clonado = document.importNode($template, true);
-    
-    $fragement.appendChild(clonado);
+    setTimeout( () => {$section.appendChild($figure)},i*1500)
     i++;
-  }
-  $section.appendChild($fragement);
+  });
+  
  
 }
 
@@ -67,12 +67,3 @@ function showCars(){
 const $button = document.querySelector('.boton')
 $button.addEventListener( 'click', showCars);
 
-
-// let counter = 0;
-// const i = setInterval(function(){
-//     counter++;
-    
-//     if(counter === 5) {
-//         clearInterval(i);
-//     }
-// }, 1000);

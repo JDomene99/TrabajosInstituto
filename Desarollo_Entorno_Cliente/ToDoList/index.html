@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 0 javaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="./js/promesa.js"  > </script>
+        <style>
+            
+        </style>
+</head>
+
+<body>
+    <h1>Proyecto final JS</h1>
+
+    <section id="section">
+
+        <article>
+
+            <form class="form">
+                <input type="text" name="name" id="nameTask" placeholder="nombre de la tarea" required> <br></br>
+                <input type="date" name="startDate" id="startDateTask" required> </br></br>
+                <input type="date" name="finishDate" id="finishDateTask" required> </br></br>
+                <!-- id oculto  -->
+                <input type="hidden"  name="idOculto" id="idItem">
+                <input type="submit" value="Crear">
+            </form>
+
+        </article>
+        
+
+        <article>
+            <h4>Contador de tareas</h4>
+            <div class="activas"></div>
+            <div class="realizadas"></div>
+            <div class="eliminadas"></div>
+        </article>
+
+        <article>
+            <form class="form">
+                <input type="text" name="name" id="nameTasktoFind" placeholder="Busqueda de tareas" required> <br></br>
+                <input type="submit" value="Crear">
+            </form>
+
+        </article>
+
+        <article>
+            
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de finalización</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <!-- se llena desde js -->
+                </tbody>
+            </table>
+
+        </article>
+
+    </section>
+
+    <!-- añadimos el template -->
+    <template class="template"> 
+        <tr>
+            <td class="nameTaskTable"></td>
+            <td class="startDateTaskTable"></td>
+            <td class="finishDateTaskTable"></td>
+            <td class="opcionTable"> 
+                <input type="submit" class="editar" value="editar">
+                <input type="submit" class="final" value="finalizar">
+                <input type="submit" class="delete" value="delete">
+            </td>
+        </tr>
+    </template>
+   
+
+</body>
+</html>
