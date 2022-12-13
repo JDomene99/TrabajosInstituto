@@ -1,0 +1,44 @@
+* {
+
+    font-family: Roboto;
+}
+
+header h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+nav>form {
+
+    border: 1px solid black;
+    width: 20%;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+nav div {
+    margin-left: 30px;
+    width: 60%;
+}
+
+section {
+    margin-top: 20px;
+}
+
+thead tr th {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid black;
+}
+
+tbody {
+    text-align: center;
+}
