@@ -112,21 +112,6 @@ const getAll = async () => {
         });
         $body.appendChild($fragement);
 
-
-
-        //funcion para borrar
-        const $deleteButtons = document.querySelectorAll('.delete');
-        deleteTask($deleteButtons);
-
-        //funcion para finalizar
-        const $finalButtons = document.querySelectorAll('.final');
-        finalTask($finalButtons);
-
-        //funcion para editar
-        const $editButtons = document.querySelectorAll('.editar');
-        editTask($editButtons);
-
-
         document.querySelector('.activas').innerText = 'Tareas Activas ' + tareasActivas;
         document.querySelector('.realizadas').innerText = 'Tareas Realizadas ' + tareasRealizadas;
 
@@ -213,101 +198,89 @@ document.addEventListener('submit', async (e) => {
     }
 });
 
-//funcion para borrar las tareas
-function deleteTask(deleteButtons) {
 
-    deleteButtons.forEach(deleteButtons => {
+$table.addEventListener('click', async (e) => {
 
-        deleteButtons.addEventListener('click', async (e) => {
+    //para editar
+    if (e.target.matches(".editar")) {
+        e.preventDefault();
+        const $nameItem = document.querySelector('#nameTask');
+        const $startDateTask = document.querySelector('#startDateTask');
+        const $finishDateTask = document.querySelector('#finishDateTask');
+        const $idItem = document.querySelector('#idItem');
 
-            //antes de borrarla la subo al localStorage
-            const objToLocalStorage = {
-                'name': deleteButtons.dataset.name,
-                'startDate': deleteButtons.dataset.startDate,
-                'finishDate': deleteButtons.dataset.finishDate,
+        $nameItem.value = e.target.dataset.name;
+        $startDateTask.value = e.target.dataset.startDate;
+        $finishDateTask.value = e.target.dataset.finishDate;
+        $idItem.value = e.target.dataset.id;
+    }
+
+    //para borrar
+    if (e.target.matches(".delete")) {
+        e.preventDefault();
+        console.log(e.target.dataset.name);
+        //antes de borrarla la subo al localStorage
+        const objToLocalStorage = {
+            'name': e.target.dataset.name,
+            'startDate': e.target.dataset.startDate,
+            'finishDate': e.target.dataset.finishDate,
+        }
+        localStorage.setItem(e.target.dataset.id, JSON.stringify(objToLocalStorage));
+
+        const options = {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+        };
+
+        const url =
+            "http://localhost:3000/tarea/" + e.target.dataset.id;
+
+        try {
+            const res = await fetch(url, options);
+            const json = await res.json();
+
+            if (!res.ok) {
+                throw {
+                    status: res.status,
+                    statusText: res.statusText,
+                };
             }
-            localStorage.setItem(deleteButtons.dataset.id, JSON.stringify(objToLocalStorage));
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
+    //para
+    if (e.target.matches(".final")) {
+        e.preventDefault();
+        console.log(e.target.dataset.name);
+        try {
+            //cabecera
             const options = {
-                method: "DELETE",
-                headers: { "Content-Type": "application/json" },
+                method: "PUT",
+                headers: { "Content-Type": "application/json; charset=utf-8" },
+                body: JSON.stringify({ name: e.target.dataset.name, startDate: e.target.dataset.startDate, finishDate: e.target.dataset.finishDate, status: 'finish', })
             };
 
-            const url =
-                "http://localhost:3000/tarea/" + deleteButtons.dataset.id;
+            const endPoint = 'http://localhost:3000/tarea/' + e.target.dataset.id;
+            console.log(endPoint);
 
-            try {
-                const res = await fetch(url, options);
-                const json = await res.json();
+            const response = await fetch(endPoint, options);
+            const jsonResponse = await response.json();
 
-                if (!res.ok) {
-                    throw {
-                        status: res.status,
-                        statusText: res.statusText,
-                    };
-                }
-            } catch (error) {
-                console.log(error.message);
+            if (!response.ok) {
+                throw { status: response.status, statusText: response.statusText }
             }
-        });
+            //recargamos la pagina una vez que la peticion post ha sido satisfecha
+            location.reload();
 
-    });
-}
+        } catch (error) {
+            console.log(error.message);
+        }
 
+    }
+});
 
-//funcion para editar las tareas
-function editTask(editButton) {
-    const $nameItem = document.querySelector('#nameTask');
-    const $startDateTask = document.querySelector('#startDateTask');
-    const $finishDateTask = document.querySelector('#finishDateTask');
-    const $idItem = document.querySelector('#idItem');
-    editButton.forEach(button => {
-
-        button.addEventListener('click', async (e) => {
-            $nameItem.value = button.dataset.name;
-            $startDateTask.value = button.dataset.startDate;
-            $finishDateTask.value = button.dataset.finishDate;
-            $idItem.value = button.dataset.id;
-
-        });
-    });
-}
-
-//funcion para finalizar las tareas
-function finalTask(finalButtons) {
-
-    finalButtons.forEach(button => {
-
-        button.addEventListener('click', async (e) => {
-
-            try {
-                //cabecera
-                const options = {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json; charset=utf-8" },
-                    body: JSON.stringify({ name: button.dataset.name, startDate: button.dataset.startDate, finishDate: button.dataset.finishDate, status: 'finish', })
-                };
-
-                const endPoint = 'http://localhost:3000/tarea/' + button.dataset.id;
-                console.log(endPoint);
-
-                const response = await fetch(endPoint, options);
-                const jsonResponse = await response.json();
-
-                if (!response.ok) {
-                    throw { status: response.status, statusText: response.statusText }
-                }
-                //recargamos la pagina una vez que la peticion post ha sido satisfecha
-                location.reload();
-
-            } catch (error) {
-                console.log(error.message);
-            }
-
-        });
-
-    });
-}
 
 //evento en el que recojo el nombre del buscador de tareas
 const $botonBuscar = document.querySelector('#toFind');
