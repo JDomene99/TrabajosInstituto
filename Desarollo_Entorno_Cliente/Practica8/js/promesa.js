@@ -32,8 +32,6 @@ getInfo()
     })
     .catch(reject => console.log(reject.message));
 
-
-
 //mejorado
 async function fetchData() {
     const libros = await getInfo();

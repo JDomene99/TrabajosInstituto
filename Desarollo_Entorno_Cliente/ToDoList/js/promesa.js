@@ -5,32 +5,11 @@ const $body = document.querySelector('tbody')
 const $template = document.querySelector('.template').content;
 let tareasRealizadas = 0;
 let tareasActivas = 0;
+let tareasEliminadas = 0;
 let nameToFind = 'vacio';
+let comprobarTareasProximas = false;
+let $findDate = '';
 
-
-const $botonBuscar = document.querySelector('#toFind');
-$botonBuscar.addEventListener('click', (e) => {
-    e.preventDefault();
-    nameToFind = document.querySelector('#nameTasktoFind').value;
-    getAll();
-
-});
-
-// const $botonBuscarDate = document.querySelector('#toFindDate');
-// $botonBuscarDate.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     date = new Date();
-//     dateFormatted = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-
-//     // getAll();
-
-// });
-
-function formatDate(date) {
-    date = new Date(date);
-    const dateFormatted = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
-    return dateFormatted;
-}
 
 const getAll = async () => {
 
@@ -46,10 +25,12 @@ const getAll = async () => {
 
         jsonResponse.forEach(task => {
 
+            //valor que van a tener las tareas en la tabla
             $template.querySelector('.nameTaskTable').textContent = task.name;
             $template.querySelector('.startDateTaskTable').textContent = formatDate(task.startDate);
             $template.querySelector('.finishDateTaskTable').textContent = formatDate(task.finishDate);
 
+            //dependiendo de su estado las tacha o las pone de otro color
             if (task.status == 'start') {
                 tareasActivas++;
                 $template.querySelector('.nameTaskTable').style.color = 'green';
@@ -68,21 +49,23 @@ const getAll = async () => {
             $template.querySelector('.editar').dataset.id = task.id;
             $template.querySelector('.editar').dataset.name = task.name;
             $template.querySelector('.editar').dataset.startDate = task.startDate;
-            $template.querySelector('.editar').dataset.finishDate = (task.finishDate);
+            $template.querySelector('.editar').dataset.finishDate = task.finishDate;
 
             //data-attribute para finalizar
             $template.querySelector('.final').dataset.id = task.id;
             $template.querySelector('.final').dataset.name = task.name;
             $template.querySelector('.final').dataset.startDate = task.startDate;
-            $template.querySelector('.final').dataset.finishDate = (task.finishDate);
+            $template.querySelector('.final').dataset.finishDate = task.finishDate;
 
 
             // para borrar 
             $template.querySelector('.delete').dataset.id = task.id;
             $template.querySelector('.delete').dataset.name = task.name;
             $template.querySelector('.delete').dataset.startDate = task.startDate;
-            $template.querySelector('.delete').dataset.finishDate = (task.finishDate);
+            $template.querySelector('.delete').dataset.finishDate = task.finishDate;
 
+
+            //filtro para mostrar las tareas por su nombre
             if (task.name.includes(nameToFind)) {
 
                 const tb = $table.querySelector('tbody')
@@ -96,7 +79,31 @@ const getAll = async () => {
 
             }
 
-            if (nameToFind == 'vacio') {
+            //filtro para mostrar las tareas proximas
+            if (comprobarTareasProximas) {
+
+                const tb = $table.querySelector('tbody')
+                while (tb.firstChild) {
+                    tb.removeChild(tb.firstChild);
+                }
+                const year = (task.finishDate).split('-')[0];
+                const mes = (task.finishDate).split('-')[1];
+                const day = (task.finishDate).split('-')[2].split('T')[0];
+                const datep = year + '-' + mes + '-' + day;
+                const dateFinish = new Date(datep);
+                let resta = dateFinish - new Date($findDate);
+                const diasRestantes = Math.round(resta / (1000 * 60 * 60 * 24));
+                if (diasRestantes >= 0 && diasRestantes < 20) {
+                    console.log(dateFinish);
+
+                    //clonamos e importamos el nombre
+                    let clonado = document.importNode($template, true);
+                    $fragement.appendChild(clonado);
+                }
+            }
+
+            //mostrar todas las tareas si no hay ningun flitro
+            if (nameToFind == 'vacio' && comprobarTareasProximas == false) {
                 let clonado = document.importNode($template, true);
                 $fragement.appendChild(clonado);
             }
@@ -104,6 +111,8 @@ const getAll = async () => {
 
         });
         $body.appendChild($fragement);
+
+
 
         //funcion para borrar
         const $deleteButtons = document.querySelectorAll('.delete');
@@ -121,19 +130,46 @@ const getAll = async () => {
         document.querySelector('.activas').innerText = 'Tareas Activas ' + tareasActivas;
         document.querySelector('.realizadas').innerText = 'Tareas Realizadas ' + tareasRealizadas;
 
+        //recorro el localStorage para saber la cantidad de tareas eliminadas
         const itemLocalStorage = { ...localStorage };
-        let tareasEliminadas = 0;
         for (eli in itemLocalStorage) {
             tareasEliminadas++;
         }
         document.querySelector('.eliminadas').innerText = 'Tareas Eliminadas ' + tareasEliminadas;
+
+        //pinto mi grafico con el estado de las tareas
+        const cv = document.querySelector('#myChart').getContext('2d');
+        const myChart = new Chart(cv, {
+            type: "bar",
+            data: {
+                labels: ['eliminadas', 'relaizadas', 'activas'],
+                datasets: [{
+                    label: 'Datos de las tareas',
+                    data: [tareasEliminadas, tareasRealizadas, tareasActivas],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
 
     } catch (e) {
         console.log(e.status);
     }
 }
 
-//cuando carga la pagina
+//cuando carga la pagina cargo todas las tareas
 document.addEventListener("DOMContentLoaded", getAll);
 
 //insertar datos 
@@ -141,15 +177,14 @@ document.addEventListener('submit', async (e) => {
 
     if (e.target == $form) {
         e.preventDefault();
-        const finshDatte = new Date(e.target.finishDate.value);
         console.log(e.target.finishDate.value);
-        console.log(new Date(e.target.finishDate.value));
+
         try {
             //cabecera
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json; charset=utf-8" },
-                body: JSON.stringify({ name: e.target.name.value, startDate: new Date(), finishDate: finshDatte, status: 'start', })
+                body: JSON.stringify({ name: e.target.name.value, startDate: new Date(), finishDate: e.target.finishDate.value, status: 'start', })
             };
 
             let endPoint = '';
@@ -178,13 +213,17 @@ document.addEventListener('submit', async (e) => {
     }
 });
 
+//funcion para borrar las tareas
 function deleteTask(deleteButtons) {
+
     deleteButtons.forEach(deleteButtons => {
 
         deleteButtons.addEventListener('click', async (e) => {
+
+            //antes de borrarla la subo al localStorage
             const objToLocalStorage = {
                 'name': deleteButtons.dataset.name,
-                'startDate': formatDate(new Date()),
+                'startDate': deleteButtons.dataset.startDate,
                 'finishDate': deleteButtons.dataset.finishDate,
             }
             localStorage.setItem(deleteButtons.dataset.id, JSON.stringify(objToLocalStorage));
@@ -216,16 +255,17 @@ function deleteTask(deleteButtons) {
 }
 
 
-const $nameItem = document.querySelector('#nameTask');
-const $startDateTask = document.querySelector('#startDateTask');
-const $finishDateTask = document.querySelector('#finishDateTask');
-const $idItem = document.querySelector('#idItem');
+//funcion para editar las tareas
 function editTask(editButton) {
+    const $nameItem = document.querySelector('#nameTask');
+    const $startDateTask = document.querySelector('#startDateTask');
+    const $finishDateTask = document.querySelector('#finishDateTask');
+    const $idItem = document.querySelector('#idItem');
     editButton.forEach(button => {
 
         button.addEventListener('click', async (e) => {
             $nameItem.value = button.dataset.name;
-            $startDateTask.value = formatDate(new Date());
+            $startDateTask.value = button.dataset.startDate;
             $finishDateTask.value = button.dataset.finishDate;
             $idItem.value = button.dataset.id;
 
@@ -233,10 +273,10 @@ function editTask(editButton) {
     });
 }
 
+//funcion para finalizar las tareas
+function finalTask(finalButtons) {
 
-function finalTask(deleteButtons) {
-
-    deleteButtons.forEach(button => {
+    finalButtons.forEach(button => {
 
         button.addEventListener('click', async (e) => {
 
@@ -264,9 +304,34 @@ function finalTask(deleteButtons) {
                 console.log(error.message);
             }
 
-
         });
 
     });
 }
 
+//evento en el que recojo el nombre del buscador de tareas
+const $botonBuscar = document.querySelector('#toFind');
+$botonBuscar.addEventListener('click', (e) => {
+    e.preventDefault();
+    nameToFind = document.querySelector('#nameTasktoFind').value;
+    getAll();
+
+});
+
+//evento que recojo cuando quiero saber las tareas proximas a su fecha
+const $botonBuscarDate = document.querySelector('#toFindDate');
+$botonBuscarDate.addEventListener('click', (e) => {
+    e.preventDefault();
+    $findDate = document.querySelector('#findDate').value;
+    comprobarTareasProximas = true;
+    getAll();
+
+});
+
+
+//funcion que formatea las fechas
+function formatDate(date) {
+    date = new Date(date);
+    const dateFormatted = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+    return dateFormatted;
+}

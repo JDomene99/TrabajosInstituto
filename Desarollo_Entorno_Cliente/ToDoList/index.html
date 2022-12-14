@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="./js/promesa.js"  > </script>
-        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="./js/promesa.js"> </script>
+
+
+
 </head>
 
 <body>
@@ -18,43 +22,52 @@
         <h1>Proyecto final JS</h1>
     </header>
 
- 
+
 
     <nav>
-    
+
         <form class="form">
-            <input type="text" name="name" id="nameTask" placeholder="nombre de la tarea" required> 
-            <input type="hidden" name="startDate" id="startDateTask"> 
-            <input type="datetime-local" name="finishDate" id="finishDateTask" required> 
+            <input type="text" name="name" id="nameTask" placeholder="nombre de la tarea" required>
+            <input type="hidden" name="startDate" id="startDateTask">
+            <input type="datetime-local" name="finishDate" id="finishDateTask" required>
             <!-- id oculto  -->
-            <input type="hidden"  name="idOculto" id="idItem">
+            <input type="hidden" name="idOculto" id="idItem">
             <input type="submit" value="Crear">
         </form>
 
         <div>
+            <div>
+                <div>
+                    <h4 class="activas"></h4>
+                    <h4 class="realizadas"></h4>
+                    <h4 class="eliminadas"></h4>
+                </div>
 
-            <h4 class="activas"></h4>
-            <h4 class="realizadas"></h4>
-            <h4 class="eliminadas"></h4>
+
+                <canvas id="myChart" style="position: relative; height: 20vh; width: 90vw;">
+
+                </canvas>
+            </div>
+
             </br>
             <form class="form">
-                <input type="text" name="name" id="nameTasktoFind" placeholder="Busqueda de tareas" required> 
+                <input type="text" name="name" id="nameTasktoFind" placeholder="Busqueda de tareas" required>
                 <input type="submit" id="toFind" value="Buscar">
             </form>
 
             <form class="form">
-                <input type="submit" id="toFindDate" value="10 tareas proximas a su ejecución">
+                <input type="date" id="findDate" required>
+                <input type="submit" id="toFindDate" value="tareas proximas a su ejecución">
             </form>
-
 
         </div>
 
     </nav>
-    
+
     <section id="section">
-        
+
         <article>
-            
+
             <table class="table">
                 <thead>
                     <tr>
@@ -65,7 +78,7 @@
                 </thead>
 
                 <tbody>
-                <!-- se llena desde js -->
+                    <!-- se llena desde js -->
                 </tbody>
             </table>
 
@@ -73,21 +86,22 @@
 
     </section>
 
-   
+
+
     <!-- añadimos el template -->
-    <template class="template"> 
+    <template class=" template">
         <tr>
             <td class="nameTaskTable"></td>
             <td class="startDateTaskTable"></td>
             <td class="finishDateTaskTable"></td>
-            <td class="opcionTable"> 
+            <td class="opcionTable">
                 <input type="submit" class="editar" value="editar">
                 <input type="submit" class="final" value="finalizar">
                 <input type="submit" class="delete" value="delete">
             </td>
         </tr>
     </template>
-   
 
 </body>
+
 </html>

@@ -1,11 +1,39 @@
 {
   "tarea": [
     {
-      "name": "ads",
-      "startDate": "2022-12-13T20:32:27.326Z",
-      "finishDate": "1231-12-31T12:17:44.000Z",
+      "name": "tarea 1",
+      "startDate": "2022-12-14T08:14:34.729Z",
+      "finishDate": "2222-11-12T01:01",
+      "status": "finish",
+      "id": 1
+    },
+    {
+      "name": "tarea 2",
+      "startDate": "2022-12-14T08:20:09.404Z",
+      "finishDate": "0012-12-01T01:01",
       "status": "start",
-      "id": 8
+      "id": 2
+    },
+    {
+      "name": "tarea 3",
+      "startDate": "2022-12-14T08:45:50.763Z",
+      "finishDate": "1111-11-11T01:01",
+      "status": "start",
+      "id": 3
+    },
+    {
+      "name": "tarea 4",
+      "startDate": "2022-12-14T08:57:29.000Z",
+      "finishDate": "2022-12-31T12:12",
+      "status": "start",
+      "id": 4
+    },
+    {
+      "name": "tarea 131",
+      "startDate": "2022-12-14T09:55:22.815Z",
+      "finishDate": "0001-12-13T13:12",
+      "status": "start",
+      "id": 5
     }
   ]
 }
