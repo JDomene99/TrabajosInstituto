@@ -208,11 +208,13 @@ $table.addEventListener('click', async (e) => {
         const $startDateTask = document.querySelector('#startDateTask');
         const $finishDateTask = document.querySelector('#finishDateTask');
         const $idItem = document.querySelector('#idItem');
+        const $newValueButton = document.querySelector('#sendForm');
 
         $nameItem.value = e.target.dataset.name;
         $startDateTask.value = e.target.dataset.startDate;
         $finishDateTask.value = e.target.dataset.finishDate;
         $idItem.value = e.target.dataset.id;
+        $newValueButton.value = 'Editar';
     }
 
     //para borrar

@@ -56,3 +56,19 @@ nav div div div {
 nav div div canvas {
     width: 70%;
 }
+
+input[type=submit] {
+    padding: 5px;
+    background: #ccc;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+nav div div>form {
+    margin-left: 20px;
+}

@@ -32,7 +32,7 @@
             <input type="datetime-local" name="finishDate" id="finishDateTask" required>
             <!-- id oculto  -->
             <input type="hidden" name="idOculto" id="idItem">
-            <input type="submit" value="Crear">
+            <input type="submit" id="sendForm" value="Crear">
         </form>
 
         <div>
@@ -50,15 +50,19 @@
             </div>
 
             </br>
-            <form class="form">
-                <input type="text" name="name" id="nameTasktoFind" placeholder="Busqueda de tareas" required>
-                <input type="submit" id="toFind" value="Buscar">
-            </form>
 
-            <form class="form">
-                <input type="date" id="findDate" required>
-                <input type="submit" id="toFindDate" value="tareas proximas a su ejecución">
-            </form>
+            <div>
+                <form class="form">
+                    <input type="text" name="name" id="nameTasktoFind" placeholder="Busqueda de tareas" required>
+                    <input type="submit" id="toFind" value="Buscar">
+                </form>
+                </br>
+                <form class="form">
+                    <input type="date" id="findDate" required>
+                    <input type="submit" id="toFindDate" value="tareas proximas a su ejecución">
+                </form>
+            </div>
+
 
         </div>
 
