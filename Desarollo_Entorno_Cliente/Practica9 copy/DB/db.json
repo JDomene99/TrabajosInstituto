@@ -1,0 +1,19 @@
+{
+  "product": [
+    {
+      "name": "teclado",
+      "precio": 22,
+      "id": 7
+    },
+    {
+      "name": "placa base",
+      "precio": "123",
+      "id": 8
+    },
+    {
+      "name": "raton",
+      "precio": "123",
+      "id": 9
+    }
+  ]
+}
