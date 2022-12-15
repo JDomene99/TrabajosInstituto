@@ -4,68 +4,68 @@
  * c) modificar el codigo para que atraves de aysnc await aparezca 1,2,3
  */
 
-console.log('1');
-setTimeout(() => {
-    console.log('2');
+// console.log('1');
+// setTimeout(() => {
+//     console.log('2');
 
 
-}, 1000);
-console.log('3');
+// }, 1000);
+// console.log('3');
 
-//a
+// //a
 
-console.log('1');
-setTimeout(() => {
-    console.log('2');
-
-
-}, 1000);
-console.log('3');
-
-function llegar() {
-    console.log('estoy llegando');
-}
-
-function esperar(callback) {
-    setTimeout(() => {
-        console.log('estoy esperarando');
-    });
-    callback();
-}
-
-function saliendo() {
-    console.log('saliendo');
-}
-
-llegar()
-esperar(function () {
-    esperar(function () {
-        esperar(function () {
-            esperar(function () {
-                esperar(saliendo)
-            })
-        })
-    })
-})
-
-//b
+// console.log('1');
+// setTimeout(() => {
+//     console.log('2');
 
 
-//c
-llegar()
-function esperar2() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('esperando2');
-            resolve()
-        }, 2000)
-    })
-}
+// }, 1000);
+// console.log('3');
 
-async function main() {
-    llegar()
-    await esperar2();
-}
+// function llegar() {
+//     console.log('estoy llegando');
+// }
+
+// function esperar(callback) {
+//     setTimeout(() => {
+//         console.log('estoy esperarando');
+//     });
+//     callback();
+// }
+
+// function saliendo() {
+//     console.log('saliendo');
+// }
+
+// llegar()
+// esperar(function () {
+//     esperar(function () {
+//         esperar(function () {
+//             esperar(function () {
+//                 esperar(saliendo)
+//             })
+//         })
+//     })
+// })
+
+// //b
+
+
+// //c
+// llegar()
+// function esperar2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log('esperando2');
+//             resolve()
+//         }, 2000)
+//     })
+// }
+
+// async function main() {
+//     llegar()
+//     await esperar2();
+// }
 
 
 //
@@ -77,15 +77,6 @@ async function main() {
 //     }
 //     ).then(data)//aqui es donde recorro los datos
 //     .catch(error => console.log(e));
-
-
-
-// //crea una promesa para obtener informacion de mi dato
-// return new Promise((resolve, reject) => {
-//     //resolve es cuando la promesa ha sido satisfecha y el REJECT cuando no ha sido satisfecha
-//     isNaN(numero) ? reject(new Error('no es aleatorio')) : setTimeout(() => resolve({ numero: numero, resultado: numero * 2 }), Math.floor(Math.random() * 3) * 1000);
-// });
-
 
 
 //cuando se cargue la pagina cree un div gris y pasados dos segundos quiero que aparezca una img del json placeholder

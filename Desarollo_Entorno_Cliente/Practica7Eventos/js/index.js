@@ -1,6 +1,6 @@
 //modos de lanzar eventos
 
-function saludar(){
+function saludar() {
   console.log('hola');
 }
 //evento semantico
@@ -8,7 +8,7 @@ function saludar(){
 const $evento = document.querySelector('#boton-pulsar');
 
 //si es function si nombre no se le puede pasar paramentros
-$evento.onclick = function(){
+$evento.onclick = function () {
   console.log('hola');
 }
 
@@ -25,7 +25,7 @@ $evento2.addEventListener('click', (e) => {
 
 //solo se pueden borrar los eventos que utilizan las funciones nombradas
 const $delete = document.querySelector('#deleteEvent');
-const deleteDobleCkick  = () => {
+const deleteDobleCkick = () => {
   console.log('eliminando el event de doble click');
   $delete.removeEventListener('dblclick', deleteDobleCkick);
 
@@ -42,13 +42,13 @@ $delete.addEventListener('dblclick', deleteDobleCkick);
  3.- fase bubbling : (no todos los eventos) si dispongo de un listener del ecvento entonces se ejecuta y luego sube en el doom preguntado a cada elemento padre si tiene un listener asociado a ese evento
  */
 
-const $flujoEventosDivs = document.querySelectorAll('.flujo-eventos div'); 
+const $flujoEventosDivs = document.querySelectorAll('.flujo-eventos div');
 
-function funcionFlujoEventos(evt){
+function funcionFlujoEventos(evt) {
   console.log(`Hola soy ${this.className} el click lo ha lanzado ${evt.target.className}`);
 }
 
 $flujoEventosDivs.forEach((div) => {
-  div.addEventListener('click', funcionFlujoEventos, {capture: false, once : true});
+  div.addEventListener('click', funcionFlujoEventos, { capture: false, once: true });
 });
 
