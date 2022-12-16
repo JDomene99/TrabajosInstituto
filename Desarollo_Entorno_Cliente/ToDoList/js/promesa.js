@@ -1,4 +1,4 @@
-const $table = document.querySelector('.table');
+const $table = document.querySelector('.tableTask');
 const $form = document.querySelector('.form');
 const $fragement = document.createDocumentFragment();
 const $body = document.querySelector('tbody')
@@ -29,6 +29,9 @@ const getAll = async () => {
             $template.querySelector('.nameTaskTable').textContent = task.name;
             $template.querySelector('.startDateTaskTable').textContent = formatDate(task.startDate);
             $template.querySelector('.finishDateTaskTable').textContent = formatDate(task.finishDate);
+            const diff = (new Date(task.finishDate).getTime() - new Date(task.startDate).getTime());
+            $template.querySelector('.timeToEndTaskTable').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const diasRestantes = Math.floor(diff / (1000 * 60 * 60 * 24));
 
             //dependiendo de su estado las tacha o las pone de otro color
             if (task.status == 'start') {
@@ -64,7 +67,6 @@ const getAll = async () => {
             $template.querySelector('.delete').dataset.startDate = task.startDate;
             $template.querySelector('.delete').dataset.finishDate = task.finishDate;
 
-
             //filtro para mostrar las tareas por su nombre
             if (task.name.includes(nameToFind)) {
 
@@ -86,17 +88,7 @@ const getAll = async () => {
                 while (tb.firstChild) {
                     tb.removeChild(tb.firstChild);
                 }
-                const year = (task.finishDate).split('-')[0];
-                const mes = (task.finishDate).split('-')[1];
-                const day = (task.finishDate).split('-')[2].split('T')[0];
-                const datep = year + '-' + mes + '-' + day;
-                const dateFinish = new Date(datep);
-                let resta = dateFinish - new Date($findDate);
-                const diasRestantes = Math.round(resta / (1000 * 60 * 60 * 24));
-                if (diasRestantes >= 0 && diasRestantes < 20) {
-                    console.log(dateFinish);
-
-                    //clonamos e importamos el nombre
+                if ($findDate <= diasRestantes) {
                     let clonado = document.importNode($template, true);
                     $fragement.appendChild(clonado);
                 }
@@ -127,15 +119,15 @@ const getAll = async () => {
         const myChart = new Chart(cv, {
             type: "bar",
             data: {
-                labels: ['eliminadas', 'relaizadas', 'activas'],
+                labels: ['Eliminadas', 'Relaizadas', 'Activas'],
                 datasets: [{
                     label: 'Datos de las tareas',
                     data: [tareasEliminadas, tareasRealizadas, tareasActivas],
                     borderWidth: 1,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 205, 86, 0.7)',
                     ],
                 }]
             },
@@ -162,7 +154,6 @@ document.addEventListener('submit', async (e) => {
 
     if (e.target == $form) {
         e.preventDefault();
-        console.log(e.target.finishDate.value);
 
         try {
             //cabecera
@@ -180,8 +171,6 @@ document.addEventListener('submit', async (e) => {
             else {
                 endPoint = 'http://localhost:3000/tarea';
             }
-
-            console.log(endPoint);
 
             const response = await fetch(endPoint, options);
             const jsonResponse = await response.json();
@@ -220,7 +209,6 @@ $table.addEventListener('click', async (e) => {
     //para borrar
     if (e.target.matches(".delete")) {
         e.preventDefault();
-        console.log(e.target.dataset.name);
         //antes de borrarla la subo al localStorage
         const objToLocalStorage = {
             'name': e.target.dataset.name,
@@ -255,7 +243,6 @@ $table.addEventListener('click', async (e) => {
     //para
     if (e.target.matches(".final")) {
         e.preventDefault();
-        console.log(e.target.dataset.name);
         try {
             //cabecera
             const options = {
@@ -265,8 +252,6 @@ $table.addEventListener('click', async (e) => {
             };
 
             const endPoint = 'http://localhost:3000/tarea/' + e.target.dataset.id;
-            console.log(endPoint);
-
             const response = await fetch(endPoint, options);
             const jsonResponse = await response.json();
 
@@ -285,8 +270,8 @@ $table.addEventListener('click', async (e) => {
 
 
 //evento en el que recojo el nombre del buscador de tareas
-const $botonBuscar = document.querySelector('#toFind');
-$botonBuscar.addEventListener('click', (e) => {
+const $botonBuscar = document.querySelector('#nameTasktoFind');
+$botonBuscar.addEventListener('input', (e) => {
     e.preventDefault();
     nameToFind = document.querySelector('#nameTasktoFind').value;
     getAll();
@@ -294,8 +279,8 @@ $botonBuscar.addEventListener('click', (e) => {
 });
 
 //evento que recojo cuando quiero saber las tareas proximas a su fecha
-const $botonBuscarDate = document.querySelector('#toFindDate');
-$botonBuscarDate.addEventListener('click', (e) => {
+const $botonBuscarDate = document.querySelector('#findDate');
+$botonBuscarDate.addEventListener('input', (e) => {
     e.preventDefault();
     $findDate = document.querySelector('#findDate').value;
     comprobarTareasProximas = true;

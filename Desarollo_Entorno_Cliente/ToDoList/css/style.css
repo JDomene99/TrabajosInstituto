@@ -3,26 +3,57 @@
     font-family: Roboto;
 }
 
+header img {
+    width: 80px;
+    object-fit: contain;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 30%);
+    margin-bottom: 30px;
+    grid-area: header;
+}
+
 header h1 {
     padding: 10px;
     text-align: center;
+    font-size: 35pt;
 }
 
 nav {
     display: flex;
     flex-flow: row wrap;
+    grid-area: nav;
 }
 
 nav>form {
 
     border: 1px solid black;
+    border-radius: 15px;
     width: 20%;
     display: flex;
     flex-flow: column;
     gap: 20px;
     padding: 20px;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+}
+
+#nameTasktoFind {
+    padding-left: 20px;
+    background-image: url("../img/lupa.png");
+    background-size: 15px;
+    background-position: 2%;
+    background-repeat: no-repeat;
+}
+
+label {
+    margin-bottom: -10px;
 }
 
 nav>div {
@@ -31,17 +62,24 @@ nav>div {
 }
 
 section {
-    margin-top: 20px;
+    grid-area: section;
+    margin-top: 30px;
+}
+
+table {
+    width: 70%;
 }
 
 thead tr th {
-    margin-left: 10px;
-    margin-right: 10px;
     border-bottom: 1px solid black;
 }
 
 tbody {
     text-align: center;
+}
+
+tbody tr td:first-of-type {
+    font-weight: bold;
 }
 
 nav div div {
@@ -57,11 +95,21 @@ nav div div canvas {
     width: 70%;
 }
 
-input[type=submit] {
-    padding: 5px;
-    background: #ccc;
-    border: 1px solid black;
-    border-radius: 5px;
+#sendForm {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#sendForm:hover {
+    background-color: #dacece;
 }
 
 h4 {
@@ -71,4 +119,8 @@ h4 {
 
 nav div div>form {
     margin-left: 20px;
+}
+
+thead {
+    text-align: center;
 }
